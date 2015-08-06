@@ -1,0 +1,30 @@
+{
+  "name": "gos-cards",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tuimedia/gos-core",
+  "description": "GOS cards module",
+  "main": [
+    "component/js/cards.js",
+    "component/scss/cards.scss"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "cards"
+  ],
+  "authors": [
+    "Euan Willcox"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "component/bower_components",
+    "test",
+    "tests"
+  ]
+}
