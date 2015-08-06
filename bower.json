@@ -1,5 +1,9 @@
 {
   "name": "gos-cards",
+  "dependencies": {
+    "gos-core": ">0.0.0"
+  },
+  "devDependencies": {},
   "version": "0.0.0",
   "homepage": "https://github.com/tuimedia/gos-core",
   "description": "GOS cards module",
