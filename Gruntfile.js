@@ -148,14 +148,6 @@ module.exports = function(grunt) {
       options: {
         sassDir: '<%= gos.src %>/styles',
         cssDir: '.tmp/styles',
-        // generatedImagesDir: '.tmp/fxip/images/generated',
-        // imagesDir: '<%= gos.src %>/assets',
-        // javascriptsDir: '<%= gos.src %>/js',
-        // fontsDir: '<%= gos.src %>/fonts',
-        // importPath: '<%= gos.src %>/bower_components',
-        // httpImagesPath: '/assets',
-        // httpGeneratedImagesPath: '/fxip/images/generated',
-        // httpFontsPath: '/styles/fonts',
         relativeAssets: false,
         assetCacheBuster: false
       },
@@ -328,7 +320,10 @@ module.exports = function(grunt) {
         dot: true,
         cwd: '<%= gos.src %>/styles',
         dest: '<%= gos.dist %>/styles/',
-        src: ['{,*/}*.scss', '!style.scss']
+        src: ['{,*/}*.scss', '!style.scss'],
+        rename: function(dest, src) {
+          return dest + src.replace('_', '');
+        }
       },
 
       // compile scss to css
