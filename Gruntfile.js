@@ -325,9 +325,9 @@ module.exports = function(grunt) {
       stylesDist: {
         expand: true,
         dot: true,
-        cwd: '.tmp/styles',
+        cwd: '<%= gos.src %>/styles',
         dest: '<%= gos.dist %>/styles/',
-        src: '{,*/}*.scss'
+        src: ['{,*/}*.scss', '!style.scss']
       },
 
       // compile scss to css
@@ -435,8 +435,8 @@ module.exports = function(grunt) {
     'concurrent:dist',
     'autoprefixer',
     // 'concat',
-    // 'copy:stylesDist',
-    'cssmin',
+    'copy:stylesDist',
+    // 'cssmin',
     // 'uglify',
     // 'htmlmin',
     'copy:dist',
