@@ -340,7 +340,13 @@ module.exports = function(grunt) {
         src: '{,*/}*.scss'
       }
     },
-
+    uglify: {
+      dist: {
+        files: {
+          '<%= gos.dist %>/js/app.min.js': ['<%= gos.src %>/js/**.js', '<%= gos.src %>/js/app.js']
+        }
+      }
+    },
     cssmin: {
       target: {
         files: [{
@@ -437,7 +443,7 @@ module.exports = function(grunt) {
     // 'concat',
     'copy:stylesDist',
     // 'cssmin',
-    // 'uglify',
+    'uglify',
     // 'htmlmin',
     'copy:dist',
     'usemin'
