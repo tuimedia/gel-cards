@@ -56,7 +56,7 @@ var Cards = (function() {
         }
 
         // hidden panel overlay thing
-        if (this.card.querySelectorAll('.js-panel')[0]) {
+        if (this.card.querySelectorAll('.js-panel')[0] && this.card.querySelectorAll('.js-more')[0]) {
 
             this.hasPanel = true;
 

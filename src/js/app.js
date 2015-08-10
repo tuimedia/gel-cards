@@ -1,4 +1,5 @@
-var cards = [];
+var cards = [],
+  allCards;
 
 (function() {
   'use strict';
@@ -6,7 +7,7 @@ var cards = [];
 
   html[0].classList.remove('no-js');
 
-  var allCards = document.querySelectorAll('.js-card');
+  allCards = document.querySelectorAll('.js-card');
 
   for (var i = 0; i < allCards.length; i++) {
     try {
