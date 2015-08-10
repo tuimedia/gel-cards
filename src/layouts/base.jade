@@ -1,0 +1,523 @@
+mixin card--fact(hashtag, fact, backgroundURL, panelContent, share, love, add)
+    div.card.card--fact.js-card(data-card-bg-url=backgroundURL)
+
+        div.card__content
+
+            div.card__fact-hashtag
+                != hashtag
+            div.card__fact
+                h3!= fact
+
+        div.card__toolbar
+
+            ul.card__social-icons
+                li.card__social
+                    i.icon.icon--love
+                li.card__social
+                    i.icon.icon--add
+                li.card__social.js-share-cta
+                    i.icon.icon--share
+
+
+mixin card--poll(question, description, backgroundURL, answers, panelContent, share, love, add)
+
+    div.card.card--poll.js-card(data-card-bg-url="/cards/images/jimmy.jpg")
+
+        div.card__content
+
+            div.card__poll-question
+                h3= question
+                p!= description
+            ul.card__poll-options.js-poll
+                each answer in answers
+                    li.card__poll-option.js-poll-option
+                        i.icon.icon--tick
+                        span #{answer}
+
+        if panelContent
+            div.card__panel.js-panel
+                p!= panelContent
+
+        if share
+            div.card__share-panel.share-panel.js-share-panel
+                h4 Share...
+                ul.share-panel__options
+                    li.share-panel__option
+                        i.icon.icon--digg
+                        span Digg
+                    li.share-panel__option
+                        i.icon.icon--google
+                        span Google
+                    li.share-panel__option
+                        i.icon.icon--reddit
+                        span Reddit
+                    li.share-panel__option
+                        i.icon.icon--twitter
+                        span Twitter
+                    li.share-panel__option
+                        i.icon.icon--facebook
+                        span Facebook
+                    li.share-panel__option
+                        i.icon.icon--linkedin
+                        span LinkedIn
+                    li.share-panel__option
+                        i.icon.icon--stumbleupon
+                        span Stumbleupon
+                    li.share-panel__option
+                        i.icon.icon--email
+                        span Email
+
+        div.card__toolbar
+            if panelContent
+                div.card__more-cta.js-more
+                    i.icon.icon--arrow-up
+                    i.icon.icon--close
+                    span.js-panel-trigger-label More info
+
+            ul.card__social-icons
+                if love
+                    li.card__social
+                        i.icon.icon--love
+                if add
+                    li.card__social
+                        i.icon.icon--add
+                if share
+                    li.card__social.js-share-cta
+                        i.icon.icon--share
+
+
+mixin card--story(headline, imageUrl, contributorImage, contributor, contributorDesciption, panelContent, share, love, add)
+    div.card.card--story.js-card
+
+        div.card__media
+            .card__cta
+                i.icon.icon--story
+            img(src=imageUrl)
+
+        div.card__content
+            div.card__headline
+                h3= headline
+
+            div.card__contributor
+                div.card__contributor-img
+                    img(src=contributorImage)
+                div.card__contributor-details
+                    h4= contributor
+                    p= contributorDesciption
+        if panelContent
+            div.card__panel.js-panel
+                p!= panelContent
+
+        if share
+            div.card__share-panel.share-panel.js-share-panel
+                h4 Share...
+                ul.share-panel__options
+                    li.share-panel__option
+                        i.icon.icon--digg
+                        span Digg
+                    li.share-panel__option
+                        i.icon.icon--google
+                        span Google
+                    li.share-panel__option
+                        i.icon.icon--reddit
+                        span Reddit
+                    li.share-panel__option
+                        i.icon.icon--twitter
+                        span Twitter
+                    li.share-panel__option
+                        i.icon.icon--facebook
+                        span Facebook
+                    li.share-panel__option
+                        i.icon.icon--linkedin
+                        span LinkedIn
+                    li.share-panel__option
+                        i.icon.icon--stumbleupon
+                        span Stumbleupon
+                    li.share-panel__option
+                        i.icon.icon--email
+                        span Email
+
+        div.card__toolbar
+            if panelContent
+                div.card__more-cta.js-more
+                    i.icon.icon--arrow-up
+                    i.icon.icon--close
+                    span.js-panel-trigger-label More info
+
+            ul.card__social-icons
+                if love
+                    li.card__social
+                        i.icon.icon--love
+                if add
+                    li.card__social
+                        i.icon.icon--add
+                if share
+                    li.card__social.js-share-cta
+                        i.icon.icon--share
+
+
+mixin card--gallery(headline, subHeadline, attribution, imageUrl, panelContent, galleryImages, share, love, add)
+
+    div.card.card--gallery.js-card
+
+        div.card__media.js-gallery-cta
+            img(src=imageUrl)
+            div.card__cta
+                i.icon.icon--gallery
+
+        div.card__content
+            div.card__headline
+                h3= headline
+            div.card__sub-headline
+                p= subHeadline
+            div.card__attribution.bbc-news
+                span= attribution
+
+        if panelContent
+            div.card__panel.js-panel
+                p!= panelContent
+
+        if share
+            div.card__share-panel.share-panel.js-share-panel
+                h4 Share...
+                ul.share-panel__options
+                    li.share-panel__option
+                        i.icon.icon--digg
+                        span Digg
+                    li.share-panel__option
+                        i.icon.icon--google
+                        span Google
+                    li.share-panel__option
+                        i.icon.icon--reddit
+                        span Reddit
+                    li.share-panel__option
+                        i.icon.icon--twitter
+                        span Twitter
+                    li.share-panel__option
+                        i.icon.icon--facebook
+                        span Facebook
+                    li.share-panel__option
+                        i.icon.icon--linkedin
+                        span LinkedIn
+                    li.share-panel__option
+                        i.icon.icon--stumbleupon
+                        span Stumbleupon
+                    li.share-panel__option
+                        i.icon.icon--email
+                        span Email
+
+        div.card__toolbar
+            if panelContent
+                div.card__more-cta.js-more
+                    i.icon.icon--arrow-up
+                    i.icon.icon--close
+                    span.js-panel-trigger-label More info
+
+            ul.card__social-icons
+                if love
+                    li.card__social
+                        i.icon.icon--love
+                if add
+                    li.card__social
+                        i.icon.icon--add
+                if share
+                    li.card__social.js-share-cta
+                        i.icon.icon--share
+
+        if galleryImages
+
+            div.card__gallery.js-gallery
+
+                div.card__gallery-images
+
+                    each image in galleryImages
+                        div.card__gallery-image.js-gallery-img
+                            img(src="#{image}")
+
+                div.card__gallery-controls
+                    div.card__gallery-prev.js-gallery-prev
+                        i.icon.icon--prev
+                    div.card__gallery-play.js-gallery-play
+                        i.icon.icon--play
+                    div.card__gallery-pause.js-gallery-pause
+                        i.icon.icon--pause
+                    div.card__gallery-prev.js-gallery-next
+                        i.icon.icon--next
+                    div.card__gallery-close.js-gallery-close
+                        i.icon.icon--close
+
+
+mixin card--quote(quote, author, twitter, panelContent, share, love, add)
+    div.card.card--quote.js-card
+
+        div.card__content
+
+            div.card__quote-icon
+                i.icon.icon--quote
+
+            div.card__quote
+                h3!=quote
+            div.card__quote-author
+                = author
+            div.card__quote-twitter
+                = twitter
+
+        if panelContent
+            div.card__panel.js-panel
+                p!= panelContent
+
+        if share
+            div.card__share-panel.share-panel.js-share-panel
+                h4 Share...
+                ul.share-panel__options
+                    li.share-panel__option
+                        i.icon.icon--digg
+                        span Digg
+                    li.share-panel__option
+                        i.icon.icon--google
+                        span Google
+                    li.share-panel__option
+                        i.icon.icon--reddit
+                        span Reddit
+                    li.share-panel__option
+                        i.icon.icon--twitter
+                        span Twitter
+                    li.share-panel__option
+                        i.icon.icon--facebook
+                        span Facebook
+                    li.share-panel__option
+                        i.icon.icon--linkedin
+                        span LinkedIn
+                    li.share-panel__option
+                        i.icon.icon--stumbleupon
+                        span Stumbleupon
+                    li.share-panel__option
+                        i.icon.icon--email
+                        span Email
+
+        div.card__toolbar
+            if panelContent
+                div.card__more-cta.js-more
+                    i.icon.icon--arrow-up
+                    i.icon.icon--close
+                    span.js-panel-trigger-label More info
+
+            ul.card__social-icons
+                if love
+                    li.card__social
+                        i.icon.icon--love
+                if add
+                    li.card__social
+                        i.icon.icon--add
+                if share
+                    li.card__social.js-share-cta
+                        i.icon.icon--share
+
+
+
+mixin card--audio(headline, playlisterTitle, playlisterDesciption, audioUrl, audioPoster, attrubution, panelContent, share, love, add)
+    div.card.card--audio.js-card
+
+        div.card__media.av-player.js-poster
+            div.av-player__controls
+
+                div.av-player__control.av-player__control--play.js-play
+                    i.icon.icon--audio
+
+                div.av-player__control.av-player__control--pause.js-pause
+                    i.icon.icon--pause
+
+                div.av-player__control.av-player__control--scrubber
+                    div.progress.js-scrubber
+                        span.js-progress
+
+                div.av-player__control.av-player__control--volume.js-volume
+                    i.icon.icon--volume
+                    i.icon.icon--muted
+                    div.av-player__volume-control
+                        span.av-player__volume-bar.js-volume-bar
+                            span.av-player__volume-level.js-volume-level
+
+            div.av-player__video
+                video(src=audioUrl poster=audioPoster preload="metadata")
+
+        div.card__content
+            div.card__headline
+                h3!= headline
+            div.card__playlister
+                div.card__playlister-cta
+                    i.icon.icon--playlister
+                div.card__playlister-details
+                    h4!= playlisterTitle
+                    p!= playlisterDesciption
+            div.card__attribution.bbc-two
+                span!= attrubution
+            div.card__duration
+                i.icon.icon--duration
+                span.js-duration
+
+        if panelContent
+            div.card__panel.js-panel
+                p!= panelContent
+
+        if share
+            div.card__share-panel.share-panel.js-share-panel
+                h4 Share...
+                ul.share-panel__options
+                    li.share-panel__option
+                        i.icon.icon--digg
+                        span Digg
+                    li.share-panel__option
+                        i.icon.icon--google
+                        span Google
+                    li.share-panel__option
+                        i.icon.icon--reddit
+                        span Reddit
+                    li.share-panel__option
+                        i.icon.icon--twitter
+                        span Twitter
+                    li.share-panel__option
+                        i.icon.icon--facebook
+                        span Facebook
+                    li.share-panel__option
+                        i.icon.icon--linkedin
+                        span LinkedIn
+                    li.share-panel__option
+                        i.icon.icon--stumbleupon
+                        span Stumbleupon
+                    li.share-panel__option
+                        i.icon.icon--email
+                        span Email
+
+        div.card__toolbar
+            if panelContent
+                div.card__more-cta.js-more
+                    i.icon.icon--arrow-up
+                    i.icon.icon--close
+                    span.js-panel-trigger-label More info
+
+            ul.card__social-icons
+                if love
+                    li.card__social
+                        i.icon.icon--love
+                if add
+                    li.card__social
+                        i.icon.icon--add
+                if share
+                    li.card__social.js-share-cta
+                        i.icon.icon--share
+
+
+mixin card--video(headline, subHeadline, attribution, videoUrl, videoPoster, panelContent, share, love, add)
+    div.card.card--video.js-card
+
+        div.card__media.av-player.js-poster
+            div.av-player__controls
+
+                div.av-player__control.av-player__control--play.js-play
+                    i.icon.icon--play
+
+                div.av-player__control.av-player__control--pause.js-pause
+                    i.icon.icon--pause
+
+                div.av-player__control.av-player__control--scrubber
+                    div.progress.js-scrubber
+                        span.js-progress
+
+                div.av-player__duration
+                    span.av-player__duration-passed.js-time-passed 00:00
+                    span.av-player__duration-divider /
+                    span.av-player__duration-remaining.js-time-remaining 00:00
+
+                div.av-player__control.av-player__control--volume.js-volume
+                    i.icon.icon--volume
+                    i.icon.icon--muted
+                    div.av-player__volume-control
+                        span.av-player__volume-bar.js-volume-bar
+                            span.av-player__volume-level.js-volume-level
+
+                 div.av-player__control.av-player__control--full-screen.js-full-screen
+                    i.icon.icon--fs
+
+            div.av-player__video
+                video(src=videoUrl poster=videoPoster preload="metadata")
+
+        div.card__content
+            div.card__headline
+                h3!= headline
+            div.card__sub-headline
+                p!= subHeadline
+            div.card__attribution.bbc-two
+                span!= attribution
+
+            div.card__duration
+                i.icon.icon--duration
+                span.js-duration
+                    | 00:00
+
+        if panelContent
+            div.card__panel.js-panel
+                p!=panelContent
+
+        if share
+            div.card__share-panel.share-panel.js-share-panel
+                h4 Share...
+                ul.share-panel__options
+                    li.share-panel__option
+                        i.icon.icon--digg
+                        span Digg
+                    li.share-panel__option
+                        i.icon.icon--google
+                        span Google
+                    li.share-panel__option
+                        i.icon.icon--reddit
+                        span Reddit
+                    li.share-panel__option
+                        i.icon.icon--twitter
+                        span Twitter
+                    li.share-panel__option
+                        i.icon.icon--facebook
+                        span Facebook
+                    li.share-panel__option
+                        i.icon.icon--linkedin
+                        span LinkedIn
+                    li.share-panel__option
+                        i.icon.icon--stumbleupon
+                        span Stumbleupon
+                    li.share-panel__option
+                        i.icon.icon--email
+                        span Email
+
+        div.card__toolbar
+            if panelContent
+                div.card__more-cta.js-more
+                    i.icon.icon--arrow-up
+                    i.icon.icon--close
+                    span.js-panel-trigger-label More info
+
+            ul.card__social-icons
+                if love
+                    li.card__social
+                        i.icon.icon--love
+                if add
+                    li.card__social
+                        i.icon.icon--add
+                if share
+                    li.card__social.js-share-cta
+                        i.icon.icon--share
+
+
+doctype html
+html.no-js
+    head
+
+        title BBC Pattern Examples
+
+        link(rel='stylesheet', href='styles/style.css')
+
+    body
+        div.page
+            block content
+
+        script(src='js/cards.js')
+        script(src='js/app.js')

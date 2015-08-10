@@ -1,12 +1,12 @@
-# Usage
-
 var cards = [];
 
 (function() {
-
   'use strict';
+  var html = document.querySelectorAll('html');
 
-  allCards = document.querySelectorAll('.js-card');
+  html[0].classList.remove('no-js');
+
+  var allCards = document.querySelectorAll('.js-card');
 
   for (var i = 0; i < allCards.length; i++) {
     try {

@@ -1,4 +1,4 @@
 {
-  "directory" : "component/bower_components",
+  "directory" : "bower_components",
   "registry": "http://52.17.191.190:5678"
 }
