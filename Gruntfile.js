@@ -23,7 +23,8 @@ module.exports = function(grunt) {
       // Configurable paths
       src: 'src',
       dist: 'dist',
-      demo: 'demo'
+      demo: 'demo',
+      namespace: 'cards'
     },
 
     // Watches files for changes and runs tasks based on the changed files
@@ -343,7 +344,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          '<%= gos.dist %>/js/app.min.js': ['<%= gos.src %>/js/**.js', '<%= gos.src %>/js/app.js']
+          '<%= gos.dist %>/js/<%= gos.namespace %>.min.js': ['<%= gos.src %>/js/**.js', '<%= gos.src %>/js/app.js']
         }
       }
     },
