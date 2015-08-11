@@ -294,7 +294,7 @@ module.exports = function(grunt) {
           src: [
             '{,*/}*.html',
             'js/*.js',
-            '!templates/**.html',
+            'templates/**.html',
             'styles/*.css'
           ]
         }]
