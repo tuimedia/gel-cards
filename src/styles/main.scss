@@ -1,0 +1,15 @@
+// bower:scss
+@import "bower_components/gos-core/dist/styles/core.scss";
+// endbower
+
+
+// @import component scss here. This file will not be included in a any build, only the demo.
+@import "cards";
+
+// demo specific css here. Will not be included in any dist file
+
+.page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px;
+}

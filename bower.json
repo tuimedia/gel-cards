@@ -8,8 +8,8 @@
   "homepage": "https://github.com/tuimedia/gos-core",
   "description": "GOS cards module",
   "main": [
-    "dist/js/cards.js",
-    "dist/styles/cards.scss"
+    "dist/scripts/cards.js",
+    "dist/styles/_cards.scss"
   ],
   "moduleType": [
     "amd",

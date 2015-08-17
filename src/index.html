@@ -1,13 +1,38 @@
-<!DOCTYPE html>
-<html class="no-js">
+<!doctype html>
+<html lang="">
   <head>
-    <title>BBC Pattern Examples</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <meta charset="utf-8">
+    <title>gel component template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
   </head>
   <body>
+
     <div class="page">
+
+      <h1>GEL Cards</h1>
+
       <div class="grid grid--flex-cell">
+
+
+
         <div class="grid__item w--xs-one-whole w--s-one-half w--m-one-third">
+
+          <!-- Video Card -->
+          <!-- ====================================================================== -->
+
           <div class="card card--video js-card">
             <div class="card__media av-player js-poster">
               <div class="av-player__controls">
@@ -61,8 +86,16 @@
               </ul>
             </div>
           </div>
+
         </div>
+
+
+
         <div class="grid__item w--xs-one-whole w--s-one-half w--m-one-third">
+
+          <!-- Audio Card -->
+          <!-- ====================================================================== -->
+
           <div class="card card--audio js-card">
             <div class="card__media av-player js-poster">
               <div class="av-player__controls">
@@ -118,10 +151,43 @@
               </ul>
             </div>
           </div>
+
         </div>
+
+
+
         <div class="grid__item w--xs-one-whole w--s-one-half w--m-one-third">
+
+          <!-- Fact Card -->
+          <!-- ====================================================================== -->
+
+          <div data-card-bg-url="http://clients.tuimedia.com/bbc-assets/boat.gif" class="card card--fact js-card">
+            <div class="card__content">
+              <div class="card__fact-hashtag">#DailyProp</div>
+              <div class="card__fact">
+                <h3>The 85 richest people own the same wealth as the 3.5 billion poorest people.</h3>
+              </div>
+            </div>
+            <div class="card__toolbar">
+              <ul class="card__social-icons">
+                <li class="card__social"><i class="icon icon--love"></i></li>
+                <li class="card__social"><i class="icon icon--add"></i></li>
+                <li class="card__social js-share-cta"><i class="icon icon--share"></i></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <div class="grid__item w--xs-one-whole w--s-one-half w--m-one-third">
+
+          <!-- Gallery Card -->
+          <!-- ====================================================================== -->
+
           <div class="card card--gallery js-card">
-            <div class="card__media js-gallery-cta"><img src="http://clients.tuimedia.com/bbc-assets/proms.jpg">
+            <div class="card__media js-gallery-cta"><img src="http://clients.tuimedia.com/bbc-assets/proms.jpg"/>
               <div class="card__cta"><i class="icon icon--gallery"></i></div>
             </div>
             <div class="card__content">
@@ -159,9 +225,9 @@
             </div>
             <div class="card__gallery js-gallery">
               <div class="card__gallery-images">
-                <div class="card__gallery-image js-gallery-img"><img src="gallery-image-1-url"></div>
-                <div class="card__gallery-image js-gallery-img"><img src="gallery-image-1-url"></div>
-                <div class="card__gallery-image js-gallery-img"><img src="gallery-image-1-url"></div>
+                <div class="card__gallery-image js-gallery-img"><img src="gallery-image-1-url"/></div>
+                <div class="card__gallery-image js-gallery-img"><img src="gallery-image-1-url"/></div>
+                <div class="card__gallery-image js-gallery-img"><img src="gallery-image-1-url"/></div>
               </div>
               <div class="card__gallery-controls">
                 <div class="card__gallery-prev js-gallery-prev"><i class="icon icon--prev"></i></div>
@@ -172,51 +238,16 @@
               </div>
             </div>
           </div>
+
         </div>
+
+
+
         <div class="grid__item w--xs-one-whole w--s-one-half w--m-one-third">
-          <div class="card card--story js-card">
-            <div class="card__media">
-              <div class="card__cta"><i class="icon icon--story"></i></div><img src="http://clients.tuimedia.com/bbc-assets/pills.jpg">
-            </div>
-            <div class="card__content">
-              <div class="card__headline">
-                <h3>How can a dummy pill have a real effect on your body?</h3>
-              </div>
-              <div class="card__contributor">
-                <div class="card__contributor-img"><img src="http://clients.tuimedia.com/bbc-assets/fong.jpg"></div>
-                <div class="card__contributor-details">
-                  <h4>Kevin Fong</h4>
-                  <p>Doctor / Presenter</p>
-                </div>
-              </div>
-            </div>
-            <div class="card__panel js-panel">
-              <p>Donec posuere nulla eu lorem dapibus condimentum. Nullam sem magna, lacinia id egestas eu, viverra et felis.</p>
-            </div>
-            <div class="card__share-panel share-panel js-share-panel">
-              <h4>Share...</h4>
-              <ul class="share-panel__options">
-                <li class="share-panel__option"><i class="icon icon--digg"></i><span>Digg</span></li>
-                <li class="share-panel__option"><i class="icon icon--google"></i><span>Google</span></li>
-                <li class="share-panel__option"><i class="icon icon--reddit"></i><span>Reddit</span></li>
-                <li class="share-panel__option"><i class="icon icon--twitter"></i><span>Twitter</span></li>
-                <li class="share-panel__option"><i class="icon icon--facebook"></i><span>Facebook</span></li>
-                <li class="share-panel__option"><i class="icon icon--linkedin"></i><span>LinkedIn</span></li>
-                <li class="share-panel__option"><i class="icon icon--stumbleupon"></i><span>Stumbleupon</span></li>
-                <li class="share-panel__option"><i class="icon icon--email"></i><span>Email</span></li>
-              </ul>
-            </div>
-            <div class="card__toolbar">
-              <div class="card__more-cta js-more"><i class="icon icon--arrow-up"></i><i class="icon icon--close"></i><span class="js-panel-trigger-label">More info</span></div>
-              <ul class="card__social-icons">
-                <li class="card__social"><i class="icon icon--love"></i></li>
-                <li class="card__social"><i class="icon icon--add"></i></li>
-                <li class="card__social js-share-cta"><i class="icon icon--share"></i></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="grid__item w--xs-one-whole w--s-one-half w--m-one-third">
+
+          <!-- Poll Card -->
+          <!-- ====================================================================== -->
+
           <div class="card card--quote js-card">
             <div class="card__content">
               <div class="card__quote-icon"><i class="icon icon--quote"></i></div>
@@ -250,16 +281,50 @@
               </ul>
             </div>
           </div>
+
         </div>
+
+
+
         <div class="grid__item w--xs-one-whole w--s-one-half w--m-one-third">
-          <div data-card-bg-url="http://clients.tuimedia.com/bbc-assets/boat.gif" class="card card--fact js-card">
+
+          <!-- Story Card -->
+          <!-- ====================================================================== -->
+
+          <div class="card card--story js-card">
+            <div class="card__media">
+              <div class="card__cta"><i class="icon icon--story"></i></div><img src="http://clients.tuimedia.com/bbc-assets/pills.jpg"/>
+            </div>
             <div class="card__content">
-              <div class="card__fact-hashtag">#DailyProp</div>
-              <div class="card__fact">
-                <h3>The 85 richest people own the same wealth as the 3.5 billion poorest people.</h3>
+              <div class="card__headline">
+                <h3>How can a dummy pill have a real effect on your body?</h3>
+              </div>
+              <div class="card__contributor">
+                <div class="card__contributor-img"><img src="http://clients.tuimedia.com/bbc-assets/fong.jpg"/></div>
+                <div class="card__contributor-details">
+                  <h4>Kevin Fong</h4>
+                  <p>Doctor / Presenter</p>
+                </div>
               </div>
             </div>
+            <div class="card__panel js-panel">
+              <p>Donec posuere nulla eu lorem dapibus condimentum. Nullam sem magna, lacinia id egestas eu, viverra et felis.</p>
+            </div>
+            <div class="card__share-panel share-panel js-share-panel">
+              <h4>Share...</h4>
+              <ul class="share-panel__options">
+                <li class="share-panel__option"><i class="icon icon--digg"></i><span>Digg</span></li>
+                <li class="share-panel__option"><i class="icon icon--google"></i><span>Google</span></li>
+                <li class="share-panel__option"><i class="icon icon--reddit"></i><span>Reddit</span></li>
+                <li class="share-panel__option"><i class="icon icon--twitter"></i><span>Twitter</span></li>
+                <li class="share-panel__option"><i class="icon icon--facebook"></i><span>Facebook</span></li>
+                <li class="share-panel__option"><i class="icon icon--linkedin"></i><span>LinkedIn</span></li>
+                <li class="share-panel__option"><i class="icon icon--stumbleupon"></i><span>Stumbleupon</span></li>
+                <li class="share-panel__option"><i class="icon icon--email"></i><span>Email</span></li>
+              </ul>
+            </div>
             <div class="card__toolbar">
+              <div class="card__more-cta js-more"><i class="icon icon--arrow-up"></i><i class="icon icon--close"></i><span class="js-panel-trigger-label">More info</span></div>
               <ul class="card__social-icons">
                 <li class="card__social"><i class="icon icon--love"></i></li>
                 <li class="card__social"><i class="icon icon--add"></i></li>
@@ -267,10 +332,33 @@
               </ul>
             </div>
           </div>
+
         </div>
+
+
+
+        <div class="grid__item w--xs-one-whole w--s-one-half w--m-one-third">
+
+          <!-- Audio Card -->
+          <!-- ====================================================================== -->
+
+        </div>
+
+
       </div>
+
     </div>
-    <script src="js/cards.js"></script>
-    <script src="js/app.js"></script>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/gos-core/dist/js/Utils.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+
   </body>
 </html>
