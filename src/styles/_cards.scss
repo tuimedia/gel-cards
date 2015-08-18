@@ -252,6 +252,9 @@ $card-toolbar-border: 1px solid #ccc;
             flex-grow: 1;
             display: flex;
             align-items: center;
+            &:hover {
+                background: lighten(#ccc, 15%);
+            }
             .icon {
                 &--arrow-up {
 
@@ -274,6 +277,10 @@ $card-toolbar-border: 1px solid #ccc;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
+                border-left: $card-toolbar-border;
+                &:hover {
+                    background: lighten(#ccc, 15%);
+                }
                 span {
                     padding-left: 16px;
                     display: none;
@@ -421,8 +428,8 @@ $card-toolbar-border: 1px solid #ccc;
         margin-bottom: calc(150px - 48px);
         align-items: stretch;
         display: none;
-
     }
+
         &__gallery-wrap {
             flex-basis: 100%;
             position: relative;
@@ -442,7 +449,6 @@ $card-toolbar-border: 1px solid #ccc;
                 padding: 16px;
                 justify-content: center;
             }
-
 
             &__gallery-image {
                 display: flex;
@@ -542,6 +548,9 @@ $card-toolbar-border: 1px solid #ccc;
     .card__toolbar {
         border-color: #fff;
         background: map-get($brand-colors, iplayer);
+        ul li {
+            border-color: #fff;
+        }
     }
     .card__more-cta,
     .icon {

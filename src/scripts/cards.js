@@ -436,28 +436,28 @@ var Cards = (function() {
     switch (panel) {
       case 'love':
 
-        this.love.panelOpen ? this.hideLovePanel() : this.showLovePanel();
+        this.love.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
         this.card.classList.toggle('love-panel-active');
 
         break;
       case 'add':
 
-        this.add.panelOpen ? this.hideMoreInfoPanel() : this.showMoreInfoPanel();
+        this.add.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
         this.card.classList.toggle('add-panel-active');
 
         break;
       case 'info':
 
-        this.panel.panelOpen ? this.hideMoreInfoPanel() : this.showMoreInfoPanel();
+        this.panel.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
         this.card.classList.toggle('is-active');
 
         break;
       case 'share':
 
-        this.share.panelOpen ? this.hideSharePanel() : this.showSharePanel();
+        this.share.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
         this.card.classList.toggle('share-panel-active');
 
@@ -485,7 +485,6 @@ var Cards = (function() {
         this.panel.triggerText.innerText = 'Close';
 
         // transform elements
-        // this.card.cardMedia.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
         this.card.cardContent.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
         this.panel.container.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
 
@@ -517,7 +516,6 @@ var Cards = (function() {
         this.panel.triggerText.innerText = 'More info';
 
         // transform elements
-        // this.card.cardMedia.style.transform = 'translateY(0px)';
         this.card.cardContent.style.transform = 'translateY(0px)';
         this.panel.container.style.transform = 'translateY(0px)';
 
