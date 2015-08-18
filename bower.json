@@ -9,7 +9,9 @@
   "description": "GOS cards module",
   "main": [
     "dist/scripts/cards.js",
-    "dist/styles/_cards.scss"
+    "dist/styles/_cards.scss",
+    "dist/styles/_cards.av-player.scss",
+    "dist/styles/_cards.share-panel.scss"
   ],
   "moduleType": [
     "amd",
