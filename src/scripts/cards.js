@@ -41,6 +41,34 @@ var Cards = (function() {
 
     }
 
+    if (this.card.querySelectorAll('.js-love-cta')[0]) {
+
+      this.hasLoveCTA = true;
+
+      this.love = {
+        trigger: this.card.querySelectorAll('.js-love-cta')[0],
+        container: this.card.querySelectorAll('.js-love')[0],
+        states: {
+          isLoved: false
+        }
+      };
+
+    }
+
+    if (this.card.querySelectorAll('.js-add-cta')[0]) {
+
+      this.hasAddCTA = true;
+
+      this.add = {
+        trigger: this.card.querySelectorAll('.js-add-cta')[0],
+        container: this.card.querySelectorAll('.js-add')[0],
+        states: {
+          isAdded: false
+        }
+      };
+
+    }
+
     if (this.card.querySelectorAll('.js-poll')[0]) {
 
       this.hasPoll = true;
@@ -53,6 +81,7 @@ var Cards = (function() {
           isCorrect: false
         }
       };
+
     }
 
     // hidden panel overlay thing
@@ -253,7 +282,7 @@ var Cards = (function() {
 
       this.share.shareCTA.addEventListener('click', function(event) {
 
-        _this.handleSharePanel();
+        _this.handlePanels('share');
 
       });
 
@@ -373,7 +402,28 @@ var Cards = (function() {
 
       this.panel.trigger.addEventListener('click', function(event) {
 
-        _this.handleMoreInfoPanel(this);
+        _this.handlePanels('info');
+
+      });
+
+    }
+
+    if (this.hasLoveCTA) {
+
+      this.love.trigger.addEventListener('click', function(event) {
+
+        _this.handlePanels('love');
+
+      });
+
+    }
+
+
+    if (this.hasAddCTA) {
+
+      this.add.trigger.addEventListener('click', function(event) {
+
+        _this.handlePanels('add');
 
       });
 
@@ -381,74 +431,108 @@ var Cards = (function() {
 
   };
 
-  Cards.prototype.showSharePanel = function() {
+  Cards.prototype.handlePanels = function(panel) {
 
-    var _this = this;
+    switch (panel) {
+      case 'love':
 
-    this.share.panelOpen = true;
+        this.love.panelOpen ? this.hideLovePanel() : this.showLovePanel();
 
-  };
+        this.card.classList.toggle('love-panel-active');
 
-  Cards.prototype.hideSharePanel = function() {
+        break;
+      case 'add':
 
-    this.share.panelOpen = false;
+        this.add.panelOpen ? this.hideMoreInfoPanel() : this.showMoreInfoPanel();
 
-  };
+        this.card.classList.toggle('add-panel-active');
 
-  Cards.prototype.handleSharePanel = function() {
+        break;
+      case 'info':
 
-    var _this = this;
+        this.panel.panelOpen ? this.hideMoreInfoPanel() : this.showMoreInfoPanel();
 
-    this.share.panelOpen ? this.hideSharePanel() : this.showSharePanel();
+        this.card.classList.toggle('is-active');
 
-    this.card.classList.toggle('share-panel-active');
+        break;
+      case 'share':
 
-  };
+        this.share.panelOpen ? this.hideSharePanel() : this.showSharePanel();
 
+        this.card.classList.toggle('share-panel-active');
 
-  Cards.prototype.showMoreInfoPanel = function() {
-
-    // set flag
-    this.panel.panelOpen = true;
-
-    // change text
-    this.panel.triggerText.innerText = 'Close';
-
-    // transform elements
-    // this.card.cardMedia.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
-    this.card.cardContent.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
-    this.panel.container.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
+        break;
+    }
 
   };
 
-  Cards.prototype.hideMoreInfoPanel = function() {
 
-    // set flag
-    this.panel.panelOpen = false;
+  Cards.prototype.showPanel = function(panel) {
 
-    // change text
-    this.panel.triggerText.innerText = 'More info';
+    switch (panel) {
+      case 'love':
 
-    // transform elements
-    // this.card.cardMedia.style.transform = 'translateY(0px)';
-    this.card.cardContent.style.transform = 'translateY(0px)';
-    this.panel.container.style.transform = 'translateY(0px)';
+        break;
+      case 'add':
 
-  };
+        break;
+      case 'info':
 
-  Cards.prototype.handleMoreInfoPanel = function(el) {
+        // set flag
+        this.panel.panelOpen = true;
 
-    var _this = this;
+        // change text
+        this.panel.triggerText.innerText = 'Close';
 
-    this.panel.panelOpen ? this.hideMoreInfoPanel() : this.showMoreInfoPanel();
+        // transform elements
+        // this.card.cardMedia.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
+        this.card.cardContent.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
+        this.panel.container.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
 
-    this.card.classList.toggle('is-active');
+        break;
+      case 'share':
 
-  };
+        this.share.panelOpen = true;
+
+        break;
+    }
+
+  }
+
+  Cards.prototype.hidePanel = function(panel) {
+
+    switch (panel) {
+      case 'love':
+
+        break;
+      case 'add':
+
+        break;
+      case 'info':
+
+        // set flag
+        this.panel.panelOpen = false;
+
+        // change text
+        this.panel.triggerText.innerText = 'More info';
+
+        // transform elements
+        // this.card.cardMedia.style.transform = 'translateY(0px)';
+        this.card.cardContent.style.transform = 'translateY(0px)';
+        this.panel.container.style.transform = 'translateY(0px)';
+
+        break;
+      case 'share':
+
+        this.share.panelOpen = false;
+
+        break;
+    }
+
+  }
+
 
   Cards.prototype.checkActiveVideos = function() {
-
-    var _this = this;
 
     // pause any videos currently playing
     for (var i = 0; i < allCards.length; i++) {
@@ -470,8 +554,6 @@ var Cards = (function() {
   };
 
   Cards.prototype.handleVideo = function(action) {
-
-    var _this = this;
 
     switch (action) {
 
