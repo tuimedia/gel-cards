@@ -1,0 +1,40 @@
+.share-panel {
+    display: none;
+    .share-panel-active & {
+        display: block;
+    }
+    &__options {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -16px;
+    }
+        &__option {
+            flex-basis: calc(50% - 16px);
+            position: relative;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            margin-left: 16px;
+            margin-bottom: 8px;
+            align-items: center;
+            span {
+                align-self: center;
+                flex-grow: 1;
+            }
+            .icon {
+                background: #eee;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-basis: 32px;
+                height: 32px;
+                position: static;
+                margin: 0;
+                margin-right: 8px;
+                padding: 0;
+            }
+        }
+}

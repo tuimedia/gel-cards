@@ -5,6 +5,8 @@
 
 // @import component scss here. This file will not be included in a any build, only the demo.
 @import "cards";
+@import "cards.av-player";
+@import "cards.share-panel";
 @import "../themes/sport/cards.sport";
 
 // demo specific css here. Will not be included in any dist file

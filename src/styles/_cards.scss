@@ -26,7 +26,6 @@ $card-toolbar-border: 1px solid #ccc;
         }
     }
 
-    // set standard icon width and height
     .icon {
         width: 48px;
         height: 48px;
@@ -175,8 +174,8 @@ $card-toolbar-border: 1px solid #ccc;
 
         &__contributor {
             display: flex;
-
         }
+
             &__contributor-img {
                 border-radius: 50%;
                 overflow: hidden;
@@ -189,6 +188,7 @@ $card-toolbar-border: 1px solid #ccc;
                     display: block;
                 }
             }
+
             &__contributor-details {
                 h4, p {
                     margin: 0;
@@ -221,7 +221,6 @@ $card-toolbar-border: 1px solid #ccc;
         ul li, p {
             color: #565656;
         }
-
     }
 
     &__share-panel {
@@ -499,13 +498,11 @@ $card-toolbar-border: 1px solid #ccc;
 
     &.is-active {
         .card__media {
-            // transform: translateY(-100%);
         }
         .card__content {
             top: 0;
         }
         .card__panel {
-            // transform: translateY(0);
         }
         .card__attribution {
         }
@@ -518,9 +515,8 @@ $card-toolbar-border: 1px solid #ccc;
             }
         }
     }
+
 }
-
-
 
 .overlay-bg {
     background: rgba(255, 255, 255, 0.9);
@@ -534,17 +530,21 @@ $card-toolbar-border: 1px solid #ccc;
 }
 
 
+
 .card--poll {
+
     .card__content {
         background: map-get($brand-colors, iplayer);
         align-items: flex-start;
     }
+
     .card__headline {
         h3 {
             color: #fff;
             text-align: center;
         }
     }
+
     .card__toolbar {
         border-color: #fff;
         background: map-get($brand-colors, iplayer);
@@ -552,11 +552,14 @@ $card-toolbar-border: 1px solid #ccc;
             border-color: #fff;
         }
     }
+
     .card__more-cta,
     .icon {
         color: #fff;
     }
+
 }
+
 
 
 .card--quote {
@@ -566,10 +569,14 @@ $card-toolbar-border: 1px solid #ccc;
     }
 }
 
+
+
 .card--fact {
+
     h3, p, ul li {
         color: #fff;
     }
+
     &:before {
         content: '';
         position: absolute;
@@ -579,6 +586,7 @@ $card-toolbar-border: 1px solid #ccc;
         left: 0;
         background: rgba(0,0,0,0.5);
     }
+
     .card__content {
         align-content: center;
         h3 {
@@ -590,246 +598,10 @@ $card-toolbar-border: 1px solid #ccc;
     .card__toolbar {
         background: transparent;
     }
+
     .card__toolbar {
         .icon {
             color: #fff;
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.av-player {
-
-    &__controls {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 48px;
-        display: flex;
-        z-index: 1;
-        transition: transform 0.3s;
-        transition-delay: 2s;
-        .is-playing & {
-            transform: translateY(100%);
-        }
-    }
-    .is-playing & {
-        &:hover {
-            .av-player__controls {
-                transition-delay: 0s;
-                transform: translateY(0);
-            }
-        }
-    }
-
-    &__duration {
-        display: none;
-        color: #fff;
-        background: $control-ui-bg;
-        align-items: center;
-        .is-playing & {
-            display: flex;
-        }
-    }
-
-    &__control {
-        position: relative;
-        width: 48px;
-        height: 48px;
-        background: $control-ui-bg;
-        cursor: pointer;
-        color: #fff;
-
-        &:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        &--pause,
-        &--play,
-        &--volume,
-        &--full-screen {
-            display: none;
-            .is-playing & {
-                display: flex;
-            }
-        }
-
-        &--play {
-            .is-playing & {
-                display: none;
-            }
-        }
-
-        &--scrubber {
-            flex-grow: 1;
-            display: none;
-            align-items: center;
-
-            // show scrubber when playing
-            .is-playing & {
-                display: flex;
-            }
-
-            &:hover {
-                cursor: default;
-                background: $control-ui-bg;
-            }
-            .progress {
-                margin-left: 8px;
-                margin-right: 8px;
-                flex-grow: 1;
-                height: 8px;
-                background: #4E4E4E;
-                position: relative;
-                cursor: pointer;
-                span {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    bottom: 0;
-                    background: #fff;
-                }
-            }
-        }
-
-        &--volume {
-            .icon--volume {
-                display: flex;
-                .is-muted & {
-                    display: none;
-                }
-            }
-            .icon--muted {
-                display: none;
-                .is-muted & {
-                    display: flex;
-                }
-            }
-            &:hover {
-                .av-player__volume-control {
-                    display: flex;
-                }
-            }
-        }
-
-        &--full-screen {
-
-        }
-    }
-
-    &__volume-control {
-
-        background: #fff;
-        position: absolute;
-        width: 100px;
-        height: 48px;
-        left: 0;
-        right: 0;
-        transform: translateY(-100%);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding-left: 8px;
-        padding-right: 8px;
-        transform: rotate(-90deg);
-        transform-origin: 0 0;
-    }
-        &__volume-bar {
-            background: green;
-            height: 8px;
-            position: relative;
-            width: 100%;
-        }
-            &__volume-level {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: red;
-                height: 100%;
-            }
-
-    &:hover {
-        .av-player__control--play {
-            background: #fff;
-            color: #000;
-        }
-    }
-
-}
-
-
-
-
-
-.share-panel {
-    display: none;
-    .share-panel-active & {
-        display: block;
-    }
-    &__options {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        margin-left: -16px;
-    }
-        &__option {
-            flex-basis: calc(50% - 16px);
-            position: relative;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            margin-left: 16px;
-            margin-bottom: 8px;
-            align-items: center;
-            span {
-                align-self: center;
-                flex-grow: 1;
-            }
-            .icon {
-                background: #eee;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-basis: 32px;
-                height: 32px;
-                position: static;
-                margin: 0;
-                margin-right: 8px;
-                padding: 0;
-            }
-        }
-}
-
-
-
-
-
-
-
-
