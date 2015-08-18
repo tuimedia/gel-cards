@@ -2,7 +2,9 @@ var cards = [],
     allCards;
 
 (function() {
+
     'use strict';
+
     var html = document.querySelectorAll('html');
 
     html[0].classList.remove('no-js');
@@ -18,5 +20,8 @@ var cards = [],
             }
         }
     }
+
+    console.dir(Cards)
+
 
 }());

@@ -39,13 +39,13 @@ module.exports = function(grunt) {
       },
       babel: {
         files: ['<%= config.src %>/scripts/{,*/}*.js'],
-        tasks: ['babel:demo']
+        tasks: ['babel:copy']
       },
       gruntfile: {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['<%= config.src %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= config.src %>/styles/{,*/}*.{scss,sass}', '<%= config.src %>/themes/**/*.{scss,sass}'],
         tasks: ['sass:server', 'postcss']
       },
       styles: {
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
       options: {
         sourceMap: true
       },
-      demo: {
+      copy: {
         files: [{
           expand: true,
           cwd: '<%= config.src %>/scripts',
@@ -313,7 +313,7 @@ module.exports = function(grunt) {
     // Run some tasks in parallel to speed up build process
     concurrent: {
       server: [
-        'babel:demo',
+        'babel:copy',
         'sass:server'
       ],
       demo: [

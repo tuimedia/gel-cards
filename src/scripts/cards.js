@@ -91,6 +91,7 @@ var Cards = (function() {
     if (this.card.dataset.cardBgUrl) {
 
       this.hasBackgroundImage = true;
+      this.card.classList.add('trans-bg');
       this.card.style.background = 'url(' + this.card.dataset.cardBgUrl + ')';
       this.card.style.backgroundSize = 'cover';
 
@@ -260,6 +261,8 @@ var Cards = (function() {
 
     // if we have both a CTA and a video then bind video events
     if (this.hasVideo) {
+
+      console.log('playing video', _this.video)
 
       // stop other videos playing first, then play selected video
       this.video.controls.play.addEventListener('click', function(event) {
@@ -506,6 +509,7 @@ var Cards = (function() {
     }
 
   };
+
   return Cards;
 
 }());
