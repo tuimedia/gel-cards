@@ -21,7 +21,5 @@ var cards = [],
         }
     }
 
-    console.dir(Cards)
-
 
 }());

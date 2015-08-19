@@ -2,8 +2,8 @@
 
   'use strict';
 
-
   if (Cards) {
+
     Cards.prototype.showMoreInfoPanel = function() {
 
       // set flag
