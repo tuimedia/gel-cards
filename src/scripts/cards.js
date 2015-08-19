@@ -1,8 +1,8 @@
-var Cards = (function() {
+define('Cards', [], function(poll) {
 
   'use strict';
 
-  function Cards(card) {
+  var Cards = function(card) {
 
     if (!(this instanceof Cards)) {
       return new Cards(card);
@@ -274,7 +274,6 @@ var Cards = (function() {
 
   }
 
-
   return Cards;
 
-}());
+});
