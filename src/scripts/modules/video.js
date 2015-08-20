@@ -1,10 +1,8 @@
-(function() {
+'use strict';
 
-  'use strict';
+module.exports = function() {
 
   // TODO: better check
-  if (Cards) {
-
     var classes = [
       '.js-play',
       '.js-pause',
@@ -226,4 +224,3 @@
     };
   }
 
-}());

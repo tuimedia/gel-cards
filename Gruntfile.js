@@ -1,4 +1,4 @@
-// Generated on 2015-08-14 using
+// Generated on 2015-08-20 using
 // generator-webapp 1.0.1
 'use strict';
 
@@ -37,15 +37,19 @@ module.exports = function(grunt) {
         files: ['bower.json'],
         tasks: ['wiredep']
       },
-      babel: {
+      js: {
         files: ['<%= config.src %>/scripts/{,*/}*.js'],
-        tasks: ['babel:copy']
+        tasks: ['browserify']
+      },
+      jstest: {
+        files: ['test/spec/{,*/}*.js'],
+        tasks: ['test:watch']
       },
       gruntfile: {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['<%= config.src %>/styles/{,*/}*.{scss,sass}', '<%= config.src %>/themes/**/*.{scss,sass}'],
+        files: ['<%= config.src %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['sass:server', 'postcss']
       },
       styles: {
@@ -53,7 +57,12 @@ module.exports = function(grunt) {
         tasks: ['newer:copy:styles', 'postcss']
       }
     },
-
+    browserify: {
+      client: {
+        src: ['<%= config.src %>/**/*.js'],
+        dest: '.tmp/scripts/main.js'
+      }
+    },
     browserSync: {
       options: {
         notify: false,
@@ -65,11 +74,25 @@ module.exports = function(grunt) {
             '<%= config.src %>/{,*/}*.html',
             '.tmp/styles/{,*/}*.css',
             '<%= config.src %>/images/{,*/}*',
-            '.tmp/scripts/{,*/}*.js'
+            '.tmp/scripts/main.js'
           ],
           port: 9000,
           server: {
             baseDir: ['.tmp', config.src],
+            routes: {
+              '/bower_components': './bower_components'
+            }
+          }
+        }
+      },
+      test: {
+        options: {
+          port: 9001,
+          open: false,
+          logLevel: 'silent',
+          host: 'localhost',
+          server: {
+            baseDir: ['.tmp', './test', config.src],
             routes: {
               '/bower_components': './bower_components'
             }
@@ -86,23 +109,21 @@ module.exports = function(grunt) {
 
     // Empties folders to start fresh
     clean: {
-      dist: {
-        files: [{
-          dot: true,
-          src: [
-            '.tmp',
-            '<%= config.dist %>/*',
-            '!<%= config.dist %>/.git*'
-          ]
-        }]
-      },
       demo: {
         files: [{
           dot: true,
           src: [
-            '.tmp',
             '<%= config.demo %>/*',
             '!<%= config.demo %>/.git*'
+          ]
+        }]
+      },
+      dist: {
+        files: [{
+          dot: true,
+          src: [
+            '<%= config.dist %>/*',
+            '!<%= config.dist %>/.git*'
           ]
         }]
       },
@@ -114,24 +135,18 @@ module.exports = function(grunt) {
       target: [
         'Gruntfile.js',
         '<%= config.src %>/scripts/{,*/}*.js',
-        '!<%= config.src %>/scripts/vendor/*'
+        '!<%= config.src %>/scripts/vendor/*',
+        'test/spec/{,*/}*.js'
       ]
     },
 
-
-    // Compiles ES6 with Babel
-    babel: {
-      options: {
-        sourceMap: true
-      },
-      copy: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.src %>/scripts',
-          src: '{,*/}*.js',
-          dest: '.tmp/scripts',
-          ext: '.js'
-        }]
+    // Mocha testing framework configuration options
+    mocha: {
+      all: {
+        options: {
+          run: true,
+          urls: ['http://<%= browserSync.test.options.host %>:<%= browserSync.test.options.port %>/index.html']
+        }
       }
     },
 
@@ -277,6 +292,7 @@ module.exports = function(grunt) {
       }
     },
 
+
     // Copies remaining files to places other tasks can use
     copy: {
       demo: {
@@ -290,6 +306,17 @@ module.exports = function(grunt) {
             'images/{,*/}*.webp',
             '{,*/}*.html',
             'styles/fonts/{,*/}*.*'
+          ]
+        }]
+      },
+      demoJs: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '.tmp',
+          dest: '<%= config.demo %>',
+          src: [
+            'scripts/main.js'
           ]
         }]
       },
@@ -313,11 +340,10 @@ module.exports = function(grunt) {
     // Run some tasks in parallel to speed up build process
     concurrent: {
       server: [
-        'babel:copy',
         'sass:server'
       ],
+      test: [],
       demo: [
-        'babel',
         'sass',
         'imagemin',
         'svgmin'
@@ -334,6 +360,7 @@ module.exports = function(grunt) {
 
     grunt.task.run([
       'clean:server',
+      'browserify',
       'wiredep',
       'concurrent:server',
       'postcss',
@@ -347,6 +374,20 @@ module.exports = function(grunt) {
     grunt.task.run([target ? ('serve:' + target) : 'serve']);
   });
 
+  grunt.registerTask('test', function(target) {
+    if (target !== 'watch') {
+      grunt.task.run([
+        'clean:server',
+        'concurrent:test',
+        'postcss'
+      ]);
+    }
+
+    grunt.task.run([
+      'browserSync:test',
+      'mocha'
+    ]);
+  });
 
   grunt.registerTask('build', [
     'clean:demo',
@@ -355,11 +396,11 @@ module.exports = function(grunt) {
     'useminPrepare',
     'concurrent:demo',
     'postcss',
-    'concat',
     'cssmin',
     'uglify',
     'copy:demo',
     'copy:dist',
+    'copy:demoJs',
     'filerev',
     'usemin',
     'htmlmin'
@@ -367,6 +408,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'newer:eslint',
+    // 'test',
     'build'
   ]);
 };

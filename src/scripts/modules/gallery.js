@@ -1,9 +1,6 @@
-(function() {
+'use strict';
 
-  'use strict';
-
-  // TODO: better check
-  if (Cards) {
+module.exports = function() {
 
     var classes = [
       '.js-gallery',
@@ -180,4 +177,4 @@
 
   }
 
-}());
+// }());

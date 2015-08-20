@@ -1,36 +1,36 @@
-(function() {
+// (function() {
 
-  'use strict';
+//   'use strict';
 
-  if (Cards) {
+//   if (Cards) {
 
-    Cards.prototype.showMoreInfoPanel = function() {
+//     Cards.prototype.showMoreInfoPanel = function() {
 
-      // set flag
-      this.panel.panelOpen = true;
+//       // set flag
+//       this.panel.panelOpen = true;
 
-      // change text
-      this.panel.triggerText.innerText = 'Close';
+//       // change text
+//       this.panel.triggerText.innerText = 'Close';
 
-      // transform elements
+//       // transform elements
 
-      console.log('add custom sport transitions')
+//       console.log('add custom sport transitions')
 
-    };
+//     };
 
-    Cards.prototype.hideMoreInfoPanel = function() {
+//     Cards.prototype.hideMoreInfoPanel = function() {
 
-      // set flag
-      this.panel.panelOpen = false;
+//       // set flag
+//       this.panel.panelOpen = false;
 
-      // change text
-      this.panel.triggerText.innerText = 'More info';
+//       // change text
+//       this.panel.triggerText.innerText = 'More info';
 
-      // transform elements
-      console.log('add custom sport transitions')
+//       // transform elements
+//       console.log('add custom sport transitions')
 
-    };
+//     };
 
-  }
+//   }
 
-}());
+// }());
