@@ -1,289 +1,275 @@
 'use strict';
 
-module.exports = function() {
+var Cards = module.exports = function Cards(card) {
 
-  // var Cards = (function() {
+  if (!(this instanceof Cards)) {
+    return new Cards(card);
+  }
 
-    // var Cards = function(card) {
+  this.card = card;
 
+  if (this.card) {
+    this.init();
+  }
 
-    //   if (!(this instanceof Cards)) {
+};
 
-    //     return new Cards(card);
-    //   }
-    //   console.log('2')
+Cards.prototype.init = function(args) {
 
-    //   this.card = card;
+  console.log('new card')
 
-    //   if (this.card) {
-    //     this.init();
-    //   }
+  var _this = this;
 
-    // }
-    console.log('asojdhaskjdhkasjhd')
-    this.card = {};
+  // store attributes
+  this.attrs = this.card.dataset;
 
-    this.init = function(args) {
-
-          console.log('new card')
-
-      var _this = this;
-
-      // store attributes
-      this.attrs = this.card.dataset;
-
-      // card section wrappers - used for transforms
-      this.card.cardMedia = this.card.querySelectorAll('.card__media')[0];
-      this.card.cardContent = this.card.querySelectorAll('.card__content')[0];
-      this.card.cardToolbar = this.card.querySelectorAll('.card__toolbar')[0];
+  // card section wrappers - used for transforms
+  this.card.cardMedia = this.card.querySelectorAll('.card__media')[0];
+  this.card.cardContent = this.card.querySelectorAll('.card__content')[0];
+  this.card.cardToolbar = this.card.querySelectorAll('.card__toolbar')[0];
 
 
-      try {
-        this.initPoll();
-      } catch (e) {
-        if (typeof console !== 'undefined') {
-          console.error(e.stack);
-        }
+  try {
+    this.initPoll();
+  } catch (e) {
+    if (typeof console !== 'undefined') {
+      console.error(e.stack);
+    }
+  }
+
+  try {
+    this.initGallery();
+  } catch (e) {
+    if (typeof console !== 'undefined') {
+      console.error(e.stack);
+    }
+  }
+
+  try {
+    this.initVideo();
+  } catch (e) {
+    if (typeof console !== 'undefined') {
+      console.error(e.stack);
+    }
+  }
+
+  if (this.card.querySelectorAll('.js-share-cta')[0]) {
+
+    this.hasShareCTA = true;
+
+    this.share = {
+      shareCTA: this.card.querySelectorAll('.js-share-cta')[0],
+      states: {
+        panelOpen: false
       }
-
-      try {
-        this.initGallery();
-      } catch (e) {
-        if (typeof console !== 'undefined') {
-          console.error(e.stack);
-        }
-      }
-
-      try {
-        this.initVideo();
-      } catch (e) {
-        if (typeof console !== 'undefined') {
-          console.error(e.stack);
-        }
-      }
-
-      if (this.card.querySelectorAll('.js-share-cta')[0]) {
-
-        this.hasShareCTA = true;
-
-        this.share = {
-          shareCTA: this.card.querySelectorAll('.js-share-cta')[0],
-          states: {
-            panelOpen: false
-          }
-        };
-
-      }
-
-      if (this.card.querySelectorAll('.js-love-cta')[0]) {
-
-        this.hasLoveCTA = true;
-
-        this.love = {
-          trigger: this.card.querySelectorAll('.js-love-cta')[0],
-          container: this.card.querySelectorAll('.js-love')[0],
-          states: {
-            isLoved: false
-          }
-        };
-
-      }
-
-      if (this.card.querySelectorAll('.js-add-cta')[0]) {
-
-        this.hasAddCTA = true;
-
-        this.add = {
-          trigger: this.card.querySelectorAll('.js-add-cta')[0],
-          container: this.card.querySelectorAll('.js-add')[0],
-          states: {
-            isAdded: false
-          }
-        };
-
-      }
-
-      // hidden panel overlay thing
-      if (this.card.querySelectorAll('.js-panel')[0] && this.card.querySelectorAll('.js-more')[0]) {
-
-        this.hasPanel = true;
-
-        // store panel element
-        this.panel = {
-          container: this.card.querySelectorAll('.js-panel')[0],
-          trigger: this.card.querySelectorAll('.js-more')[0],
-          triggerText: this.card.querySelectorAll('.js-panel-trigger-label')[0],
-          states: {
-            panelOpen: false
-          }
-        };
-
-      }
-
-
-      if (this.card.dataset.cardBgUrl) {
-
-        this.hasBackgroundImage = true;
-        this.card.classList.add('trans-bg');
-        this.card.style.background = 'url(' + this.card.dataset.cardBgUrl + ')';
-        this.card.style.backgroundSize = 'cover';
-
-      }
-
-
-      // bind events to card elements
-      this.bindEvents();
-
     };
 
-    // Cards.prototype.bindEvents = function() {
+  }
 
-    //   var _this = this;
+  if (this.card.querySelectorAll('.js-love-cta')[0]) {
 
+    this.hasLoveCTA = true;
 
-    //   if (this.hasShareCTA) {
+    this.love = {
+      trigger: this.card.querySelectorAll('.js-love-cta')[0],
+      container: this.card.querySelectorAll('.js-love')[0],
+      states: {
+        isLoved: false
+      }
+    };
 
-    //     this.share.shareCTA.addEventListener('click', function(event) {
+  }
 
-    //       _this.handlePanels('share');
+  if (this.card.querySelectorAll('.js-add-cta')[0]) {
 
-    //     });
+    this.hasAddCTA = true;
 
-    //   }
+    this.add = {
+      trigger: this.card.querySelectorAll('.js-add-cta')[0],
+      container: this.card.querySelectorAll('.js-add')[0],
+      states: {
+        isAdded: false
+      }
+    };
 
+  }
 
-    //   if (this.hasPanel) {
+  // hidden panel overlay thing
+  if (this.card.querySelectorAll('.js-panel')[0] && this.card.querySelectorAll('.js-more')[0]) {
 
-    //     this.panel.trigger.addEventListener('click', function(event) {
+    this.hasPanel = true;
 
-    //       _this.handlePanels('info');
+    // store panel element
+    this.panel = {
+      container: this.card.querySelectorAll('.js-panel')[0],
+      trigger: this.card.querySelectorAll('.js-more')[0],
+      triggerText: this.card.querySelectorAll('.js-panel-trigger-label')[0],
+      states: {
+        panelOpen: false
+      }
+    };
 
-    //     });
+  }
 
-    //   }
 
-    //   if (this.hasLoveCTA) {
+  if (this.card.dataset.cardBgUrl) {
 
-    //     this.love.trigger.addEventListener('click', function(event) {
+    this.hasBackgroundImage = true;
+    this.card.classList.add('trans-bg');
+    this.card.style.background = 'url(' + this.card.dataset.cardBgUrl + ')';
+    this.card.style.backgroundSize = 'cover';
 
-    //       _this.handlePanels('love');
+  }
 
-    //     });
 
-    //   }
+  // bind events to card elements
+  this.bindEvents();
 
+};
 
-    //   if (this.hasAddCTA) {
+Cards.prototype.bindEvents = function() {
 
-    //     this.add.trigger.addEventListener('click', function(event) {
+  var _this = this;
 
-    //       _this.handlePanels('add');
 
-    //     });
+  if (this.hasShareCTA) {
 
-    //   }
+    this.share.shareCTA.addEventListener('click', function(event) {
 
-    // };
+      _this.handlePanels('share');
 
-    // Cards.prototype.handlePanels = function(panel) {
+    });
 
-    //   switch (panel) {
-    //     case 'love':
+  }
 
-    //       this.love.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
-    //       this.card.classList.toggle('love-panel-active');
+  if (this.hasPanel) {
 
-    //       break;
-    //     case 'add':
+    this.panel.trigger.addEventListener('click', function(event) {
 
-    //       this.add.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
+      _this.handlePanels('info');
 
-    //       this.card.classList.toggle('add-panel-active');
+    });
 
-    //       break;
-    //     case 'info':
+  }
 
-    //       this.panel.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
+  if (this.hasLoveCTA) {
 
-    //       this.card.classList.toggle('is-active');
+    this.love.trigger.addEventListener('click', function(event) {
 
-    //       break;
-    //     case 'share':
+      _this.handlePanels('love');
 
-    //       this.share.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
+    });
 
-    //       this.card.classList.toggle('share-panel-active');
+  }
 
-    //       break;
-    //   }
 
-    // };
+  if (this.hasAddCTA) {
 
+    this.add.trigger.addEventListener('click', function(event) {
 
-    // Cards.prototype.showPanel = function(panel) {
+      _this.handlePanels('add');
 
-    //   switch (panel) {
-    //     case 'love':
+    });
 
-    //       break;
-    //     case 'add':
+  }
 
-    //       break;
-    //     case 'info':
+};
 
-    //       // set flag
-    //       this.panel.panelOpen = true;
+Cards.prototype.handlePanels = function(panel) {
 
-    //       // change text
-    //       this.panel.triggerText.innerText = 'Close';
+  switch (panel) {
+    case 'love':
 
-    //       // transform elements
-    //       this.card.cardContent.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
-    //       this.panel.container.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
+      this.love.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
-    //       break;
-    //     case 'share':
+      this.card.classList.toggle('love-panel-active');
 
-    //       this.share.panelOpen = true;
+      break;
+    case 'add':
 
-    //       break;
-    //   }
+      this.add.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
-    // }
+      this.card.classList.toggle('add-panel-active');
 
-    // Cards.prototype.hidePanel = function(panel) {
+      break;
+    case 'info':
 
-    //   switch (panel) {
-    //     case 'love':
+      this.panel.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
-    //       break;
-    //     case 'add':
+      this.card.classList.toggle('is-active');
 
-    //       break;
-    //     case 'info':
+      break;
+    case 'share':
 
-    //       // set flag
-    //       this.panel.panelOpen = false;
+      this.share.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
-    //       // change text
-    //       this.panel.triggerText.innerText = 'More info';
+      this.card.classList.toggle('share-panel-active');
 
-    //       // transform elements
-    //       this.card.cardContent.style.transform = 'translateY(0px)';
-    //       this.panel.container.style.transform = 'translateY(0px)';
+      break;
+  }
 
-    //       break;
-    //     case 'share':
+};
 
-    //       this.share.panelOpen = false;
 
-    //       break;
-    //   }
+Cards.prototype.showPanel = function(panel) {
 
-    // }
+  switch (panel) {
+    case 'love':
 
-    // return Cards;
-  // }());
+      break;
+    case 'add':
+
+      break;
+    case 'info':
+
+      // set flag
+      this.panel.panelOpen = true;
+
+      // change text
+      this.panel.triggerText.innerText = 'Close';
+
+      // transform elements
+      this.card.cardContent.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
+      this.panel.container.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
+
+      break;
+    case 'share':
+
+      this.share.panelOpen = true;
+
+      break;
+  }
+
+};
+
+Cards.prototype.hidePanel = function(panel) {
+
+  switch (panel) {
+    case 'love':
+
+      break;
+    case 'add':
+
+      break;
+    case 'info':
+
+      // set flag
+      this.panel.panelOpen = false;
+
+      // change text
+      this.panel.triggerText.innerText = 'More info';
+
+      // transform elements
+      this.card.cardContent.style.transform = 'translateY(0px)';
+      this.panel.container.style.transform = 'translateY(0px)';
+
+      break;
+    case 'share':
+
+      this.share.panelOpen = false;
+
+      break;
+  }
 
 };
