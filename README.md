@@ -1,2 +1,2 @@
-# gos-cards
+# GEL Cards
 
