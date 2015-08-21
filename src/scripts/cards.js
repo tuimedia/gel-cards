@@ -1,4 +1,8 @@
 'use strict';
+var extend = require('extend'),
+  gallery = require('./modules/gallery'),
+  poll = require('./modules/poll'),
+  video = require('./modules/video');
 
 var Cards = module.exports = function Cards(card) {
 
@@ -13,6 +17,8 @@ var Cards = module.exports = function Cards(card) {
   }
 
 };
+
+extend(Cards.prototype, gallery, poll, video);
 
 Cards.prototype.init = function(args) {
 
