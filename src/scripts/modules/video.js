@@ -26,7 +26,6 @@ module.exports = {
 
     };
 
-
     this.video = {
       player: this.card.querySelectorAll('video')[0],
       duration: this.card.querySelectorAll('.js-duration')[0],

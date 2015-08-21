@@ -86,52 +86,74 @@ module.exports = {
   },
   handleGallery: function(action) {
 
-    console.log('gallery')
     var _this = this;
 
     switch (action) {
       case 'open':
-        console.log('opening gallery')
+
+        this.card.classList.add('gallery-active');
+
         break;
       case 'prev':
-        if (this.gallery.isAutoplaying) {
-          stopAutoPlay();
-        }
+
+        if (this.gallery.isAutoplaying) stopAutoPlay();
+
         changeImage('prev', this.gallery.images);
+
         break;
       case 'next':
-        if (this.gallery.isAutoplaying) {
-          stopAutoPlay();
-        }
+
+        if (this.gallery.isAutoplaying) stopAutoPlay();
+
         changeImage('next', this.gallery.images);
+
         break;
       case 'play':
-        startAutoPlay();
+
+        if (!this.gallery.isAutoplaying) startAutoPlay();
+
         break;
       case 'pause':
-        if (this.isAutoplaying) {
-          stopAutoPlay();
-        }
+
+        if (this.gallery.isAutoplaying) stopAutoPlay();
+
         break;
       case 'close':
+
+        if (this.gallery.isAutoplaying) stopAutoPlay();
+
+        this.card.classList.remove('gallery-active');
+
         break;
     }
 
-    var autoPlay;
+    _this.autoPlay;
 
     function startAutoPlay() {
+      console.log('starting')
+
+      _this.gallery.play.classList.add('is-hidden');
+      _this.gallery.pause.classList.remove('is-hidden');
 
       _this.gallery.isAutoplaying = true;
 
-      autoPlay = setInterval(function() {
+      _this.autoPlay = setInterval(function() {
         changeImage('next', _this.gallery.images);
       }, 3000);
 
     }
 
     function stopAutoPlay() {
-      clearInterval(autoPlay);
-      return;
+
+      _this.gallery.play.classList.remove('is-hidden');
+      _this.gallery.pause.classList.add('is-hidden');
+
+      _this.gallery.isAutoplaying = false;
+
+      clearInterval(_this.autoPlay);
+
+      console.log('stopping', _this.autoPlay)
+
     }
 
     function changeImage(direction, images) {

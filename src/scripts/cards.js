@@ -22,8 +22,6 @@ extend(Cards.prototype, gallery, poll, video);
 
 Cards.prototype.init = function(args) {
 
-  console.log('new card')
-
   var _this = this;
 
   // store attributes
