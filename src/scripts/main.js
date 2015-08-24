@@ -1,7 +1,8 @@
 'use strict';
 
-var Cards = require('./cards'),
-  cards = [],
+var Cards = require('./cards');
+
+var cards = [],
   allCards,
   html = document.querySelectorAll('html');
 

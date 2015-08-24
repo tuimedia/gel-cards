@@ -130,7 +130,6 @@ module.exports = {
     _this.autoPlay;
 
     function startAutoPlay() {
-      console.log('starting')
 
       _this.gallery.play.classList.add('is-hidden');
       _this.gallery.pause.classList.remove('is-hidden');
@@ -151,8 +150,6 @@ module.exports = {
       _this.gallery.isAutoplaying = false;
 
       clearInterval(_this.autoPlay);
-
-      console.log('stopping', _this.autoPlay)
 
     }
 
@@ -194,6 +191,4 @@ module.exports = {
 
   }
 
-}
-
-// }());
+};

@@ -39,6 +39,13 @@
       "mocha": true
     },
     "rules": {
+      "no-unused-vars": 0,
+      "no-underscore-dangle": 0,
+      "no-use-before-define": 0,
+      "no-extra-semi": 0,
+      "curly": 0,
+      "no-unused-expressions": 0,
+      "eol-last": 0,
       "quotes": [
         2,
         "single"
