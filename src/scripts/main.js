@@ -3,12 +3,7 @@
 var Cards = require('./cards');
 
 var cards = [],
-  allCards,
-  html = document.querySelectorAll('html');
-
-html[0].classList.remove('no-js');
-
-allCards = document.querySelectorAll('.js-card');
+  allCards = document.querySelectorAll('.js-card');
 
 for (var i = 0; i < allCards.length; i++) {
   try {

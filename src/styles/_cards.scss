@@ -1,8 +1,13 @@
+
 $card-toolbar-height: 50px;
 $control-ui-bg: rgba(0,0,0,0.7);
 $share-panel-bg: #fff;
 $panel-transition: all 200ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
 $card-toolbar-border: 1px solid #ccc;
+
+@import "cards.av-player";
+@import "cards.share-panel";
+@import "cards.gallery";
 
 .card {
     background: #fff;
@@ -284,7 +289,7 @@ $card-toolbar-border: 1px solid #ccc;
                     padding-left: 16px;
                     display: none;
                 }
-                @include mq(map-get($break, l)) {
+                @include media-query(map-get($break, l)) {
                     span {
                         display: block;
                     }
