@@ -1,4 +1,4 @@
-// Generated on 2015-08-20 using
+// Generated on 2015-09-01 using
 // generator-webapp 1.0.1
 'use strict';
 
@@ -20,8 +20,7 @@ module.exports = function(grunt) {
 
   // Configurable paths
   var config = {
-    src: 'src',
-    demo: 'demo',
+    app: 'src',
     dist: 'dist'
   };
 
@@ -38,7 +37,7 @@ module.exports = function(grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= config.src %>/scripts/{,*/}*.js'],
+        files: ['<%= config.app %>/scripts/{,*/}*.js'],
         tasks: ['browserify']
       },
       jstest: {
@@ -49,17 +48,17 @@ module.exports = function(grunt) {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['<%= config.src %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['sass:server', 'postcss']
       },
       styles: {
-        files: ['<%= config.src %>/styles/{,*/}*.css'],
+        files: ['<%= config.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'postcss']
       }
     },
     browserify: {
       client: {
-        src: ['<%= config.src %>/**/*.js'],
+        src: ['<%= config.app %>/**/*.js'],
         dest: '.tmp/scripts/main.js'
       }
     },
@@ -71,14 +70,14 @@ module.exports = function(grunt) {
       livereload: {
         options: {
           files: [
-            '<%= config.src %>/{,*/}*.html',
+            '<%= config.app %>/{,*/}*.html',
             '.tmp/styles/{,*/}*.css',
-            '<%= config.src %>/images/{,*/}*',
-            '.tmp/scripts/main.js'
+            '<%= config.app %>/images/{,*/}*',
+            '<%= config.app %>/scripts/{,*/}*.js'
           ],
           port: 9000,
           server: {
-            baseDir: ['.tmp', config.src],
+            baseDir: ['.tmp', config.app],
             routes: {
               '/bower_components': './bower_components'
             }
@@ -92,36 +91,28 @@ module.exports = function(grunt) {
           logLevel: 'silent',
           host: 'localhost',
           server: {
-            baseDir: ['.tmp', './test', config.src],
+            baseDir: ['.tmp', './test', config.app],
             routes: {
               '/bower_components': './bower_components'
             }
           }
         }
       },
-      demo: {
+      dist: {
         options: {
           background: false,
-          server: '<%= config.demo %>'
+          server: '<%= config.dist %>'
         }
       }
     },
 
     // Empties folders to start fresh
     clean: {
-      demo: {
-        files: [{
-          dot: true,
-          src: [
-            '<%= config.demo %>/*',
-            '!<%= config.demo %>/.git*'
-          ]
-        }]
-      },
       dist: {
         files: [{
           dot: true,
           src: [
+            '.tmp',
             '<%= config.dist %>/*',
             '!<%= config.dist %>/.git*'
           ]
@@ -134,8 +125,8 @@ module.exports = function(grunt) {
     eslint: {
       target: [
         'Gruntfile.js',
-        '<%= config.src %>/scripts/{,*/}*.js',
-        '!<%= config.src %>/scripts/vendor/*',
+        '<%= config.app %>/scripts/{,*/}*.js',
+        '!<%= config.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]
     },
@@ -158,10 +149,10 @@ module.exports = function(grunt) {
         sourceMapContents: true,
         includePaths: ['.']
       },
-      demo: {
+      dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.src %>/styles',
+          cwd: '<%= config.app %>/styles',
           src: ['*.{scss,sass}'],
           dest: '.tmp/styles',
           ext: '.css'
@@ -170,7 +161,7 @@ module.exports = function(grunt) {
       server: {
         files: [{
           expand: true,
-          cwd: '<%= config.src %>/styles',
+          cwd: '<%= config.app %>/styles',
           src: ['*.{scss,sass}'],
           dest: '.tmp/styles',
           ext: '.css'
@@ -188,7 +179,7 @@ module.exports = function(grunt) {
           })
         ]
       },
-      demo: {
+      dist: {
         files: [{
           expand: true,
           cwd: '.tmp/styles/',
@@ -201,24 +192,24 @@ module.exports = function(grunt) {
     // Automatically inject Bower components into the HTML file
     wiredep: {
       app: {
-        src: ['<%= config.src %>/index.html'],
+        src: ['<%= config.app %>/index.html'],
         ignorePath: /^(\.\.\/)*\.\./
       },
       sass: {
-        src: ['<%= config.src %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /^(\.\.\/)+/
       }
     },
 
     // Renames files for browser caching purposes
     filerev: {
-      demo: {
+      dist: {
         src: [
-          '<%= config.demo %>/scripts/{,*/}*.js',
-          '<%= config.demo %>/styles/{,*/}*.css',
-          '<%= config.demo %>/images/{,*/}*.*',
-          '<%= config.demo %>/styles/fonts/{,*/}*.*',
-          '<%= config.demo %>/*.{ico,png}'
+          '<%= config.dist %>/scripts/{,*/}*.js',
+          '<%= config.dist %>/styles/{,*/}*.css',
+          '<%= config.dist %>/images/{,*/}*.*',
+          '<%= config.dist %>/styles/fonts/{,*/}*.*',
+          '<%= config.dist %>/*.{ico,png}'
         ]
       }
     },
@@ -228,49 +219,49 @@ module.exports = function(grunt) {
     // additional tasks can operate on them
     useminPrepare: {
       options: {
-        dest: '<%= config.demo %>'
+        dest: '<%= config.dist %>'
       },
-      html: '<%= config.src %>/index.html'
+      html: '<%= config.app %>/index.html'
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       options: {
         assetsDirs: [
-          '<%= config.demo %>',
-          '<%= config.demo %>/images',
-          '<%= config.demo %>/styles'
+          '<%= config.dist %>',
+          '<%= config.dist %>/images',
+          '<%= config.dist %>/styles'
         ]
       },
-      html: ['<%= config.demo %>/{,*/}*.html'],
-      css: ['<%= config.demo %>/styles/{,*/}*.css']
+      html: ['<%= config.dist %>/{,*/}*.html'],
+      css: ['<%= config.dist %>/styles/{,*/}*.css']
     },
 
-    // The following *-min tasks produce minified files in the demo folder
+    // The following *-min tasks produce minified files in the dist folder
     imagemin: {
-      demo: {
+      dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.src %>/images',
+          cwd: '<%= config.app %>/images',
           src: '{,*/}*.{gif,jpeg,jpg,png}',
-          dest: '<%= config.demo %>/images'
+          dest: '<%= config.dist %>/images'
         }]
       }
     },
 
     svgmin: {
-      demo: {
+      dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.src %>/images',
+          cwd: '<%= config.app %>/images',
           src: '{,*/}*.svg',
-          dest: '<%= config.demo %>/images'
+          dest: '<%= config.dist %>/images'
         }]
       }
     },
 
     htmlmin: {
-      demo: {
+      dist: {
         options: {
           collapseBooleanAttributes: true,
           collapseWhitespace: true,
@@ -285,22 +276,47 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= config.demo %>',
+          cwd: '<%= config.dist %>',
           src: '{,*/}*.html',
-          dest: '<%= config.demo %>'
+          dest: '<%= config.dist %>'
         }]
       }
     },
 
+    // By default, your `index.html`'s <!-- Usemin block --> will take care
+    // of minification. These next options are pre-configured if you do not
+    // wish to use the Usemin blocks.
+    // cssmin: {
+    //   dist: {
+    //     files: {
+    //       '<%= config.dist %>/styles/main.css': [
+    //         '.tmp/styles/{,*/}*.css',
+    //         '<%= config.app %>/styles/{,*/}*.css'
+    //       ]
+    //     }
+    //   }
+    // },
+    // uglify: {
+    //   dist: {
+    //     files: {
+    //       '<%= config.dist %>/scripts/scripts.js': [
+    //         '<%= config.dist %>/scripts/scripts.js'
+    //       ]
+    //     }
+    //   }
+    // },
+    // concat: {
+    //   dist: {}
+    // },
 
     // Copies remaining files to places other tasks can use
     copy: {
-      demo: {
+      dist: {
         files: [{
           expand: true,
           dot: true,
-          cwd: '<%= config.src %>',
-          dest: '<%= config.demo %>',
+          cwd: '<%= config.app %>',
+          dest: '<%= config.dist %>',
           src: [
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
@@ -314,24 +330,9 @@ module.exports = function(grunt) {
           expand: true,
           dot: true,
           cwd: '.tmp',
-          dest: '<%= config.demo %>',
-          src: [
-            'scripts/main.js'
-          ]
-        }]
-      },
-      dist: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= config.src %>',
           dest: '<%= config.dist %>',
           src: [
-            'templates/{,*/}*.html',
-            'styles/{,*/}*.scss',
-            'scripts/{,*/}*.js',
-            '!styles/main.scss',
-            '!scripts/main.js'
+            'scripts/main.js'
           ]
         }]
       }
@@ -343,7 +344,7 @@ module.exports = function(grunt) {
         'sass:server'
       ],
       test: [],
-      demo: [
+      dist: [
         'sass',
         'imagemin',
         'svgmin'
@@ -354,8 +355,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('serve', 'start the server and preview your app', function(target) {
 
-    if (target === 'demo') {
-      return grunt.task.run(['build', 'browserSync:demo']);
+    if (target === 'dist') {
+      return grunt.task.run(['build', 'browserSync:dist']);
     }
 
     grunt.task.run([
@@ -390,15 +391,15 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('build', [
-    'clean:demo',
     'clean:dist',
     'wiredep',
     'useminPrepare',
-    'concurrent:demo',
+    'concurrent:dist',
     'postcss',
+    'browserify',
+    'concat',
     'cssmin',
     'uglify',
-    'copy:demo',
     'copy:dist',
     'copy:demoJs',
     'filerev',

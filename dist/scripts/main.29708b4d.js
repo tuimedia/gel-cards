@@ -369,14 +369,10 @@ Cards.prototype.hidePanel = function(panel) {
 },{"./modules/gallery":5,"./modules/poll":6,"./modules/video":7,"extend":1}],3:[function(require,module,exports){
 'use strict';
 
-var Cards = require('./cards'),
-  cards = [],
-  allCards,
-  html = document.querySelectorAll('html');
+var Cards = require('./cards');
 
-html[0].classList.remove('no-js');
-
-allCards = document.querySelectorAll('.js-card');
+var cards = [],
+  allCards = document.querySelectorAll('.js-card');
 
 for (var i = 0; i < allCards.length; i++) {
   try {
@@ -387,6 +383,7 @@ for (var i = 0; i < allCards.length; i++) {
     }
   }
 }
+
 },{"./cards":2}],4:[function(require,module,exports){
 
 },{}],5:[function(require,module,exports){
@@ -522,7 +519,6 @@ module.exports = {
     _this.autoPlay;
 
     function startAutoPlay() {
-      console.log('starting')
 
       _this.gallery.play.classList.add('is-hidden');
       _this.gallery.pause.classList.remove('is-hidden');
@@ -543,8 +539,6 @@ module.exports = {
       _this.gallery.isAutoplaying = false;
 
       clearInterval(_this.autoPlay);
-
-      console.log('stopping', _this.autoPlay)
 
     }
 
@@ -586,9 +580,7 @@ module.exports = {
 
   }
 
-}
-
-// }());
+};
 },{}],6:[function(require,module,exports){
 'use strict';
 
@@ -622,7 +614,7 @@ module.exports = {
 
 	}
 
-}
+};
 },{}],7:[function(require,module,exports){
 'use strict';
 var allCards = document.querySelectorAll('.js-card');
@@ -843,7 +835,7 @@ module.exports = {
     }
 
   }
-}
+};
 },{}],8:[function(require,module,exports){
 // (function() {
 
