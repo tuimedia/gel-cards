@@ -2,4 +2,13 @@
 @import "bower_components/gos-core/src/styles/main.scss";
 // endbower
 
-@import "cards";
+
+@import "cards.vars";         // include vars first
+
+@import "cards";              // core cards
+@import "cards.av-player";    // av player module
+@import "cards.share-panel";  // share panel module
+@import "cards.gallery";      // gallery module
+@import "cards.quote";        // gallery module
+@import "cards.fact";         // gallery module
+@import "cards.poll";         // gallery module

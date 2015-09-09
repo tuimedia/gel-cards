@@ -1,0 +1,67 @@
+.card {
+
+  &__poll-options {
+    flex-basis: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__poll-option {
+    flex-basis: 100%;
+    display: flex;
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+    height: 48px;
+    background: #fff;
+    margin-right: 16px;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    &:last-child {
+      margin-left: 16px;
+      margin-right: 0;
+    }
+    span {
+      color: map-get($brand-colors, iplayer);
+      align-self: center;
+    }
+  }
+
+}
+
+// overrides to default card styles
+
+.card--poll {
+
+  .card__content {
+    background: map-get($brand-colors, iplayer);
+    align-items: flex-start;
+  }
+
+  .card__headline {
+    h3 {
+      color: #fff;
+      text-align: center;
+    }
+  }
+
+  .card__toolbar {
+    border-color: #fff;
+    background: map-get($brand-colors, iplayer);
+    ul li {
+      border-color: #fff;
+    }
+  }
+
+  .card__more-cta,
+  .icon {
+    color: #fff;
+  }
+
+}

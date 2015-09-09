@@ -1,0 +1,28 @@
+.card {
+
+  &__playlister {
+    flex-basis: 100%;
+    display: flex;
+    margin-top: 8px;
+    margin-bottom: 24px;
+  }
+
+    &__playlister-cta {
+      margin-right: 16px;
+    }
+
+    &__playlister-details {
+      flex-grow: 1;
+      h4 {
+        margin: 0;
+      }
+      p {
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+        color: map-get($brand-colors, iplayer);
+      }
+    }
+
+}
