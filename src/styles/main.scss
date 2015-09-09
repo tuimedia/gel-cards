@@ -6,9 +6,10 @@
 @import "cards.vars";         // include vars first
 
 @import "cards";              // core cards
-@import "cards.av-player";    // av player module
-@import "cards.share-panel";  // share panel module
-@import "cards.gallery";      // gallery module
-@import "cards.quote";        // gallery module
-@import "cards.fact";         // gallery module
-@import "cards.poll";         // gallery module
+@import "modules/cards.av-player";    // AV player module
+@import "modules/cards.share-panel";  // share panel module
+@import "modules/cards.gallery";      // gallery module
+@import "modules/cards.quote";        // gallery module
+@import "modules/cards.fact";         // gallery module
+@import "modules/cards.poll";         // gallery module
+@import "modules/cards.playlister";         // gallery module

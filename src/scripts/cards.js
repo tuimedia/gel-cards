@@ -32,7 +32,6 @@ Cards.prototype.init = function(args) {
   this.card.cardContent = this.card.querySelectorAll('.card__content')[0];
   this.card.cardToolbar = this.card.querySelectorAll('.card__toolbar')[0];
 
-
   try {
     this.initPoll();
   } catch (e) {
