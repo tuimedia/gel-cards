@@ -1,9 +1,8 @@
-
 <div class="card card--gallery js-card">
   <div class="card__media js-gallery-cta"><img src="http://clients.tuimedia.com/bbc-assets/proms.jpg"/>
-    <div class="card__cta"><i class="icon icon--gallery"></i></div>
   </div>
   <div class="card__content">
+    <div class="card__cta"><i class="icon icon--gallery"></i></div>
     <div class="card__headline">
       <h3>BBC Proms</h3>
     </div>
@@ -37,17 +36,20 @@
     </ul>
   </div>
   <div class="card__gallery js-gallery">
-    <div class="card__gallery-images">
-      <div class="card__gallery-image js-gallery-img"><img src="gallery-image-1-url"/></div>
-      <div class="card__gallery-image js-gallery-img"><img src="gallery-image-1-url"/></div>
-      <div class="card__gallery-image js-gallery-img"><img src="gallery-image-1-url"/></div>
-    </div>
-    <div class="card__gallery-controls">
-      <div class="card__gallery-prev js-gallery-prev"><i class="icon icon--prev"></i></div>
-      <div class="card__gallery-play js-gallery-play"><i class="icon icon--play"></i></div>
-      <div class="card__gallery-pause js-gallery-pause"><i class="icon icon--pause"></i></div>
-      <div class="card__gallery-prev js-gallery-next"><i class="icon icon--next"></i></div>
+    <div class="card__gallery-container">
+
+      <div class="card__gallery-images">
+        <img class="card__gallery-image js-gallery-img is-active" src="http://clients.tuimedia.com/bbc-assets/proms.jpg"/>
+        <img class="card__gallery-image js-gallery-img" src="http://clients.tuimedia.com/bbc-assets/boat.gif"/>
+        <img class="card__gallery-image js-gallery-img" src="http://clients.tuimedia.com/bbc-assets/jungle.jpg"/>
+      </div>
       <div class="card__gallery-close js-gallery-close"><i class="icon icon--close"></i></div>
+      <div class="card__gallery-controls">
+        <div class="card__gallery-prev js-gallery-prev"><i class="icon icon--prev"></i></div>
+        <div class="card__gallery-play js-gallery-play"><i class="icon icon--play"></i></div>
+        <div class="card__gallery-pause js-gallery-pause is-hidden"><i class="icon icon--pause"></i></div>
+        <div class="card__gallery-prev js-gallery-next"><i class="icon icon--next"></i></div>
+      </div>
     </div>
   </div>
 </div>
