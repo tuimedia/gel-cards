@@ -1,0 +1,14 @@
+[{
+  "product": "core",
+  "template":"video",
+  "content": {
+    "type": "video",
+    "headline": "Inside No. 9",
+    "sub-headline": "Interview: Reece Shearsmith & Steven Pemberton",
+    "attribution": {
+      "class": "bbc-two",
+      "label": "BBC Two"
+    },
+    "info": "Donec eu nulla porta, pretium mi vitae, congue leo. Quisque id metus odio. Donec fermentum nibh mi, vitae consectetur orci mattis et. Sed dolor dolor, vestibulum vel nisl eu, gravida eleifend lorem."
+  }
+}]

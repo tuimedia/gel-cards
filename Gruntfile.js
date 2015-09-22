@@ -367,6 +367,7 @@ module.exports = function(grunt) {
       'postcss',
       'browserSync:livereload',
       'watch'
+
     ]);
   });
 

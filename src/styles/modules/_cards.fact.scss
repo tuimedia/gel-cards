@@ -1,22 +1,18 @@
-.card {
+.card__fact-hashtag {
+    flex-basis: 100%;
+    color: map-get($brand-colors, iplayer);
+    font-weight: 500;
+    font-size: 2.4rem;
+    margin-bottom: 8px;
+}
 
-    &__fact-hashtag {
-        flex-basis: 100%;
-        color: map-get($brand-colors, iplayer);
+.card__fact {
+    flex-basis: 100%;
+    color: #fff;
+    h3 {
         font-weight: 500;
-        font-size: 2.4rem;
-        margin-bottom: 8px;
+        @include font-size(24px);
     }
-
-    &__fact {
-        flex-basis: 100%;
-        color: #fff;
-        h3 {
-            font-weight: 500;
-            @include font-size(24px);
-        }
-    }
-
 }
 
 
@@ -53,4 +49,5 @@
       color: #fff;
     }
   }
+
 }
