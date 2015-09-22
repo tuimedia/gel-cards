@@ -1,19 +1,8 @@
+$gel-product: bbc-sport;
+
 // bower:scss
 @import "bower_components/gos-core/src/styles/main.scss";
 // endbower
 
 
-// vars
-@import "cards.vars";         // include vars first
-
-// core
-@import "cards";              // core cards
-
-// optional modules
-@import "modules/cards.av-player";    // AV player module
-@import "modules/cards.share-panel";  // share panel module
-@import "modules/cards.gallery";      // gallery module
-@import "modules/cards.quote";        // quote module
-@import "modules/cards.fact";         // fact module
-@import "modules/cards.poll";         // poll module
-@import "modules/cards.playlister";   // playlister module
+@import "cards";

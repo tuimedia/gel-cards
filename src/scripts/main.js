@@ -32,12 +32,14 @@ $.when(
 function templateStuff(data) {
 
   for (var i = 0; i < data.length; i++) {
-    console.log(data[i])
+
     var source = templates[data[i].template].html();
     var template = Handlebars.compile(source);
     var context = data[i];
     var html = template(context);
+
     compiledTemplates.push(html);
+
   }
 
   renderComponents();

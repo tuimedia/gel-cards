@@ -1,312 +1,52 @@
 
+// import header variable defaults
+// ---------------------------------------------------- //
+
+@import 'cards.vars';
+
+// ----- //
 
 
-.card {
-  background: #fff;
-  margin-bottom: 16px;
-  box-shadow: 0px 6px 0px -4px #bbb;
-  position: relative;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  flex-direction: column;
-  width: 100%;
+// override defaults depending on product
+// ---------------------------------------------------- //
 
-
-  // TODO: too general
-
-  .icon {
-    width: 48px;
-    height: 48px;
-  }
-
-  // transparent bg card
-
-  &.trans-bg {
-    .card__content {
-      background: transparent;
-    }
-  }
-
-  &.is-active {
-    .card__content {
-      top: 0;
-    }
-    .card__more-cta .icon {
-      &--arrow-up {
-        display: none;
-      }
-      &--close {
-        display: flex;
-      }
-    }
-  }
-
+@if $gel-product == bbc-sport {
+  @import 'sport/cards.sport.vars';
 }
 
-// generic media wrapper (can contain video, audio or img)
-
-.card__media {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: $panel-transition;
-  img,
-  video,
-  audio {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  &:hover {
-    .card__cta {
-      background: #fff;
-      color: #000;
-    }
-  }
+@if $gel-product == bbc-news {
+  @import 'news/cards.news.vars';
 }
 
+// ----- //
 
-// media CTA (GEL icon btn)
 
-.card__cta {
-  position: absolute;
-  top: -48px;
-  left: 0;
-  width: 48px;
-  height: 48px;
-  background: $control-ui-bg;
-  cursor: pointer;
-  color: #fff;
-  .is-playing & {
-    display: none;
-  }
+// import header default styles
+// ---------------------------------------------------- //
+
+@import 'cards.core';            // core layout for header modules
+@import "modules/cards.av-player";    // AV player module
+@import "modules/cards.share-panel";  // share panel module
+@import "modules/cards.gallery";      // gallery module
+@import "modules/cards.quote";        // quote module
+@import "modules/cards.fact";         // fact module
+@import "modules/cards.poll";         // poll module
+@import "modules/cards.playlister";   // playlister module
+
+// ----- //
+
+
+// override defaults depending on product
+// ---------------------------------------------------- //
+
+@if $gel-product == bbc-sport {
+  @import 'sport/cards.sport';
 }
 
-
-// generic content wrapper
-
-.card__content {
-  padding: 16px;
-  flex-grow: 1;
-  align-self: stretch;
-  background: #fff;
-  position: relative;
-  z-index: 3;
-  transition: $panel-transition;
-  display: flex;
-  flex-wrap: wrap;
-  ul li, p {
-    color: #565656;
-  }
-  a {
-    color: map-get($brand-colors, iplayer);
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+@if $gel-product == bbc-news {
+  @import 'news/cards.news';
 }
 
+// ----- //
 
-// card headline
-
-.card__headline {
-  h2, h3, h4, h5 {
-    margin: 0;
-    font-weight: 600;
-    @include font-size(20px);
-  }
-  margin-bottom: 8px;
-  width: 100%;
-}
-
-// card sub-headline
-
-.card__sub-headline {
-  color: #565656;
-  margin-bottom: 24px;
-  width: 100%;
-  p {
-    font-weight: 500;
-    margin: 0;
-  }
-}
-
-
-// card product attribution (e.g. BBC News, BBC Sport)
-
-.card__attribution {
-  color: #565656;
-  display: inline-block;
-  text-transform: uppercase;
-  padding: 0;
-  // transition: $panel-transition;
-  align-self: flex-end;
-  position: relative;
-  padding-left: 12px;
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background: #ccc;
-    width: 4px;
-  }
-  &.bbc-one:before {
-    background: map-get($brand-colors, bbc-one);
-  }
-  &.bbc-two:before {
-    background: map-get($brand-colors, bbc-two);
-  }
-  &.bbc-three:before {
-    background: map-get($brand-colors, bbc-three);
-  }
-  &.bbc-four:before {
-    background: map-get($brand-colors, bbc-four);
-  }
-  &.bbc-news:before {
-    background: map-get($brand-colors, bbc-news);
-  }
-  &.bbc-radio3:before {
-    background: map-get($brand-colors, bbc-radio3);
-  }
-}
-
-
-// contributor mugshot, name and title
-
-.card__contributor {
-  display: flex;
-}
-
-.card__contributor-img {
-  border-radius: 50%;
-  overflow: hidden;
-  align-self: flex-start;
-  width: 60px;
-  margin-right: 16px;
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-}
-
-&__contributor-details {
-  h4, p {
-    margin: 0;
-  }
-}
-
-.card__duration {
-  color: #565656;
-  display: flex;
-  font-weight: 200;
-  align-self: flex-end;
-  position: relative;
-  .icon {
-    width: auto;
-    height: auto;
-    justify-content: flex-end;
-    margin-right: 8px;
-  }
-}
-
-.card__panel {
-  position: absolute;
-  right: 0;
-  left: 0;
-  background: #fff;
-  transition: $panel-transition;
-  z-index: 2;
-  height: 100%;
-  padding: 0 16px 16px 16px;
-  ul li, p {
-    color: #565656;
-  }
-}
-
-.card__share-panel {
-  background: $share-panel-bg;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: $card-toolbar-height;
-  left: 0;
-  z-index: 10;
-  padding: 16px;
-}
-
-.card__toolbar {
-  z-index: 3;
-  color: #565656;
-  border-top: $card-toolbar-border;
-  height: $card-toolbar-height;
-  background: #fff;
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.card__more-cta {
-  cursor: pointer;
-  position: relative;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  &:hover {
-    background: lighten(#ccc, 15%);
-  }
-  .icon {
-    &--arrow-up {
-
-    }
-    &--close {
-      display: none;
-    }
-  }
-}
-
-.card__social-icons {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  height: 100%;
-  display: flex;
-  li {
-    height: 100%;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border-left: $card-toolbar-border;
-    &:hover {
-      background: lighten(#ccc, 15%);
-    }
-    span {
-      padding-left: 16px;
-      display: none;
-    }
-    @include media-query(map-get($break, l)) {
-      span {
-        display: block;
-      }
-    }
-  }
-}
-
-.overlay-bg {
-  background: rgba(255, 255, 255, 0.9);
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 9;
-  display: none;
-}
 
