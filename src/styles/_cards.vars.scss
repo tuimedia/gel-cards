@@ -1,19 +1,19 @@
 
-$card-toolbar-height: 50px!default;
-$control-ui-bg: rgba(0,0,0,0.7)!default;
-$share-panel-bg: #fff!default;
-$panel-transition: all 200ms cubic-bezier(0.420, 0.000, 0.580, 1.000)!default;
-$card-toolbar-border: 1px solid #ccc!default;
-
-
 $card-theme: (
   bg: #ffffff,
+  content-bg: #ffffff,
   color: #565656,
   box-shadow: 0px 6px 0px -4px #bbb,
+  toolbar-height: 48px,
+  toolbar-bg: #ffffff,
+  toolbar-border: 1px solid #ccc,
   icon-w: 48px,
   icon-h: 48px,
   cta-bg: #ffffff,
   cta-color: #ffffff,
   cta-hover-bg: #ffffff,
-  cta-hover-color: #000000
+  cta-hover-color: #000000,
+  share-panel-bg: #ffffff,
+  share-panel-transition: all 200ms cubic-bezier(0.420, 0.000, 0.580, 1.000),
+  control-ui-bg: rgba(0,0,0,0.7),
 ) !default;

@@ -48,13 +48,18 @@
 
 }
 
+
+.card__inner {
+  position: relative;
+  overflow: hidden;
+}
 // generic media wrapper (can contain video, audio or img)
 
 .card__media {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: $panel-transition;
+  transition: map-get($card-theme, share-panel-transition);
   img,
   video,
   audio {
@@ -79,7 +84,7 @@
   left: 0;
   width: 48px;
   height: 48px;
-  background: $control-ui-bg;
+  background: map-get($card-theme, control-ui-bg);
   cursor: pointer;
   color: #fff;
   .is-playing & {
@@ -94,10 +99,10 @@
   padding: 16px;
   flex-grow: 1;
   align-self: stretch;
-  background: map-get($card-theme, bg);
+  background: map-get($card-theme, content-bg);
   position: relative;
   z-index: 3;
-  transition: $panel-transition;
+  transition: map-get($card-theme, share-panel-transition);
   display: flex;
   flex-wrap: wrap;
   ul li, p {
@@ -223,7 +228,7 @@
   right: 0;
   left: 0;
   background: map-get($card-theme, bg);
-  transition: $panel-transition;
+  transition: map-get($card-theme, share-panel-transition);
   z-index: 2;
   height: 100%;
   padding: 0 16px 16px 16px;
@@ -233,11 +238,11 @@
 }
 
 .card__share-panel {
-  background: $share-panel-bg;
+  background: map-get($card-theme, share-panel-bg);
   position: absolute;
   top: 0;
   right: 0;
-  bottom: $card-toolbar-height;
+  bottom: map-get($card-theme, toolbar-height);
   left: 0;
   z-index: 10;
   padding: 16px;
@@ -246,9 +251,9 @@
 .card__toolbar {
   z-index: 3;
   color: map-get($card-theme, color);
-  border-top: $card-toolbar-border;
-  height: $card-toolbar-height;
-  background: #fff;
+  border-top: map-get($card-theme, toolbar-border);
+  height: map-get($card-theme, toolbar-height);
+  background: map-get($card-theme, toolbar-bg);
   position: relative;
   display: flex;
   justify-content: flex-end;
@@ -285,7 +290,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    border-left: $card-toolbar-border;
+    border-left: map-get($card-theme, toolbar-border);
     &:hover {
       background: lighten(#ccc, 15%);
     }

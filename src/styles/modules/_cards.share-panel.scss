@@ -1,9 +1,9 @@
 .share-panel {
-    background: $share-panel-bg;
+    background: map-get($card-theme, share-panel-bg);
     position: absolute;
     top: 0;
     right: 0;
-    bottom: $card-toolbar-height;
+    bottom: map-get($card-theme, toolbar-height);
     left: 0;
     z-index: 10;
     padding: 16px;

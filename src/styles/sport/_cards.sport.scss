@@ -1,13 +1,12 @@
 
 
 .card--sport {
-  .card__panel,
+  .card__sub-headline,
   .card__duration,
   .card__attribution {
     display: none;
   }
   overflow: visible;
-  // weird angled box shadow
   box-shadow: none;
   &:after {
     position: absolute;
@@ -19,5 +18,17 @@
     background: #bbb;
     transform: rotate(2deg);
     transform-origin: 0 100%;
+  }
+  .card__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: map-get($card-theme, toolbar-height);
+    left: 0;
+  }
+
+  .card__headline {
+    color: red;
+    font-family: fs-clerkenwell-bold, sans-serif;
   }
 }
