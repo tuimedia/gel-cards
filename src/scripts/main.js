@@ -1,4 +1,5 @@
 'use strict';
+var extend = require('extend');
 
 var Cards = require('./cards');
 
@@ -7,6 +8,8 @@ var cards = [];
 var templates = {};
 var compiledTemplates = [];
 var $grid = $('.flexbox');
+
+var cardsSport = require('./modules/cards-sport');
 
 
 // get data based on query string param
@@ -24,6 +27,12 @@ function getParameterByName(name) {
 
 var dataID = getParameterByName('product') || 'core';
 var allTemplates = [];
+
+switch (dataID) {
+  case 'sport':
+    extend(Cards.prototype, cardsSport);
+    break;
+}
 
 $.getJSON('../data/cards--' + dataID + '.json', function(result) {
 
@@ -69,9 +78,14 @@ function renderComponent(tpl) {
   var allCards = document.querySelectorAll('.js-card');
 
   for (var i = 0; i < allCards.length; i++) {
-
+    var args = {
+      card: allCards[i],
+      modules: {
+        sport: true
+      }
+    }
     try {
-      cards[i] = new Cards(allCards[i]);
+      cards[i] = new Cards(args);
     } catch (e) {
       if (typeof console !== 'undefined') {
         console.error(e.stack);

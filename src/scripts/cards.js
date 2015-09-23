@@ -3,15 +3,18 @@ var extend = require('extend'),
   gallery = require('./modules/gallery'),
   poll = require('./modules/poll'),
   video = require('./modules/video'),
-  cardsSport = require('./modules/cards-sport');
+  cardsSport = require('./modules/cards-sport'),
+  modules;
 
-var Cards = module.exports = function Cards(card) {
+var Cards = module.exports = function Cards(args) {
 
   if (!(this instanceof Cards)) {
-    return new Cards(card);
+    return new Cards(args);
   }
 
-  this.card = card;
+  modules = args.modules;
+
+  this.card = args.card;
   if (this.card) {
     this.init();
   }
@@ -279,5 +282,3 @@ Cards.prototype.hidePanel = function(panel) {
   }
 
 };
-
-extend(Cards.prototype, cardsSport);
