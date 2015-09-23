@@ -1,5 +1,5 @@
 [{
-  "product": "core",
+  "product": "sport",
   "template": "video",
   "content": {
     "headline": "Inside No. 9",
@@ -10,37 +10,6 @@
     "attribution": {
       "class": "bbc-two",
       "label": "BBC Two"
-    }
-  }
-}, {
-  "product": "core",
-  "template": "audio",
-  "content": {
-    "headline": "Radio 1 Live Lounge - Jungle",
-    "sub-headline": "Interview: Reece Shearsmith & Steven Pemberton",
-    "info": "Donec eu nulla porta, pretium mi vitae, congue leo. Quisque id metus odio. Donec fermentum nibh mi, vitae consectetur orci mattis et. Sed dolor dolor, vestibulum vel nisl eu, gravida eleifend lorem.",
-    "src": "http://clients.tuimedia.com/bbc-assets/jungle.mp3",
-    "poster": "http://clients.tuimedia.com/bbc-assets/jungle.jpg",
-    "attribution": {
-      "class": "bbc-two",
-      "label": "BBC Two"
-    },
-    "playlister": {
-      "trackTitle": "Uptown Funk",
-      "trackDesc": "Original by Mark Ronson"
-    }
-  }
-}, {
-  "product": "core",
-  "template": "gallery",
-  "content": {
-    "headline": "BBC Proms",
-    "sub-headline": "2015 Season: Radio 1 Ibiza Prom",
-    "info": "Donec eu nulla porta, pretium mi vitae, congue leo. Quisque id metus odio. Donec fermentum nibh mi, vitae consectetur orci mattis et. Sed dolor dolor, vestibulum vel nisl eu, gravida eleifend lorem.",
-    "img": "http://clients.tuimedia.com/bbc-assets/proms.jpg",
-    "attribution": {
-      "class": "bbc-news",
-      "label": "BBC News"
     }
   }
 }]

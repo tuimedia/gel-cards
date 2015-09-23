@@ -1,0 +1,23 @@
+
+
+.card--sport {
+  .card__panel,
+  .card__duration,
+  .card__attribution {
+    display: none;
+  }
+  overflow: visible;
+  // weird angled box shadow
+  box-shadow: none;
+  &:after {
+    position: absolute;
+    content: '';
+    right: $half-spacing-unit;
+    bottom: 0;
+    width: 90%;
+    height: 50px;
+    background: #bbb;
+    transform: rotate(2deg);
+    transform-origin: 0 100%;
+  }
+}

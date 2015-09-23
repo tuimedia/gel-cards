@@ -1,0 +1,12 @@
+$card-theme: (
+  bg: map-get($brand-colors, bbc-sport),
+  color: #565656,
+  box-shadow: 0px 6px 0px -4px #bbb,
+  icon-w: 48px,
+  icon-h: 48px,
+  cta-bg: map-get($brand-colors, bbc-sport),
+  cta-color: #ffffff,
+  cta-hover-bg: #ffffff,
+  cta-hover-color: #000000
+);
+
