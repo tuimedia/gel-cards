@@ -60,7 +60,7 @@ $sport-card-theme: (
     align-self: flex-end;
     margin: 0;
     h3 {
-      @include font-size(30px);
+      @include font-size(40px);
       line-height: normal;
     }
   }
@@ -121,6 +121,8 @@ $sport-card-theme: (
 
   .card__panel {
     background: map-get($sport-card-theme, bg);
+    height: auto;
+    padding-top: $base-spacing-unit;
     transition: map-get($sport-card-theme, share-panel-transition);
     ul li, p {
       color: map-get($sport-card-theme, color);

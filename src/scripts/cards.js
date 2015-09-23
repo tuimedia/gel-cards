@@ -2,7 +2,8 @@
 var extend = require('extend'),
   gallery = require('./modules/gallery'),
   poll = require('./modules/poll'),
-  video = require('./modules/video');
+  video = require('./modules/video'),
+  cardsSport = require('./modules/cards-sport');
 
 var Cards = module.exports = function Cards(card) {
 
@@ -11,7 +12,6 @@ var Cards = module.exports = function Cards(card) {
   }
 
   this.card = card;
-
   if (this.card) {
     this.init();
   }
@@ -22,6 +22,8 @@ extend(Cards.prototype, gallery, poll, video);
 
 Cards.prototype.init = function(args) {
 
+  console.log(this)
+
   var _this = this;
 
   // store attributes
@@ -31,6 +33,7 @@ Cards.prototype.init = function(args) {
   this.card.cardMedia = this.card.querySelectorAll('.card__media')[0];
   this.card.cardContent = this.card.querySelectorAll('.card__content')[0];
   this.card.cardToolbar = this.card.querySelectorAll('.card__toolbar')[0];
+  this.card.cardInfoPanel = this.card.querySelectorAll('.card__panel--info')[0];
 
   try {
     this.initPoll();
@@ -276,3 +279,5 @@ Cards.prototype.hidePanel = function(panel) {
   }
 
 };
+
+extend(Cards.prototype, cardsSport);

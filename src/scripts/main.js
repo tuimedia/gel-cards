@@ -8,6 +8,7 @@ var templates = {};
 var compiledTemplates = [];
 var $grid = $('.flexbox');
 
+
 // get data based on query string param
 
 // build tpl uid array. rm dupes
