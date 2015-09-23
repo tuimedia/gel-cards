@@ -1,13 +1,36 @@
 
 
+$sport-card-theme: (
+  bg: map-get($brand-colors, bbc-sport),
+  content-bg: rgba(0,0,0,0.3),
+  color: #565656,
+  box-shadow: none,
+  toolbar-height: 48px,
+  toolbar-bg: map-get($brand-colors, bbc-sport),
+  toolbar-border: none,
+  icon-w: 48px,
+  icon-h: 48px,
+  cta-bg: map-get($brand-colors, bbc-sport),
+  cta-color: #ffffff,
+  cta-hover-bg: #ffffff,
+  cta-hover-color: #000000,
+  share-panel-bg: map-get($brand-colors, bbc-sport),
+  share-panel-transition: all 200ms cubic-bezier(0.420, 0.000, 0.580, 1.000),
+  control-ui-bg: rgba(0,0,0,0.7)
+);
+
 .card--sport {
+  overflow: visible;
+  box-shadow: none;
+  background: map-get($sport-card-theme, bg);
+  box-shadow: map-get($sport-card-theme, box-shadow);
+
   .card__sub-headline,
   .card__duration,
   .card__attribution {
     display: none;
   }
-  overflow: visible;
-  box-shadow: none;
+
   &:after {
     position: absolute;
     content: '';
@@ -19,16 +42,117 @@
     transform: rotate(2deg);
     transform-origin: 0 100%;
   }
+
+  .card__inner {
+    display: block;
+    position: relative;
+  }
+
+  .card__category {
+    color: map-get($brand-colors, bbc-sport);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .card__headline {
+    color: #fff;
+    font-family: fs-clerkenwell-bold, sans-serif;
+    align-self: flex-end;
+    margin: 0;
+    h3 {
+      @include font-size(30px);
+      line-height: normal;
+    }
+  }
+
   .card__content {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: map-get($card-theme, toolbar-height);
+    bottom: map-get($sport-card-theme, toolbar-height);
     left: 0;
   }
 
-  .card__headline {
-    color: red;
-    font-family: fs-clerkenwell-bold, sans-serif;
+
+  .icon {
+    width: map-get($sport-card-theme, icon-w);
+    height: map-get($sport-card-theme, icon-h);
   }
+
+  .card__media {
+    transition: map-get($sport-card-theme, share-panel-transition);
+    &:hover {
+      .card__cta {
+        background: map-get($sport-card-theme, cta-hover-bg);
+        color: map-get($sport-card-theme, cta-hover-color);
+      }
+    }
+  }
+
+
+  // media CTA (GEL icon btn)
+
+  .card__cta {
+    background: map-get($sport-card-theme, control-ui-bg);
+    color: #fff;
+  }
+
+
+  // generic content wrapper
+
+  .card__content {
+    background: map-get($sport-card-theme, content-bg);
+    transition: map-get($sport-card-theme, share-panel-transition);
+    ul li, p {
+      color: map-get($sport-card-theme, color);
+    }
+    a {
+      color: map-get($brand-colors, iplayer);
+    }
+  }
+
+  .card__sub-headline {
+    color: map-get($sport-card-theme, color);
+  }
+
+  .card__duration {
+    color: map-get($sport-card-theme, color);
+  }
+
+  .card__panel {
+    background: map-get($sport-card-theme, bg);
+    transition: map-get($sport-card-theme, share-panel-transition);
+    ul li, p {
+      color: map-get($sport-card-theme, color);
+    }
+  }
+
+  .card__share-panel {
+    background: map-get($sport-card-theme, share-panel-bg);
+    bottom: map-get($sport-card-theme, toolbar-height);
+  }
+
+  .card__toolbar {
+    color: map-get($sport-card-theme, color);
+    border-top: map-get($sport-card-theme, toolbar-border);
+    height: map-get($sport-card-theme, toolbar-height);
+    background: map-get($sport-card-theme, toolbar-bg);
+  }
+
+  .card__more-cta {
+    &:hover {
+      background: lighten(#ccc, 15%);
+    }
+  }
+
+  .card__social-icons {
+    li {
+      border-left: map-get($sport-card-theme, toolbar-border);
+      &:hover {
+        background: lighten(#ccc, 15%);
+      }
+    }
+  }
+
 }
+

@@ -53,20 +53,20 @@ module.exports = {
   },
   bindVideoEvents: function() {
 
-    var _this = this;
+    var self = this;
 
     // stop other videos playing first, then play selected video
     this.video.controls.play.addEventListener('click', function(event) {
 
-      _this.checkActiveVideos();
+      self.checkActiveVideos();
 
     }, false);
 
 
     this.video.controls.poster.addEventListener('click', function(event) {
 
-      if (_this.video.player.paused) {
-        _this.checkActiveVideos();
+      if (self.video.player.paused) {
+        self.checkActiveVideos();
       }
 
     }, false);
@@ -77,7 +77,7 @@ module.exports = {
 
       event.stopPropagation();
 
-      _this.handleVideo('pause');
+      self.handleVideo('pause');
 
     }, false);
 
@@ -85,7 +85,7 @@ module.exports = {
     // mute active video
     this.video.controls.volume.addEventListener('click', function(event) {
 
-      _this.handleVideo('volume');
+      self.handleVideo('volume');
 
     }, false);
 
@@ -94,11 +94,11 @@ module.exports = {
 
       event.stopPropagation();
 
-      var volumeBarWidth = 100 * (event.offsetX / _this.video.controls.volumeBar.clientWidth),
-        volumeBarVolume = parseFloat(event.offsetX / _this.video.controls.volumeBar.clientWidth).toFixed(1);
+      var volumeBarWidth = 100 * (event.offsetX / self.video.controls.volumeBar.clientWidth),
+        volumeBarVolume = parseFloat(event.offsetX / self.video.controls.volumeBar.clientWidth).toFixed(1);
 
-      _this.video.controls.volumeLevel.style.width = volumeBarWidth + '%';
-      _this.video.player.volume = volumeBarVolume;
+      self.video.controls.volumeLevel.style.width = volumeBarWidth + '%';
+      self.video.player.volume = volumeBarVolume;
 
     }, false);
 
@@ -107,7 +107,7 @@ module.exports = {
     if (this.video.controls.fullscreen) {
 
       this.video.controls.fullscreen.addEventListener('click', function(event) {
-        _this.handleVideo('fullscreen');
+        self.handleVideo('fullscreen');
       }, false);
 
     }
@@ -116,18 +116,18 @@ module.exports = {
     // scrubber click - jump to time
     this.video.controls.scrubber.addEventListener('click', function(event) {
 
-      var selectedTime = _this.video.player.duration * (event.offsetX / _this.video.controls.scrubber.offsetWidth);
+      var selectedTime = self.video.player.duration * (event.offsetX / self.video.controls.scrubber.offsetWidth);
 
-      _this.video.player.currentTime = selectedTime;
+      self.video.player.currentTime = selectedTime;
 
     }, false);
 
 
     this.video.player.addEventListener('canplay', function(event) {
 
-      if (_this.video.player.readyState === 4) {
+      if (self.video.player.readyState === 4) {
 
-        _this.video.duration.innerText = parseInt(_this.video.player.duration / 60) % 60 + ' mins';
+        self.video.duration.innerText = parseInt(self.video.player.duration / 60) % 60 + ' mins';
 
       }
 
@@ -144,7 +144,7 @@ module.exports = {
     // on video end event - reset video
     this.video.player.addEventListener('ended', function(event) {
 
-      _this.handleVideo('ended');
+      self.handleVideo('ended');
 
     }, false);
 
@@ -152,9 +152,9 @@ module.exports = {
     // on video time update event
     this.video.player.addEventListener('timeupdate', function(event) {
 
-      var percentage = (100 / _this.video.player.duration) * _this.video.player.currentTime;
+      var percentage = (100 / self.video.player.duration) * self.video.player.currentTime;
 
-      _this.video.controls.progress.style.width = percentage + '%';
+      self.video.controls.progress.style.width = percentage + '%';
 
     }, false);
 

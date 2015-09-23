@@ -1,5 +1,5 @@
 [{
-  "product": "sport",
+  "product": "core",
   "template": "video",
   "content": {
     "headline": "Inside No. 9",
@@ -13,7 +13,7 @@
     }
   }
 }, {
-  "product": "sport",
+  "product": "core",
   "template": "audio",
   "content": {
     "headline": "Radio 1 Live Lounge - Jungle",
@@ -31,7 +31,7 @@
     }
   }
 }, {
-  "product": "sport",
+  "product": "core",
   "template": "gallery",
   "content": {
     "headline": "BBC Proms",

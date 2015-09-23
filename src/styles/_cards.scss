@@ -39,9 +39,9 @@
 // override defaults depending on product
 // ---------------------------------------------------- //
 
-@if $gel-product == bbc-sport {
+// @if $gel-product == bbc-sport {
   @import 'sport/cards.sport';
-}
+// }
 
 @if $gel-product == bbc-news {
   @import 'news/cards.news';

@@ -8,57 +8,62 @@ var templates = {};
 var compiledTemplates = [];
 var $grid = $('.flexbox');
 
-$.when(
+// get data based on query string param
 
-  $.get("../templates/card--video.html#card", function(html) {
-    templates.video = $(html);
-  }),
-  $.get("../templates/card--gallery.html#card", function(html) {
-    templates.gallery = $(html);
-  }),
-  $.get("../templates/card--audio.html#card", function(html) {
-    templates.audio = $(html);
-  })
+// build tpl uid array. rm dupes
 
-).then(function() {
+// get templates
 
-  $.getJSON('../data/cards--basic.json', function(result) {
-    templateStuff(result);
-  });
+function getParameterByName(name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var dataID = getParameterByName('product') || 'core';
+var allTemplates = [];
+
+$.getJSON('../data/cards--' + dataID + '.json', function(result) {
+
+  for (var i = 0; i < result.length; i++) {
+    getTemplate(result[i]);
+  }
 
 });
 
 
+function getTemplate(item) {
+
+  $.get('../templates/card--' + item.template + '.html#card', function(html) {
+    templates[item.template] = $(html);
+    templateStuff(item);
+  });
+
+};
+
 function templateStuff(data) {
 
-  for (var i = 0; i < data.length; i++) {
+  var source = templates[data.template].html();
+  var template = Handlebars.compile(source);
+  var context = data;
+  var html = template(context);
 
-    var source = templates[data[i].template].html();
-    var template = Handlebars.compile(source);
-    var context = data[i];
-    var html = template(context);
-
-    compiledTemplates.push(html);
-
-  }
-
-  renderComponents();
+  renderComponent(html);
 
 }
 
-function renderComponents() {
+function renderComponent(tpl) {
+  console.log(compiledTemplates)
 
-  for (var i = 0; i < compiledTemplates.length; i++) {
 
-    // create grid element
-    var $gridEl = $('<div>');
+  // create grid element
+  var $gridEl = $('<div>');
 
-    $gridEl.addClass('flexbox__item one-whole lap-and-up-one-half desk-one-third');
-    $gridEl.append(compiledTemplates[i]);
+  $gridEl.addClass('flexbox__item palm-one-whole lap-one-whole desk-one-half desk-wide-one-third');
+  $gridEl.append(tpl);
 
-    $grid.append($gridEl);
-
-  }
+  $grid.append($gridEl);
 
   var allCards = document.querySelectorAll('.js-card');
 
