@@ -206,6 +206,7 @@ Cards.prototype.handlePanels = function(panel) {
 
       this.panel.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
+      console.log('info panel')
       this.card.classList.toggle('is-active');
 
       break;

@@ -37,33 +37,33 @@ switch (dataID) {
 $.getJSON('../data/cards--' + dataID + '.json', function(result) {
 
   for (var i = 0; i < result.length; i++) {
-    getTemplate(result[i]);
+    getTemplate(result[i], i);
   }
 
 });
 
 
-function getTemplate(item) {
+function getTemplate(item, index) {
 
   $.get('../templates/card--' + item.template + '.html#card', function(html) {
     templates[item.template] = $(html);
-    templateStuff(item);
+    templateStuff(item, index);
   });
 
 };
 
-function templateStuff(data) {
+function templateStuff(data, index) {
 
   var source = templates[data.template].html();
   var template = Handlebars.compile(source);
   var context = data;
   var html = template(context);
 
-  renderComponent(html);
+  renderComponent(html, index);
 
 }
 
-function renderComponent(tpl) {
+function renderComponent(tpl, index) {
   console.log(compiledTemplates)
 
 
@@ -75,22 +75,19 @@ function renderComponent(tpl) {
 
   $grid.append($gridEl);
 
-  var allCards = document.querySelectorAll('.js-card');
+  var theCard = document.querySelectorAll('.js-card')[index];
 
-  for (var i = 0; i < allCards.length; i++) {
-    var args = {
-      card: allCards[i],
-      modules: {
-        sport: true
-      }
+  var args = {
+    card: theCard,
+    modules: {
+      sport: true
     }
-    try {
-      cards[i] = new Cards(args);
-    } catch (e) {
-      if (typeof console !== 'undefined') {
-        console.error(e.stack);
-      }
+  }
+  try {
+    cards[index] = new Cards(args);
+  } catch (e) {
+    if (typeof console !== 'undefined') {
+      console.error(e.stack);
     }
-
   }
 }
