@@ -190,7 +190,7 @@ module.exports = {
         break;
       case 'pause':
         this.video.player.pause();
-        this.card.classList.toggle('is-playing');
+        this.card.classList.remove('is-playing');
         this.video.states.isPlaying = false;
         break;
       case 'volume':
