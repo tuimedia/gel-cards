@@ -3,6 +3,7 @@ var extend = require('extend');
 
 var Cards = require('./cards');
 var cardsSport = require('./modules/cards-sport');
+var cardsNews = require('./modules/cards-news');
 var cards = [];
 var templates = {};
 var compiledTemplates = [];
@@ -22,6 +23,9 @@ var allTemplates = [];
 switch (dataID) {
   case 'sport':
     extend(Cards.prototype, cardsSport);
+    break;
+  case 'news':
+    extend(Cards.prototype, cardsNews);
     break;
 }
 

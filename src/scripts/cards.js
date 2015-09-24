@@ -3,7 +3,6 @@ var extend = require('extend'),
   gallery = require('./modules/gallery'),
   poll = require('./modules/poll'),
   video = require('./modules/video'),
-  cardsSport = require('./modules/cards-sport'),
   modules;
 
 var Cards = module.exports = function Cards(args) {
@@ -33,6 +32,7 @@ Cards.prototype.init = function(args) {
   this.attrs = this.card.dataset;
 
   // card section wrappers - used for transforms
+  this.card.cardCTA = this.card.querySelectorAll('.card__cta')[0];
   this.card.cardMedia = this.card.querySelectorAll('.card__media')[0];
   this.card.cardContent = this.card.querySelectorAll('.card__content')[0];
   this.card.cardToolbar = this.card.querySelectorAll('.card__toolbar')[0];

@@ -20,7 +20,7 @@ module.exports = {
         this.panel.triggerText.innerText = 'Close';
 
         // transform elements
-        this.card.cardMedia.style.transform = 'translateY(-' + this.card.cardInfoPanel.clientHeight + 'px)';
+        this.card.cardCTA.style.transform = 'translateY(-' + (this.card.cardInfoPanel.clientHeight / 2.5) + 'px)';
         this.card.cardContent.style.transform = 'translateY(-' + this.card.cardInfoPanel.clientHeight + 'px)';
         this.panel.container.style.transform = 'translateY(-' + this.card.cardInfoPanel.clientHeight + 'px)';
 
@@ -51,7 +51,7 @@ module.exports = {
         this.panel.triggerText.innerText = 'More info';
 
         // transform elements
-        this.card.cardMedia.style.transform = 'translateY(0px)';
+        this.card.cardCTA.style.transform = 'translateY(0px)';
         this.card.cardContent.style.transform = 'translateY(0px)';
         this.panel.container.style.transform = 'translateY(0px)';
 
