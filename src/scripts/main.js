@@ -2,21 +2,12 @@
 var extend = require('extend');
 
 var Cards = require('./cards');
-
+var cardsSport = require('./modules/cards-sport');
 var cards = [];
-
 var templates = {};
 var compiledTemplates = [];
 var $grid = $('.flexbox');
 
-var cardsSport = require('./modules/cards-sport');
-
-
-// get data based on query string param
-
-// build tpl uid array. rm dupes
-
-// get templates
 
 function getParameterByName(name) {
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
