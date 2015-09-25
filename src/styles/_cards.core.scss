@@ -45,8 +45,7 @@
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
-  flex-direction: column;
+  align-content: stretch;
   width: 100%;
   // position: absolute;
   // top: 0;
@@ -59,6 +58,7 @@
   overflow: hidden;
   cursor: pointer;
   transition: map-get($card-theme, share-panel-transition);
+  width: 100%;
   img,
   video,
   audio {
@@ -95,6 +95,7 @@
 // generic content wrapper
 
 .card__content {
+  width: 100%;
   padding: 16px;
   flex-grow: 1;
   align-self: stretch;
@@ -248,6 +249,7 @@
 }
 
 .card__toolbar {
+  width: 100%;
   z-index: 3;
   color: map-get($card-theme, color);
   border-top: map-get($card-theme, toolbar-border);

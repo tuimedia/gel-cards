@@ -20,11 +20,14 @@ module.exports = {
     for (var i = 0; i < classes.length; i++) {
 
       if (!this.card.querySelectorAll(classes[i]).length) {
-        // console.warn('Required class ' + classes[i] + ' not found');
+        console.warn('Required class ' + classes[i] + ' not found');
         return;
       }
 
     };
+
+
+// Listen for the event.
 
     this.video = {
       player: this.card.querySelectorAll('video')[0],
@@ -54,6 +57,13 @@ module.exports = {
   bindVideoEvents: function() {
 
     var self = this;
+
+    this.events.playVideo = new Event('playVideo');
+
+    // hide info panel on video play
+    this.card.addEventListener('playVideo', function (e) {
+      self.hidePanel('info');
+    }, false);
 
     // stop other videos playing first, then play selected video
     this.video.controls.play.addEventListener('click', function(event) {
@@ -187,6 +197,7 @@ module.exports = {
         this.video.player.play();
         this.card.classList.toggle('is-playing');
         this.video.states.isPlaying = true;
+        this.card.dispatchEvent(this.events.playVideo);
         break;
       case 'pause':
         this.video.player.pause();

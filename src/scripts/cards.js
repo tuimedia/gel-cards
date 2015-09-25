@@ -12,6 +12,7 @@ var Cards = module.exports = function Cards(args) {
   }
 
   modules = args.modules;
+  this.events = {};
 
   this.card = args.card;
   if (this.card) {
