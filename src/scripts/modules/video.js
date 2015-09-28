@@ -62,7 +62,9 @@ module.exports = {
 
     // hide info panel on video play
     this.card.addEventListener('playVideo', function (e) {
-      self.hidePanel('info');
+
+      self.hidePanel();
+
     }, false);
 
     // stop other videos playing first, then play selected video

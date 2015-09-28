@@ -256,31 +256,54 @@ Cards.prototype.showPanel = function(panel) {
 
 Cards.prototype.hidePanel = function(panel) {
 
-  switch (panel) {
-    case 'love':
+    var self = this;
 
-      break;
-    case 'add':
+    switch (panel) {
+      case 'love':
+        hideLovePanel()
+        break;
+      case 'add':
+        hideAddPanel()
+        break;
+      case 'info':
+        hideInfoPanel()
+        break;
+      case 'share':
+        hideSharePanel();
+        break;
+      default:
+        hideLovePanel()
+        hideAddPanel()
+        hideInfoPanel()
+        hideSharePanel();
+        break;
+    }
 
-      break;
-    case 'info':
+    function hideLovePanel() {
+      console.log('hiding love panel')
+    };
+
+    function hideAddPanel() {
+      console.log('hiding add panel')
+    };
+
+    function hideSharePanel() {
+      self.share.panelOpen = false;
+    };
+
+    function hideInfoPanel() {
 
       // set flag
-      this.panel.panelOpen = false;
+      self.panel.panelOpen = false;
 
       // change text
-      this.panel.triggerText.innerText = 'More info';
+      self.panel.triggerText.innerText = 'More info';
 
-      // transform elements
-      this.card.cardContent.style.transform = 'translateY(0px)';
-      this.panel.container.style.transform = 'translateY(0px)';
+        // transform elements
+      self.card.cardContent.style.transform = 'translateY(0px)';
+      self.panel.container.style.transform = 'translateY(0px)';
 
-      break;
-    case 'share':
+    };
 
-      this.share.panelOpen = false;
-
-      break;
-  }
 
 };
