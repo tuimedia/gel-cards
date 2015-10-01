@@ -58,6 +58,7 @@
   },
   "gel": {
     "name": "Cards",
+    "description": "Ut hendrerit lectus ante, nec aliquam libero mattis at",
     "patterns": [
       {
         "name": "Audio",
