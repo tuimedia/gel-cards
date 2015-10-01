@@ -55,5 +55,65 @@
   "dependencies": {
     "extend": "^3.0.0",
     "source-map": "^0.5.0"
+  },
+  "gel": {
+    "name": "Cards",
+    "patterns": [
+      {
+        "name": "Audio",
+        "template": "dist/templates/card--audio.html",
+        "products": {
+          "sport": { "new": true, "active": false },
+          "news":  { "new": false, "active": true }
+        }
+      },
+      {
+        "name": "Gallery",
+        "template": "dist/templates/card--gallery.html",
+        "products": {
+          "sport": { "new": false, "active": false },
+          "news":  { "new": false, "active": true }
+        }
+      },
+      {
+        "name": "Poll",
+        "template": "dist/templates/card--poll.html",
+        "products": {
+          "sport":  { "new": true, "active": true },
+          "news":  { "new": false, "active": true }
+        }
+      },
+      {
+        "name": "Fact",
+        "template": "dist/templates/card--fact.html",
+        "products": {
+          "sport":  { "new": true, "active": true }
+        }
+      },
+      {
+        "name": "Quote",
+        "template": "dist/templates/card--quote.html",
+        "products": {
+          "sport": { "new": false, "active": true },
+          "news":  { "new": false, "active": true }
+        }
+      },
+      {
+        "name": "Story",
+        "template": "dist/templates/card--story.html",
+        "products": {
+          "sport": { "new": false, "active": false},
+          "news":  { "new": true, "active": true }
+        }
+      },
+      {
+        "name": "Video",
+        "template": "dist/templates/card--video.html",
+        "products": {
+          "sport": { "new": false, "active": true },
+          "news":  { "new": false, "active": true },
+        }
+      }
+    ]
   }
 }
