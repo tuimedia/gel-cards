@@ -111,7 +111,7 @@
         "template": "dist/templates/card--video.html",
         "products": {
           "sport": { "new": false, "active": true },
-          "news":  { "new": false, "active": true },
+          "news":  { "new": false, "active": true }
         }
       }
     ]
