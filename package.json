@@ -74,6 +74,7 @@
       {
         "name": "Gallery",
         "template": "dist/templates/card--gallery.html",
+        "description": "Card used to display image galleries",
         "basics": "docs/gallery--basics.md",
         "usage": "docs/gallery--usage.md",
         "products": {
@@ -84,6 +85,7 @@
       {
         "name": "Poll",
         "template": "dist/templates/card--poll.html",
+        "description": "Lorem ipsum dolor sit amet",
         "basics": "docs/poll--basics.md",
         "usage": "docs/poll--usage.md",
         "products": {
@@ -94,6 +96,7 @@
       {
         "name": "Fact",
         "template": "dist/templates/card--fact.html",
+        "description": "Lorem ipsum dolor sit amet",
         "basics": "docs/fact--basics.md",
         "usage": "docs/fact--usage.md",
         "products": {
@@ -103,6 +106,7 @@
       {
         "name": "Quote",
         "template": "dist/templates/card--quote.html",
+        "description": "Lorem ipsum dolor sit amet",
         "basics": "docs/quote--basics.md",
         "usage": "docs/quote--usage.md",
         "products": {
@@ -113,6 +117,7 @@
       {
         "name": "Story",
         "template": "dist/templates/card--story.html",
+        "description": "Lorem ipsum dolor sit amet",
         "basics": "docs/story--basics.md",
         "usage": "docs/story--usage.md",
         "products": {
@@ -124,6 +129,7 @@
         "name": "Video",
         "basics": "docs/video--basics.md",
         "usage": "docs/video--usage.md",
+        "description": "Lorem ipsum dolor sit amet",
         "template": "dist/templates/card--video.html",
         "products": {
           "sport": { "new": false, "active": true },
