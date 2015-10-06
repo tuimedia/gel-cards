@@ -63,6 +63,9 @@
       {
         "name": "Audio",
         "template": "dist/templates/card--audio.html",
+        "description": "Card used to play audio",
+        "basics": "docs/audio--basics.md",
+        "usage": "docs/audio--usage.md",
         "products": {
           "sport": { "new": true, "active": false },
           "news":  { "new": false, "active": true }
@@ -71,6 +74,8 @@
       {
         "name": "Gallery",
         "template": "dist/templates/card--gallery.html",
+        "basics": "docs/gallery--basics.md",
+        "usage": "docs/gallery--usage.md",
         "products": {
           "sport": { "new": false, "active": false },
           "news":  { "new": false, "active": true }
@@ -79,6 +84,8 @@
       {
         "name": "Poll",
         "template": "dist/templates/card--poll.html",
+        "basics": "docs/poll--basics.md",
+        "usage": "docs/poll--usage.md",
         "products": {
           "sport":  { "new": true, "active": true },
           "news":  { "new": false, "active": true }
@@ -87,6 +94,8 @@
       {
         "name": "Fact",
         "template": "dist/templates/card--fact.html",
+        "basics": "docs/fact--basics.md",
+        "usage": "docs/fact--usage.md",
         "products": {
           "sport":  { "new": true, "active": true }
         }
@@ -94,6 +103,8 @@
       {
         "name": "Quote",
         "template": "dist/templates/card--quote.html",
+        "basics": "docs/quote--basics.md",
+        "usage": "docs/quote--usage.md",
         "products": {
           "sport": { "new": false, "active": true },
           "news":  { "new": false, "active": true }
@@ -102,6 +113,8 @@
       {
         "name": "Story",
         "template": "dist/templates/card--story.html",
+        "basics": "docs/story--basics.md",
+        "usage": "docs/story--usage.md",
         "products": {
           "sport": { "new": false, "active": false},
           "news":  { "new": true, "active": true }
@@ -109,6 +122,8 @@
       },
       {
         "name": "Video",
+        "basics": "docs/video--basics.md",
+        "usage": "docs/video--usage.md",
         "template": "dist/templates/card--video.html",
         "products": {
           "sport": { "new": false, "active": true },
