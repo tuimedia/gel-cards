@@ -67,6 +67,7 @@
         "basics": "docs/audio--basics.md",
         "usage": "docs/audio--usage.md",
         "products": {
+          "masterbrand": { "new": false, "active": false },
           "sport": { "new": true, "active": false },
           "news":  { "new": false, "active": true }
         }
@@ -78,6 +79,7 @@
         "basics": "docs/gallery--basics.md",
         "usage": "docs/gallery--usage.md",
         "products": {
+          "masterbrand": { "new": false, "active": false },
           "sport": { "new": false, "active": false },
           "news":  { "new": false, "active": true }
         }
@@ -89,6 +91,7 @@
         "basics": "docs/fact--basics.md",
         "usage": "docs/fact--usage.md",
         "products": {
+          "masterbrand": { "new": false, "active": false },
           "sport":  { "new": true, "active": true }
         }
       },
@@ -99,6 +102,7 @@
         "basics": "docs/quote--basics.md",
         "usage": "docs/quote--usage.md",
         "products": {
+          "masterbrand": { "new": false, "active": false },
           "sport": { "new": false, "active": true },
           "news":  { "new": false, "active": true }
         }
@@ -110,6 +114,7 @@
         "basics": "docs/story--basics.md",
         "usage": "docs/story--usage.md",
         "products": {
+          "masterbrand": { "new": false, "active": false },
           "sport": { "new": false, "active": false},
           "news":  { "new": true, "active": true }
         }
@@ -121,6 +126,7 @@
         "description": "Video cards let you preview and share video without having to leave the page you're on.",
         "template": "dist/templates/card--video.html",
         "products": {
+          "masterbrand": { "new": false, "active": false },
           "sport": { "new": false, "active": true },
           "news":  { "new": false, "active": true }
         }
