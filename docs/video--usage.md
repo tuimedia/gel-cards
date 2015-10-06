@@ -1,6 +1,6 @@
 ## Install
 
---
+---
 
 ### Bower
 
@@ -13,7 +13,7 @@ To get started with cards in your project take a look at the code samples and de
     git clone git@github.com:tuimedia/gel-cards.git
 
 
---
+---
 
 ### Modernizr
 

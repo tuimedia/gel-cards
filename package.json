@@ -83,17 +83,6 @@
         }
       },
       {
-        "name": "Poll",
-        "template": "dist/templates/card--poll.html",
-        "description": "Lorem ipsum dolor sit amet",
-        "basics": "docs/poll--basics.md",
-        "usage": "docs/poll--usage.md",
-        "products": {
-          "sport":  { "new": true, "active": true },
-          "news":  { "new": false, "active": true }
-        }
-      },
-      {
         "name": "Fact",
         "template": "dist/templates/card--fact.html",
         "description": "Lorem ipsum dolor sit amet",
