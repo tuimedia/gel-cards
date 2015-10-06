@@ -129,7 +129,7 @@
         "name": "Video",
         "basics": "docs/video--basics.md",
         "usage": "docs/video--usage.md",
-        "description": "Lorem ipsum dolor sit amet",
+        "description": "Video cards let you preview and share video without having to leave the page you're on.",
         "template": "dist/templates/card--video.html",
         "products": {
           "sport": { "new": false, "active": true },
