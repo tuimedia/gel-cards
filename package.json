@@ -58,65 +58,56 @@
   },
   "gel": {
     "name": "Cards",
-    "description": "Ut hendrerit lectus ante, nec aliquam libero mattis at",
+    "description": "Cards are used to preview or display content without leaving the current page.",
     "patterns": [
       {
         "name": "Audio",
         "template": "dist/templates/card--audio.html",
-        "description": "Card used to play audio",
+        "description": "Card used to play audio.",
         "basics": "docs/audio--basics.md",
         "usage": "docs/audio--usage.md",
         "products": {
-          "masterbrand": { "new": false, "active": true },
-          "sport": { "new": true, "active": false },
-          "news":  { "new": false, "active": true }
+          "masterbrand": { "new": false, "active": true }
         }
       },
       {
         "name": "Gallery",
         "template": "dist/templates/card--gallery.html",
-        "description": "Card used to display image galleries",
+        "description": "Card used to display image galleries.",
         "basics": "docs/gallery--basics.md",
         "usage": "docs/gallery--usage.md",
         "products": {
-          "masterbrand": { "new": false, "active": true },
-          "sport": { "new": false, "active": false },
-          "news":  { "new": false, "active": true }
+          "masterbrand": { "new": false, "active": true }
         }
       },
       {
         "name": "Fact",
         "template": "dist/templates/card--fact.html",
-        "description": "Lorem ipsum dolor sit amet",
+        "description": "Cards containing a single fact.",
         "basics": "docs/fact--basics.md",
         "usage": "docs/fact--usage.md",
         "products": {
-          "masterbrand": { "new": false, "active": false },
-          "sport":  { "new": true, "active": true }
+          "masterbrand": { "new": false, "active": false }
         }
       },
       {
         "name": "Quote",
         "template": "dist/templates/card--quote.html",
-        "description": "Lorem ipsum dolor sit amet",
+        "description": "Cards holding a single quote.",
         "basics": "docs/quote--basics.md",
         "usage": "docs/quote--usage.md",
         "products": {
-          "masterbrand": { "new": false, "active": true },
-          "sport": { "new": false, "active": true },
-          "news":  { "new": false, "active": true }
+          "masterbrand": { "new": false, "active": true }
         }
       },
       {
         "name": "Story",
         "template": "dist/templates/card--story.html",
-        "description": "Lorem ipsum dolor sit amet",
+        "description": "Cards containing a story.",
         "basics": "docs/story--basics.md",
         "usage": "docs/story--usage.md",
         "products": {
-          "masterbrand": { "new": false, "active": true },
-          "sport": { "new": false, "active": false},
-          "news":  { "new": true, "active": true }
+          "masterbrand": { "new": false, "active": true }
         }
       },
       {
@@ -127,8 +118,8 @@
         "template": "dist/templates/card--video.html",
         "products": {
           "masterbrand": { "new": false, "active": true },
-          "sport": { "new": false, "active": true },
-          "news":  { "new": false, "active": true }
+          "sport": { "new": true, "active": false },
+          "news":  { "new": true, "active": false }
         }
       }
     ]
