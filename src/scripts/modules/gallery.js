@@ -1,23 +1,26 @@
 'use strict';
-define('modules/gallery', ['Cards'], function(Cards) {
 
-  var classes = [
-    '.js-gallery',
-    '.js-gallery-img',
-    '.js-gallery-next',
-    '.js-gallery-prev',
-    '.js-gallery-play',
-    '.js-gallery-pause',
-    '.js-gallery-close'
-  ];
+module.exports = {
 
-  Cards.prototype.initGallery = function() {
+  initGallery: function() {
+
+    var classes = [
+      '.js-gallery',
+      '.js-gallery-img',
+      '.js-gallery-next',
+      '.js-gallery-prev',
+      '.js-gallery-play',
+      '.js-gallery-pause',
+      '.js-gallery-close'
+    ];
 
     // check if all html classes are present and correct. If not, back the fuck out
     for (var i = 0; i < classes.length; i++) {
 
       if (!this.card.querySelectorAll(classes[i]).length) {
-        console.warn('Required class ' + classes[i] + ' not found');
+
+        // console.warn('Required class ' + classes[i] + ' not found');
+
         return;
       }
 
@@ -36,9 +39,8 @@ define('modules/gallery', ['Cards'], function(Cards) {
 
     this.bindGalleryEvents();
 
-  };
-
-  Cards.prototype.bindGalleryEvents = function() {
+  },
+  bindGalleryEvents: function() {
 
     var _this = this;
 
@@ -81,57 +83,74 @@ define('modules/gallery', ['Cards'], function(Cards) {
       }, false);
 
     }
-  };
+  },
+  handleGallery: function(action) {
 
-
-  Cards.prototype.handleGallery = function(action) {
-
-    console.log('gallery')
     var _this = this;
 
     switch (action) {
       case 'open':
-        console.log('opening gallery')
+
+        this.card.classList.add('gallery-active');
+
         break;
       case 'prev':
-        if (this.gallery.isAutoplaying) {
-          stopAutoPlay();
-        }
+
+        if (this.gallery.isAutoplaying) stopAutoPlay();
+
         changeImage('prev', this.gallery.images);
+
         break;
       case 'next':
-        if (this.gallery.isAutoplaying) {
-          stopAutoPlay();
-        }
+
+        if (this.gallery.isAutoplaying) stopAutoPlay();
+
         changeImage('next', this.gallery.images);
+
         break;
       case 'play':
-        startAutoPlay();
+
+        if (!this.gallery.isAutoplaying) startAutoPlay();
+
         break;
       case 'pause':
-        if (this.isAutoplaying) {
-          stopAutoPlay();
-        }
+
+        if (this.gallery.isAutoplaying) stopAutoPlay();
+
         break;
       case 'close':
+
+        if (this.gallery.isAutoplaying) stopAutoPlay();
+
+        this.card.classList.remove('gallery-active');
+
         break;
     }
 
-    var autoPlay;
+    _this.autoPlay;
 
     function startAutoPlay() {
 
+      _this.gallery.play.classList.add('is-hidden');
+      _this.gallery.pause.classList.remove('is-hidden');
+
       _this.gallery.isAutoplaying = true;
 
-      autoPlay = setInterval(function() {
+      _this.autoPlay = setInterval(function() {
         changeImage('next', _this.gallery.images);
       }, 3000);
 
     }
 
     function stopAutoPlay() {
-      clearInterval(autoPlay);
-      return;
+
+      _this.gallery.play.classList.remove('is-hidden');
+      _this.gallery.pause.classList.add('is-hidden');
+
+      _this.gallery.isAutoplaying = false;
+
+      clearInterval(_this.autoPlay);
+
     }
 
     function changeImage(direction, images) {
@@ -170,7 +189,6 @@ define('modules/gallery', ['Cards'], function(Cards) {
 
     }
 
-  };
+  }
 
-  return Cards;
-});
+};

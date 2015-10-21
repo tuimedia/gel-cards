@@ -3,8 +3,8 @@
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "grunt": "^0.4.5",
-    "grunt-babel": "^5.0.0",
     "grunt-browser-sync": "^2.1.2",
+    "grunt-browserify": "^4.0.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.1",
@@ -39,18 +39,89 @@
       "mocha": true
     },
     "rules": {
+      "no-unused-vars": 0,
+      "no-underscore-dangle": 0,
+      "no-use-before-define": 0,
+      "no-extra-semi": 0,
+      "curly": 0,
+      "no-unused-expressions": 0,
+      "eol-last": 0,
       "quotes": [
         2,
         "single"
-      ],
-      "no-undef": 0,
-      "no-unused-vars": 0,
-      "no-shadow": 0,
-      "no-underscore-dangle": 0,
-      "no-use-before-define": 0,
-      "no-unused-expressions": 0,
-      "eol-last": 0
+      ]
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "extend": "^3.0.0",
+    "source-map": "^0.5.0"
+  },
+  "gel": {
+    "name": "Cards",
+    "description": "Cards are used to preview or display content without leaving the current page.",
+    "patterns": [
+      {
+        "name": "Audio",
+        "template": "dist/templates/card--audio.html",
+        "description": "Card used to play audio.",
+        "basics": "docs/audio--basics.md",
+        "usage": "docs/audio--usage.md",
+        "products": {
+          "masterbrand": { "new": false, "active": true }
+        }
+      },
+      {
+        "name": "Gallery",
+        "template": "dist/templates/card--gallery.html",
+        "description": "Card used to display image galleries.",
+        "basics": "docs/gallery--basics.md",
+        "usage": "docs/gallery--usage.md",
+        "products": {
+          "masterbrand": { "new": false, "active": true }
+        }
+      },
+      {
+        "name": "Fact",
+        "template": "dist/templates/card--fact.html",
+        "description": "Cards containing a single fact.",
+        "basics": "docs/fact--basics.md",
+        "usage": "docs/fact--usage.md",
+        "products": {
+          "masterbrand": { "new": false, "active": false }
+        }
+      },
+      {
+        "name": "Quote",
+        "template": "dist/templates/card--quote.html",
+        "description": "Cards holding a single quote.",
+        "basics": "docs/quote--basics.md",
+        "usage": "docs/quote--usage.md",
+        "products": {
+          "masterbrand": { "new": false, "active": true }
+        }
+      },
+      {
+        "name": "Story",
+        "template": "dist/templates/card--story.html",
+        "description": "Cards containing a story.",
+        "basics": "docs/story--basics.md",
+        "usage": "docs/story--usage.md",
+        "products": {
+          "masterbrand": { "new": false, "active": true }
+        }
+      },
+      {
+        "name": "Video",
+        "basics": "docs/video--basics.md",
+        "usage": "docs/video--usage.md",
+        "description": "Video cards let you preview and share video without having to leave the page you're on.",
+        "template": "dist/templates/card--video.html",
+        "products": {
+          "masterbrand": { "new": false, "active": true },
+          "sport": { "new": true, "active": false },
+          "news":  { "new": true, "active": false }
+        }
+      }
+    ]
+  }
 }

@@ -1,22 +1,19 @@
 'use strict';
 
-define('modules/poll', ['Cards'], function(Cards) {
+module.exports = {
 
-	console.log()
-	var classes = [
-		'.js-poll',
-		'.js-poll-option'
-	];
+	initPoll: function() {
 
-	Cards.prototype.initPoll = function() {
+		var classes = [
+			'.js-poll',
+			'.js-poll-option'
+		];
 
 		// check if all html classes are present and correct. If not, back the fuck out
 		for (var i = 0; i < classes.length; i++) {
 
-			if (!this.card.querySelectorAll(classes[i]).length) {
-				console.warn('Required class ' + classes[i] + ' not found');
-				return;
-			}
+			if (!this.card.querySelectorAll(classes[i]).length) return;
+
 		};
 
 		this.poll = {
@@ -28,8 +25,6 @@ define('modules/poll', ['Cards'], function(Cards) {
 			}
 		};
 
-	};
+	}
 
-	return Cards;
-
-});
+};

@@ -1,0 +1,24 @@
+.card__playlister {
+  flex-basis: 100%;
+  display: flex;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.card__playlister-cta {
+  margin-right: 16px;
+}
+
+.card__playlister-details {
+  flex-grow: 1;
+  h4 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: map-get($brand-colors, iplayer);
+  }
+}

@@ -1,19 +1,20 @@
 'use strict';
+var allCards = document.querySelectorAll('.js-card');
 
-define('modules/video', ['Cards'], function(Cards) {
+module.exports = {
 
-  var classes = [
-    '.js-play',
-    '.js-pause',
-    '.js-scrubber',
-    '.js-poster',
-    '.js-volume',
-    '.js-volume-bar',
-    '.js-volume-level',
-    '.js-full-screen'
-  ];
+  initVideo: function() {
 
-  Cards.prototype.initVideo = function() {
+    var classes = [
+      '.js-play',
+      '.js-pause',
+      '.js-scrubber',
+      '.js-poster',
+      '.js-volume',
+      '.js-volume-bar',
+      '.js-volume-level',
+      '.js-full-screen'
+    ];
 
     // check if all html classes are present and correct. If not, back the fuck out
     for (var i = 0; i < classes.length; i++) {
@@ -24,6 +25,9 @@ define('modules/video', ['Cards'], function(Cards) {
       }
 
     };
+
+
+// Listen for the event.
 
     this.video = {
       player: this.card.querySelectorAll('video')[0],
@@ -49,25 +53,32 @@ define('modules/video', ['Cards'], function(Cards) {
 
     this.bindVideoEvents();
 
-  };
+  },
+  bindVideoEvents: function() {
 
-  Cards.prototype.bindVideoEvents = function() {
+    var self = this;
 
+    this.events.playVideo = new Event('playVideo');
 
-    var _this = this;
+    // hide info panel on video play
+    this.card.addEventListener('playVideo', function (e) {
+
+      self.hidePanel();
+
+    }, false);
 
     // stop other videos playing first, then play selected video
     this.video.controls.play.addEventListener('click', function(event) {
 
-      _this.checkActiveVideos();
+      self.checkActiveVideos();
 
     }, false);
 
 
     this.video.controls.poster.addEventListener('click', function(event) {
 
-      if (_this.video.player.paused) {
-        _this.checkActiveVideos();
+      if (self.video.player.paused) {
+        self.checkActiveVideos();
       }
 
     }, false);
@@ -78,7 +89,7 @@ define('modules/video', ['Cards'], function(Cards) {
 
       event.stopPropagation();
 
-      _this.handleVideo('pause');
+      self.handleVideo('pause');
 
     }, false);
 
@@ -86,7 +97,7 @@ define('modules/video', ['Cards'], function(Cards) {
     // mute active video
     this.video.controls.volume.addEventListener('click', function(event) {
 
-      _this.handleVideo('volume');
+      self.handleVideo('volume');
 
     }, false);
 
@@ -95,11 +106,11 @@ define('modules/video', ['Cards'], function(Cards) {
 
       event.stopPropagation();
 
-      var volumeBarWidth = 100 * (event.offsetX / _this.video.controls.volumeBar.clientWidth),
-        volumeBarVolume = parseFloat(event.offsetX / _this.video.controls.volumeBar.clientWidth).toFixed(1);
+      var volumeBarWidth = 100 * (event.offsetX / self.video.controls.volumeBar.clientWidth),
+        volumeBarVolume = parseFloat(event.offsetX / self.video.controls.volumeBar.clientWidth).toFixed(1);
 
-      _this.video.controls.volumeLevel.style.width = volumeBarWidth + '%';
-      _this.video.player.volume = volumeBarVolume;
+      self.video.controls.volumeLevel.style.width = volumeBarWidth + '%';
+      self.video.player.volume = volumeBarVolume;
 
     }, false);
 
@@ -108,7 +119,7 @@ define('modules/video', ['Cards'], function(Cards) {
     if (this.video.controls.fullscreen) {
 
       this.video.controls.fullscreen.addEventListener('click', function(event) {
-        _this.handleVideo('fullscreen');
+        self.handleVideo('fullscreen');
       }, false);
 
     }
@@ -117,18 +128,18 @@ define('modules/video', ['Cards'], function(Cards) {
     // scrubber click - jump to time
     this.video.controls.scrubber.addEventListener('click', function(event) {
 
-      var selectedTime = _this.video.player.duration * (event.offsetX / _this.video.controls.scrubber.offsetWidth);
+      var selectedTime = self.video.player.duration * (event.offsetX / self.video.controls.scrubber.offsetWidth);
 
-      _this.video.player.currentTime = selectedTime;
+      self.video.player.currentTime = selectedTime;
 
     }, false);
 
 
     this.video.player.addEventListener('canplay', function(event) {
 
-      if (_this.video.player.readyState === 4) {
+      if (self.video.player.readyState === 4) {
 
-        _this.video.duration.innerText = parseInt(_this.video.player.duration / 60) % 60 + ' mins';
+        self.video.duration.innerText = parseInt(self.video.player.duration / 60) % 60 + ' mins';
 
       }
 
@@ -145,7 +156,7 @@ define('modules/video', ['Cards'], function(Cards) {
     // on video end event - reset video
     this.video.player.addEventListener('ended', function(event) {
 
-      _this.handleVideo('ended');
+      self.handleVideo('ended');
 
     }, false);
 
@@ -153,16 +164,14 @@ define('modules/video', ['Cards'], function(Cards) {
     // on video time update event
     this.video.player.addEventListener('timeupdate', function(event) {
 
-      var percentage = (100 / _this.video.player.duration) * _this.video.player.currentTime;
+      var percentage = (100 / self.video.player.duration) * self.video.player.currentTime;
 
-      _this.video.controls.progress.style.width = percentage + '%';
+      self.video.controls.progress.style.width = percentage + '%';
 
     }, false);
-  };
 
-
-
-  Cards.prototype.checkActiveVideos = function() {
+  },
+  checkActiveVideos: function() {
 
     // pause any videos currently playing
     for (var i = 0; i < allCards.length; i++) {
@@ -181,9 +190,8 @@ define('modules/video', ['Cards'], function(Cards) {
 
     this.handleVideo('play');
 
-  };
-
-  Cards.prototype.handleVideo = function(action) {
+  },
+  handleVideo: function(action) {
 
     switch (action) {
 
@@ -191,10 +199,11 @@ define('modules/video', ['Cards'], function(Cards) {
         this.video.player.play();
         this.card.classList.toggle('is-playing');
         this.video.states.isPlaying = true;
+        this.card.dispatchEvent(this.events.playVideo);
         break;
       case 'pause':
         this.video.player.pause();
-        this.card.classList.toggle('is-playing');
+        this.card.classList.remove('is-playing');
         this.video.states.isPlaying = false;
         break;
       case 'volume':
@@ -220,8 +229,5 @@ define('modules/video', ['Cards'], function(Cards) {
 
     }
 
-  };
-
-  return Cards;
-
-});
+  }
+};

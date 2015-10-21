@@ -13,6 +13,7 @@
         .is-playing & {
             transform: translateY(100%);
         }
+
     }
     .is-playing & {
         &:hover {
@@ -26,7 +27,7 @@
     &__duration {
         display: none;
         color: #fff;
-        background: $control-ui-bg;
+        background: map-get($card-theme, control-ui-bg);
         align-items: center;
         .is-playing & {
             display: flex;
@@ -37,7 +38,7 @@
         position: relative;
         width: 48px;
         height: 48px;
-        background: $control-ui-bg;
+        background: map-get($card-theme, control-ui-bg);
         cursor: pointer;
         color: #fff;
 
@@ -74,7 +75,7 @@
 
             &:hover {
                 cursor: default;
-                background: $control-ui-bg;
+                background:  map-get($card-theme, control-ui-bg);
             }
             .progress {
                 margin-left: 8px;

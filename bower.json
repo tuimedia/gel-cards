@@ -1,17 +1,16 @@
 {
   "name": "gos-cards",
   "dependencies": {
-    "gos-core": ">0.0.0"
+    "gos-core": ">0.0.0",
+    "jquery": "~2.1.4",
+    "handlebars": "~4.0.3"
   },
   "devDependencies": {},
   "version": "0.0.0",
   "homepage": "https://github.com/tuimedia/gos-core",
   "description": "GOS cards module",
   "main": [
-    "dist/scripts/cards.js",
-    "dist/styles/_cards.scss",
-    "dist/styles/_cards.av-player.scss",
-    "dist/styles/_cards.share-panel.scss"
+    "dist/styles/_cards.scss"
   ],
   "moduleType": [
     "amd",
