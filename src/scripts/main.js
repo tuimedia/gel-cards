@@ -54,16 +54,16 @@ function templateStuff(data, index) {
   var context = data;
   var html = template(context);
 
-  renderComponent(html, index);
+  renderComponent(html, index, data);
 
 }
 
-function renderComponent(tpl, index) {
+function renderComponent(tpl, index, data) {
 
   // create grid element
   var $gridEl = $('<div>');
 
-  $gridEl.addClass('flexbox__item palm-one-whole lap-one-whole desk-one-half desk-wide-one-third');
+  $gridEl.addClass('flexbox__item ' + data.gridClasses);
 
   $gridEl.append(tpl);
 
