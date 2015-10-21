@@ -4,6 +4,11 @@ $fs-elliot-regular: true;
 $fs-elliot-light: true;
 $fs-clerkenwell: true;
 
+// TODO: move to core
+
+$color-love: #C70303;
+$color-add: #1790CF;
+$color-share: #4A9442;
 // bower:scss
 @import "bower_components/gos-core/src/styles/main.scss";
 // endbower
@@ -13,3 +18,4 @@ $fs-clerkenwell: true;
 body {
   background: #eee;
 }
+

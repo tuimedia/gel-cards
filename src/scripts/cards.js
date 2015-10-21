@@ -37,7 +37,10 @@ Cards.prototype.init = function(args) {
   this.card.cardMedia = this.card.querySelectorAll('.card__media')[0];
   this.card.cardContent = this.card.querySelectorAll('.card__content')[0];
   this.card.cardToolbar = this.card.querySelectorAll('.card__toolbar')[0];
+  this.card.cardMoreCTA = this.card.querySelectorAll('.card__more-cta')[0];
   this.card.cardInfoPanel = this.card.querySelectorAll('.card__panel--info')[0];
+  this.card.cardLovePanel = this.card.querySelectorAll('.card__panel--love')[0];
+  this.card.cardAddPanel = this.card.querySelectorAll('.card__panel--add')[0];
 
   try {
     this.initPoll();
@@ -79,10 +82,9 @@ Cards.prototype.init = function(args) {
   if (this.card.querySelectorAll('.js-love-cta')[0]) {
 
     this.hasLoveCTA = true;
-
+    console.log('this.hasLoveCTA', this.hasLoveCTA);
     this.love = {
       trigger: this.card.querySelectorAll('.js-love-cta')[0],
-      container: this.card.querySelectorAll('.js-love')[0],
       states: {
         isLoved: false
       }
@@ -141,47 +143,28 @@ Cards.prototype.bindEvents = function() {
 
   var _this = this;
 
-
   if (this.hasShareCTA) {
-
     this.share.shareCTA.addEventListener('click', function(event) {
-
       _this.handlePanels('share');
-
     });
-
   }
 
-
   if (this.hasPanel) {
-
     this.panel.trigger.addEventListener('click', function(event) {
-
       _this.handlePanels('info');
-
     });
-
   }
 
   if (this.hasLoveCTA) {
-
     this.love.trigger.addEventListener('click', function(event) {
-
       _this.handlePanels('love');
-
     });
-
   }
 
-
   if (this.hasAddCTA) {
-
     this.add.trigger.addEventListener('click', function(event) {
-
       _this.handlePanels('add');
-
     });
-
   }
 
 };
@@ -227,28 +210,27 @@ Cards.prototype.showPanel = function(panel) {
 
   switch (panel) {
     case 'love':
-
+      this.love.panelOpen = true;
+      this.add.panelOpen = false;
+      this.card.cardMoreCTA.classList.add('is-hidden');
+      this.card.cardLovePanel.classList.remove('is-hidden');
+      this.card.cardAddPanel.classList.add('is-hidden');
       break;
     case 'add':
-
+      this.add.panelOpen = true;
+      this.love.panelOpen = false;
+      this.card.cardMoreCTA.classList.add('is-hidden');
+      this.card.cardAddPanel.classList.remove('is-hidden');
+      this.card.cardLovePanel.classList.add('is-hidden');
       break;
     case 'info':
-
-      // set flag
       this.panel.panelOpen = true;
-
-      // change text
       this.panel.triggerText.innerText = 'Close';
-
-      // transform elements
       this.card.cardContent.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
       this.panel.container.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
-
       break;
     case 'share':
-
       this.share.panelOpen = true;
-
       break;
   }
 
@@ -260,10 +242,14 @@ Cards.prototype.hidePanel = function(panel) {
 
     switch (panel) {
       case 'love':
-        hideLovePanel()
+        this.love.panelOpen = false;
+        this.card.cardMoreCTA.classList.remove('is-hidden');
+        this.card.cardLovePanel.classList.add('is-hidden');
         break;
       case 'add':
-        hideAddPanel()
+        this.add.panelOpen = false;
+        this.card.cardMoreCTA.classList.remove('is-hidden');
+        this.card.cardAddPanel.classList.add('is-hidden');
         break;
       case 'info':
         hideInfoPanel()

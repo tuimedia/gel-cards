@@ -235,6 +235,23 @@
   ul li, p {
     color: map-get($card-theme, color);
   }
+
+  &--love,
+  &--add {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    &.is-hidden {
+      transform: translateY(100%);
+    }
+  }
+  &--love {
+    color: $color-love;
+  }
+  &--add {
+    color: $color-add;
+  }
+
 }
 
 .card__share-panel {
@@ -260,12 +277,24 @@
   justify-content: flex-end;
 }
 
+.card__toolbar-inner {
+  cursor: pointer;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
 .card__more-cta {
   cursor: pointer;
   position: relative;
   flex-grow: 1;
   display: flex;
   align-items: center;
+  transition: transform .4s;
+  &.is-hidden {
+    transform: translateY(100%);
+  }
   &:hover {
     background: lighten(#ccc, 15%);
   }

@@ -59,13 +59,12 @@ function templateStuff(data, index) {
 }
 
 function renderComponent(tpl, index) {
-  console.log(compiledTemplates)
-
 
   // create grid element
   var $gridEl = $('<div>');
 
   $gridEl.addClass('flexbox__item palm-one-whole lap-one-whole desk-one-half desk-wide-one-third');
+
   $gridEl.append(tpl);
 
   $grid.append($gridEl);
