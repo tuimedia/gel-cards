@@ -85,6 +85,9 @@ Cards.prototype.init = function(args) {
     console.log('this.hasLoveCTA', this.hasLoveCTA);
     this.love = {
       trigger: this.card.querySelectorAll('.js-love-cta')[0],
+      triggerText: this.card.querySelectorAll('.js-love-trigger-label')[0],
+      addText: 'You love this',
+      removeText: 'You don\'t love this',
       states: {
         isLoved: false
       }
@@ -99,6 +102,9 @@ Cards.prototype.init = function(args) {
     this.add = {
       trigger: this.card.querySelectorAll('.js-add-cta')[0],
       container: this.card.querySelectorAll('.js-add')[0],
+      triggerText: this.card.querySelectorAll('.js-love-trigger-label')[0],
+      addText: 'Added to favourites',
+      removeText: 'Remove from favourites',
       states: {
         isAdded: false
       }
@@ -174,16 +180,30 @@ Cards.prototype.handlePanels = function(panel) {
   switch (panel) {
     case 'love':
 
-      this.love.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
+      this.love.states.isLoved = toggleState(this.love.states.isLoved);
 
-      this.card.classList.toggle('love-panel-active');
+      if(this.love.states.isLoved) {
+        this.love.trigger.classList.add('is-loved');
+        this.love.triggerText.innerText = this.love.addText;
+      } else {
+        this.love.trigger.classList.remove('is-loved');
+        this.love.triggerText.innerText = this.love.removeText;
+      }
+
+      this.love.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
       break;
     case 'add':
 
-      this.add.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
+      this.add.states.isAdded = toggleState(this.add.states.isAdded);
 
-      this.card.classList.toggle('add-panel-active');
+      if(this.add.states.isAdded) {
+        this.add.trigger.classList.add('is-added');
+      } else {
+        this.add.trigger.classList.remove('is-added');
+      }
+
+      this.add.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
 
       break;
     case 'info':
@@ -203,18 +223,27 @@ Cards.prototype.handlePanels = function(panel) {
       break;
   }
 
+  function toggleState(state) {
+    var ret = state ? state = false : state = true;
+    return ret;
+  }
 };
 
 
 Cards.prototype.showPanel = function(panel) {
 
+  var self = this;
+
   switch (panel) {
     case 'love':
+      console.log('this.love', this.love);
+
       this.love.panelOpen = true;
       this.add.panelOpen = false;
       this.card.cardMoreCTA.classList.add('is-hidden');
       this.card.cardLovePanel.classList.remove('is-hidden');
       this.card.cardAddPanel.classList.add('is-hidden');
+      closePanel(panel);
       break;
     case 'add':
       this.add.panelOpen = true;
@@ -222,6 +251,7 @@ Cards.prototype.showPanel = function(panel) {
       this.card.cardMoreCTA.classList.add('is-hidden');
       this.card.cardAddPanel.classList.remove('is-hidden');
       this.card.cardLovePanel.classList.add('is-hidden');
+      closePanel(panel);
       break;
     case 'info':
       this.panel.panelOpen = true;
@@ -234,6 +264,11 @@ Cards.prototype.showPanel = function(panel) {
       break;
   }
 
+  function closePanel(panel) {
+    setTimeout(function() {
+      self.hidePanel(panel);
+    }, 1000);
+  }
 };
 
 Cards.prototype.hidePanel = function(panel) {
@@ -242,6 +277,7 @@ Cards.prototype.hidePanel = function(panel) {
 
     switch (panel) {
       case 'love':
+      console.log('this.love', this.love);
         this.love.panelOpen = false;
         this.card.cardMoreCTA.classList.remove('is-hidden');
         this.card.cardLovePanel.classList.add('is-hidden');

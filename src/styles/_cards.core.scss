@@ -232,6 +232,7 @@
   z-index: 2;
   height: 100%;
   padding: 0 16px 16px 16px;
+
   ul li, p {
     color: map-get($card-theme, color);
   }
@@ -241,13 +242,16 @@
     padding: 0 16px;
     display: flex;
     align-items: center;
+    background: transparent;
     &.is-hidden {
       transform: translateY(100%);
     }
   }
+
   &--love {
     color: $color-love;
   }
+
   &--add {
     color: $color-add;
   }
@@ -330,6 +334,16 @@
         display: block;
       }
     }
+  }
+}
+.card__social {
+  &.is-loved {
+    color: $color-love;
+  }
+}
+.card__social {
+  &.is-added {
+    color: $color-add;
   }
 }
 
