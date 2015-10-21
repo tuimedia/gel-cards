@@ -8,7 +8,6 @@
   width: 100%;
   display: flex;
   align-items: stretch;
-  // TODO: too general
 
   .icon {
     width: map-get($card-theme, icon-w);
@@ -47,6 +46,8 @@
   flex-wrap: wrap;
   align-content: stretch;
   width: 100%;
+  flex-direction: column;
+
 }
 
 // generic media wrapper (can contain video, audio or img)
@@ -56,6 +57,7 @@
   cursor: pointer;
   transition: map-get($card-theme, share-panel-transition);
   width: 100%;
+  // align-self: flex-start;
   img,
   video,
   audio {
