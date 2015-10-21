@@ -48,12 +48,9 @@
   align-content: flex-start;
   flex-direction: column;
   width: 100%;
-  // position: absolute;
-  // top: 0;
-  // bottom: 0;
 }
-// generic media wrapper (can contain video, audio or img)
 
+// generic media wrapper (can contain video, audio or img)
 .card__media {
   position: relative;
   overflow: hidden;
@@ -153,6 +150,7 @@
   align-self: flex-end;
   position: relative;
   padding-left: 12px;
+  margin-right: $base-spacing-unit;
   &:before {
     content: '';
     position: absolute;
