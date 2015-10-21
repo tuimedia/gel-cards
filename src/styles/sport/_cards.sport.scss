@@ -24,6 +24,16 @@ $sport-card-theme: (
   box-shadow: none;
   background: map-get($sport-card-theme, bg);
   box-shadow: map-get($sport-card-theme, box-shadow);
+  &.is-playing {
+    .card__content {
+      display: none;
+    }
+    .card__media {
+      &:before {
+        display: none;
+      }
+    }
+  }
 
   .card__sub-headline,
   .card__duration,
@@ -41,6 +51,7 @@ $sport-card-theme: (
     background: #bbb;
     transform: rotate(2deg);
     transform-origin: 0 100%;
+    z-index: -1;
   }
 
   .card__inner {
