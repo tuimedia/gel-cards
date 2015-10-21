@@ -102,7 +102,7 @@ Cards.prototype.init = function(args) {
     this.add = {
       trigger: this.card.querySelectorAll('.js-add-cta')[0],
       container: this.card.querySelectorAll('.js-add')[0],
-      triggerText: this.card.querySelectorAll('.js-love-trigger-label')[0],
+      triggerText: this.card.querySelectorAll('.js-add-trigger-label')[0],
       addText: 'Added to favourites',
       removeText: 'Remove from favourites',
       states: {
@@ -199,8 +199,10 @@ Cards.prototype.handlePanels = function(panel) {
 
       if(this.add.states.isAdded) {
         this.add.trigger.classList.add('is-added');
+        this.add.triggerText.innerText = this.add.addText;
       } else {
         this.add.trigger.classList.remove('is-added');
+        this.add.triggerText.innerText = this.add.removeText;
       }
 
       this.add.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
