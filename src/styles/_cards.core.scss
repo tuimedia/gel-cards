@@ -86,6 +86,8 @@
       order: 1;
       width: auto;
       flex-basis: 20%;
+      align-self: flex-start;
+      align-items: flex-start;
     }
     .card__toolbar {
       order: 2;
