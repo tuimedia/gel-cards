@@ -47,4 +47,20 @@
       "label": "BBC News"
     }
   }
+}, {
+  "product": "core",
+  "template": "video",
+  "gridClasses": "palm-one-whole lap-one-half desk-one-whole",
+  "content": {
+    "cardClasses": "card--h",
+    "headline": "Inside No. 9",
+    "sub-headline": "Interview: Reece Shearsmith & Steven Pemberton",
+    "info": "Donec eu nulla porta, pretium mi vitae, congue leo. Quisque id metus odio. Donec fermentum nibh mi, vitae consectetur orci mattis et. Sed dolor dolor, vestibulum vel nisl eu, gravida eleifend lorem.",
+    "src": "http://clients.tuimedia.com/bbc-assets/no9.mp4",
+    "poster": "http://clients.tuimedia.com/bbc-assets/insideno9.jpg",
+    "attribution": {
+      "class": "bbc-two",
+      "label": "BBC Two"
+    }
+  }
 }]
