@@ -49,7 +49,7 @@ $sport-card-theme: (
     width: 90%;
     height: 50px;
     background: #bbb;
-    transform: rotate(2deg);
+    transform: rotate(1deg);
     transform-origin: 0 100%;
     z-index: -1;
   }
@@ -188,6 +188,66 @@ $sport-card-theme: (
     }
   }
 
+  &.card--h {
+    @include media-query(desk) {
+      .card__inner {
+        flex-direction: row;
+        display: flex;
+      }
+      .card__category,
+      .card__headline {
+        color: map-get($sport-card-theme, color);
+      }
+      .card__media {
+        order: 2;
+        z-index: 10;
+        width: auto;
+        flex-basis: 66.666%;
+      }
+      .card__content {
+        background: transparent;
+        position: static;
+        order: 1;
+        width: auto;
+        flex-basis: 20%;
+        align-self: flex-start;
+        align-items: flex-start;
+      }
+      .card__toolbar {
+        order: 2;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 33.33%;
+      }
+      .card__toolbar-inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .card__panel--info,
+      .card__more-cta {
+        display: none;
+      }
+      .card__social-icons {
+        width: 100%;
+        z-index: 100;
+        background: map-get($sport-card-theme, toolbar-bg);
+      }
+      .card__social {
+        justify-content: center;
+        flex-grow: 1;
+      }
+      .card__panel--love,
+      .card__panel--add {
+        transform: translateY(-100%);
+        &.is-hidden {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
 }
 
 @keyframes bounce {

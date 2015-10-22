@@ -33,7 +33,7 @@ $news-card-theme: (
   }
 
   .card__inner {
-    display: block;
+    // display: block;
     position: relative;
   }
 
@@ -46,7 +46,7 @@ $news-card-theme: (
   .card__headline {
     color: #fff;
     font-family: fs-elliot-light, sans-serif;
-    align-self: flex-end;
+    align-self: flex-start;
     margin: 0;
     h3 {
       @include font-size(40px);
@@ -56,11 +56,6 @@ $news-card-theme: (
 
   .card__content {
     border-top: 5px solid map-get($brand-colors, bbc-news);
-    // position: absolute;
-    // top: 0;
-    // right: 0;
-    // bottom: map-get($news-card-theme, toolbar-height)*2;
-    // left: 0;
   }
 
 
@@ -91,7 +86,6 @@ $news-card-theme: (
 
   .card__cta {
     z-index: 10;
-    // background: #fff;
     background: url(../images/news--play.svg) center no-repeat;
     position: absolute;
     top: 50%;
@@ -130,7 +124,7 @@ $news-card-theme: (
     color: map-get($news-card-theme, color);
   }
 
-  .card__panel {
+  .card__panel--info {
     background: map-get($news-card-theme, bg);
     height: auto;
     padding-top: $base-spacing-unit;
@@ -180,6 +174,60 @@ $news-card-theme: (
     }
   }
 
+  &.card--h {
+    @include media-query(desk) {
+      .card__inner {
+        flex-direction: row;
+        display: flex;
+      }
+      .card__media {
+        order: 2;
+        z-index: 10;
+        width: auto;
+        flex-basis: 66.666%;
+      }
+      .card__content {
+        order: 1;
+        width: auto;
+        flex-basis: 20%;
+        align-self: flex-start;
+        align-items: flex-start;
+      }
+      .card__toolbar {
+        order: 2;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 33.33%;
+      }
+      .card__toolbar-inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .card__panel--info,
+      .card__more-cta {
+        display: none;
+      }
+      .card__social-icons {
+        width: 100%;
+        z-index: 100;
+        background: map-get($news-card-theme, toolbar-bg);
+      }
+      .card__social {
+        justify-content: center;
+        flex-grow: 1;
+      }
+      .card__panel--love,
+      .card__panel--add {
+        transform: translateY(-100%);
+        &.is-hidden {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
 }
 
 @keyframes bounce {
