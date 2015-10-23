@@ -1,0 +1,47 @@
+[{
+  "product": "sport",
+  "template": "video",
+  "gridClasses": "palm-one-whole lap-one-half desk-one-whole",
+  "content": {
+    "cardClasses": "card--h",
+    "category": "Formula 1",
+    "headline": "Mark Webber's top five circuits",
+    "info": "Mark Webber describes what it is like driving the \"most difficult first section\" of all at the Suzuka circuit ahead of the Japanese Grand Prix.",
+    "src": "http://clients.tuimedia.com/bbc-assets/no9.mp4",
+    "poster": "http://clients.tuimedia.com/bbc-assets/video/webber.jpg",
+    "attribution": {
+      "class": "bbc-two",
+      "label": "BBC Two"
+    }
+  }
+}, {
+  "product": "sport",
+  "template": "video",
+  "gridClasses": "palm-one-whole lap-one-half desk-one-half",
+  "content": {
+    "category": "Football",
+    "headline": "Chelsea doctor in \"untenable position\"",
+    "info": "Anna Kessel from Women in Football tells the Victoria Derbyshire programme that former Chelsea doctor Eva Carneiro was put in an \"untenable position\" at the club.",
+    "src": "http://clients.tuimedia.com/bbc-assets/video/chelsea.mp4",
+    "poster": "http://clients.tuimedia.com/bbc-assets/video/chelsea.jpg",
+    "attribution": {
+      "class": "bbc-two",
+      "label": "BBC Two"
+    }
+  }
+}, {
+  "product": "sport",
+  "template": "video",
+  "gridClasses": "palm-one-whole lap-one-half desk-one-half",
+  "content": {
+    "category": "Football",
+    "headline": "Chelsea doctor in \"untenable position\"",
+    "info": "Anna Kessel from Women in Football tells the Victoria Derbyshire programme that former Chelsea doctor Eva Carneiro was put in an \"untenable position\" at the club.",
+    "src": "http://clients.tuimedia.com/bbc-assets/video/chelsea.mp4",
+    "poster": "http://clients.tuimedia.com/bbc-assets/video/chelsea.jpg",
+    "attribution": {
+      "class": "bbc-two",
+      "label": "BBC Two"
+    }
+  }
+}]
