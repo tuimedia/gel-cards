@@ -62,7 +62,7 @@
     "patterns": [
       {
         "name": "Audio",
-        "template": "dist/templates/card--audio.html",
+        "template": "dist/demos/card--audio.html",
         "description": "Card used to play audio.",
         "basics": "docs/audio--basics.md",
         "usage": "docs/audio--usage.md",
@@ -72,7 +72,7 @@
       },
       {
         "name": "Gallery",
-        "template": "dist/templates/card--gallery.html",
+        "template": "dist/demos/card--gallery.html",
         "description": "Card used to display image galleries.",
         "basics": "docs/gallery--basics.md",
         "usage": "docs/gallery--usage.md",
@@ -82,7 +82,7 @@
       },
       {
         "name": "Fact",
-        "template": "dist/templates/card--fact.html",
+        "template": "dist/demos/card--fact.html",
         "description": "Cards containing a single fact.",
         "basics": "docs/fact--basics.md",
         "usage": "docs/fact--usage.md",
@@ -92,7 +92,7 @@
       },
       {
         "name": "Quote",
-        "template": "dist/templates/card--quote.html",
+        "template": "dist/demos/card--quote.html",
         "description": "Cards holding a single quote.",
         "basics": "docs/quote--basics.md",
         "usage": "docs/quote--usage.md",
@@ -102,7 +102,7 @@
       },
       {
         "name": "Story",
-        "template": "dist/templates/card--story.html",
+        "template": "dist/demos/card--story.html",
         "description": "Cards containing a story.",
         "basics": "docs/story--basics.md",
         "usage": "docs/story--usage.md",
@@ -112,10 +112,10 @@
       },
       {
         "name": "Video",
+        "template": "dist/demos/card--video.html",
         "basics": "docs/video--basics.md",
         "usage": "docs/video--usage.md",
         "description": "Video cards let you preview and share video without having to leave the page you're on.",
-        "template": "demos/card--video.html",
         "products": {
           "masterbrand": { "new": false, "active": true },
           "sport": { "new": true, "active": false },
