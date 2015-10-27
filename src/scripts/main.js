@@ -30,7 +30,7 @@ switch (dataID) {
     break;
 }
 
-$.getJSON('../data/cards--' + dataID + '.json', function(result) {
+$.getJSON('./data/cards--' + dataID + '.json', function(result) {
   for (var i = 0; i < result.length; i++) {
     if(tplID) {
       if(result[i].template === tplID) {
@@ -46,7 +46,7 @@ $.getJSON('../data/cards--' + dataID + '.json', function(result) {
 
 function getTemplate(item, index) {
 
-  $.get('../templates/card--' + item.template + '.html#card', function(html) {
+  $.get('./templates/card--' + item.template + '.html#card', function(html) {
     templates[item.template] = $(html);
     templateStuff(item, index);
   });
