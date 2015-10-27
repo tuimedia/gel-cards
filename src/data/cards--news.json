@@ -1,9 +1,9 @@
 [{
   "product": "news",
-  "template": "video",
+  "template": "video-h",
   "gridClasses": "palm-one-whole lap-one-half desk-one-whole",
   "content": {
-    "cardClasses": "card--h",
+    "cardClasses": "",
     "category": "US & Canada",
     "headline": "Pope Francis lands to cheers in the US",
     "info": "Pope Francis arrived in the Washington, DC area from Cuba on Tuesday afternoon and was greeted by President Obama and his family when he got off the papal plane.",

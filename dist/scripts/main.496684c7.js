@@ -7953,6 +7953,7 @@ function getParameterByName(name) {
 }
 
 var dataID = getParameterByName('product') || 'core';
+var tplID = getParameterByName('tpl') || null;
 var allTemplates = [];
 
 switch (dataID) {
@@ -7965,11 +7966,16 @@ switch (dataID) {
 }
 
 $.getJSON('../data/cards--' + dataID + '.json', function(result) {
-
   for (var i = 0; i < result.length; i++) {
-    getTemplate(result[i], i);
+    if(tplID) {
+      if(result[i].template === tplID) {
+        getTemplate(result[i], i);
+        return;
+      }
+    } else {
+      getTemplate(result[i], i);
+    }
   }
-
 });
 
 

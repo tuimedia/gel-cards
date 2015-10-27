@@ -1,9 +1,9 @@
 [{
   "product": "sport",
-  "template": "video",
+  "template": "video-h",
   "gridClasses": "palm-one-whole lap-one-half desk-one-whole",
   "content": {
-    "cardClasses": "card--h",
+    "cardClasses": "",
     "category": "Formula 1",
     "headline": "Mark Webber's top five circuits",
     "info": "Mark Webber describes what it is like driving the \"most difficult first section\" of all at the Suzuka circuit ahead of the Japanese Grand Prix.",

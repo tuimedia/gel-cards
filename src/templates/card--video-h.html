@@ -1,5 +1,6 @@
+<script id="card" type="text/x-handlebars-template">
 
-<div class="card card--video card--core js-card">
+  <div class="card card--video card--h card--{{ product }} {{ content.cardClasses}} js-card">
     <div class="card__inner">
 
       <div class="card__media av-player js-poster">
@@ -15,7 +16,7 @@
           <div class="av-player__control av-player__control--full-screen js-full-screen"><i class="icon icon--fs"></i></div>
         </div>
         <div class="av-player__video">
-          <video src="http://clients.tuimedia.com/bbc-assets/no9.mp4" poster="http://clients.tuimedia.com/bbc-assets/insideno9.jpg" preload="metadata"></video>
+          <video src="{{ content.src }}" poster="{{ content.poster }}" preload="metadata"></video>
         </div>
         <div class="card__cta js-play">
           <i class="icon icon--play"></i>
@@ -24,20 +25,20 @@
 
       <div class="card__content">
       <div class="card__category">
-        <span></span>
+        <span>{{ content.category }}</span>
       </div>
         <div class="card__headline">
-          <h3>Inside No. 9</h3>
+          <h3>{{ content.headline }}</h3>
         </div>
         <div class="card__sub-headline">
-          <p>Interview: Reece Shearsmith &amp; Steven Pemberton</p>
+          <p>{{ content.sub-headline }}</p>
         </div>
-        <div class="card__attribution bbc-two"><span>BBC Two</span></div>
-        <div class="card__duration"><i class="icon icon--duration"></i><span class="js-duration">2 mins</span></div>
+        <div class="card__attribution {{ content.attribution.class }}"><span>{{ content.attribution.label }}</span></div>
+        <div class="card__duration"><i class="icon icon--duration"></i><span class="js-duration">00:00</span></div>
       </div>
 
       <div class="card__panel card__panel--info js-panel">
-        <p>Donec eu nulla porta, pretium mi vitae, congue leo. Quisque id metus odio. Donec fermentum nibh mi, vitae consectetur orci mattis et. Sed dolor dolor, vestibulum vel nisl eu, gravida eleifend lorem.</p>
+        <p>{{ content.info }}</p>
       </div>
 
       <div class="card__share-panel share-panel js-share-panel">
@@ -78,3 +79,5 @@
 
     </div>
   </div>
+
+</script>
