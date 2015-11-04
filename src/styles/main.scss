@@ -1,21 +1,18 @@
-$gel-product: '';
-$fs-clerkenwell-bold: true;
-$fs-elliot-regular: true;
-$fs-elliot-light: true;
-$fs-clerkenwell: true;
-
-// TODO: move to core
-
-$color-love: #C70303;
-$color-add: #1790CF;
-$color-share: #4A9442;
 // bower:scss
+@import "bower_components/inuit-normalize.css/_generic.normalize.scss";
+@import "bower_components/inuit-reset/_generic.reset.scss";
+@import "bower_components/inuit-box-sizing/_generic.box-sizing.scss";
 @import "bower_components/gos-core/src/styles/main.scss";
 // endbower
 
-@import "cards";
 
-body {
-  background: #eee;
-}
+@import 'cards.vars';
+@import 'cards.core';
 
+@import "modules/cards.av-player";
+@import "modules/cards.share-panel";
+@import "modules/cards.gallery";
+@import "modules/cards.quote";
+@import "modules/cards.fact";
+@import "modules/cards.poll";
+@import "modules/cards.playlister";

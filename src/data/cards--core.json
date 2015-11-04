@@ -1,7 +1,7 @@
 [{
   "product": "core",
   "template": "video",
-  "gridClasses": "palm-one-whole lap-one-half desk-one-half",
+  "gridClasses": "w--xs-one-whole w--s-one-half w--m-one-half",
   "content": {
     "cardClasses": "",
     "headline": "Inside No. 9",
@@ -17,7 +17,7 @@
 }, {
   "product": "core",
   "template": "audio",
-  "gridClasses": "palm-one-whole lap-one-half desk-one-half",
+  "gridClasses": "w--xs-one-whole w--s-one-half w--m-one-half",
   "content": {
     "headline": "Radio 1 Live Lounge - Jungle",
     "sub-headline": "Interview: Reece Shearsmith & Steven Pemberton",
@@ -36,7 +36,7 @@
 }, {
   "product": "core",
   "template": "gallery",
-  "gridClasses": "palm-one-whole lap-one-half desk-one-half",
+  "gridClasses": "w--xs-one-whole w--s-one-half w--m-one-half",
   "content": {
     "headline": "BBC Proms",
     "sub-headline": "2015 Season: Radio 1 Ibiza Prom",
@@ -50,7 +50,7 @@
 }, {
   "product": "core",
   "template": "video-h",
-  "gridClasses": "palm-one-whole lap-one-half desk-one-whole",
+  "gridClasses": "w--xs-one-whole w--s-one-half w--m-one-whole",
   "content": {
     "cardClasses": "",
     "headline": "Inside No. 9",

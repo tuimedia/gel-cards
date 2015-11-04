@@ -1,7 +1,7 @@
 [{
   "product": "sport",
   "template": "video-h",
-  "gridClasses": "palm-one-whole lap-one-half desk-one-whole",
+  "gridClasses": "w--xs-one-whole w--s-one-half w--m-one-whole",
   "content": {
     "cardClasses": "",
     "category": "Formula 1",
@@ -17,7 +17,7 @@
 }, {
   "product": "sport",
   "template": "video",
-  "gridClasses": "palm-one-whole lap-one-half desk-one-half",
+  "gridClasses": "w--xs-one-whole w--s-one-half w--m-one-half",
   "content": {
     "category": "Football",
     "headline": "Chelsea doctor in \"untenable position\"",
@@ -32,7 +32,7 @@
 }, {
   "product": "sport",
   "template": "video",
-  "gridClasses": "palm-one-whole lap-one-half desk-one-half",
+  "gridClasses": "w--xs-one-whole w--s-one-half w--m-one-half",
   "content": {
     "category": "Football",
     "headline": "Chelsea doctor in \"untenable position\"",

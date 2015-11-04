@@ -7,7 +7,7 @@
     font-family: Georgia, serif;
     font-weight: 500;
     font-style: italic;
-    @include font-size(24px);
+    @include rem(font-size,24px);
     margin: 0;
   }
 }

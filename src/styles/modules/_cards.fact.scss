@@ -11,7 +11,7 @@
     color: #fff;
     h3 {
         font-weight: 500;
-        @include font-size(24px);
+        @include rem(font-size,24px);
     }
 }
 

@@ -1,7 +1,7 @@
 [{
   "product": "news",
   "template": "video-h",
-  "gridClasses": "palm-one-whole lap-one-half desk-one-whole",
+  "gridClasses": "w--xs-one-whole w--s-one-half w--m-one-whole",
   "content": {
     "cardClasses": "",
     "category": "US & Canada",
@@ -17,7 +17,7 @@
 }, {
   "product": "news",
   "template": "video",
-  "gridClasses": "palm-one-whole lap-one-half desk-one-half",
+  "gridClasses": "w--xs-one-whole w--s-one-half w--m-one-half",
   "content": {
     "category": "Football",
     "headline": "Paraplegic man walks",
@@ -32,7 +32,7 @@
 }, {
   "product": "news",
   "template": "video",
-  "gridClasses": "palm-one-whole lap-one-half desk-one-half",
+  "gridClasses": "w--xs-one-whole w--s-one-half w--m-one-half",
   "content": {
     "category": "Football",
     "headline": "Paraplegic man walks after spine \"bypass\"",

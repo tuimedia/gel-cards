@@ -1,3 +1,7 @@
+$color-love: #C70303;
+$color-add: #1790CF;
+$color-share: #4A9442;
+
 .card {
   background: map-get($card-theme, bg);
   margin-bottom: 16px;
@@ -172,13 +176,14 @@
 // card headline
 
 .card__headline {
+  margin-bottom: 8px;
+  width: 100%;
+
   h2, h3, h4, h5 {
     margin: 0;
     font-weight: 600;
-    @include font-size(20px);
+    @include rem(font-size, 20px);
   }
-  margin-bottom: 8px;
-  width: 100%;
 }
 
 // card sub-headline
@@ -255,7 +260,7 @@
   }
 }
 
-&__contributor-details {
+.card__contributor-details {
   h4, p {
     margin: 0;
   }
@@ -409,4 +414,3 @@
   z-index: 9;
   display: none;
 }
-
