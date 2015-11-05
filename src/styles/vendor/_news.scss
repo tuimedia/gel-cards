@@ -5,6 +5,18 @@
   src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Clerkenwell.ttf');
 }
 @font-face {
+  font-family: fs-clerkenwell-bold;
+  src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Clerkenwell Bold.ttf');
+}
+@font-face {
+  font-family: fs-clerkenwell-italic;
+  src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Clerkenwell Italic.ttf');
+}
+@font-face {
+  font-family: fs-clerkenwell-light;
+  src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Clerkenwell Light.ttf');
+}
+@font-face {
   font-family: fs-elliot-bold;
   src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Elliot-Bold.otf');
 }
@@ -66,6 +78,7 @@ $news-card-theme: (
 );
 
 .gel-news {
+  line-height: 1.4;
   font-family: 'fs-elliot-regular';
 
   .card--news {

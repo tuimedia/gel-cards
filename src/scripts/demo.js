@@ -63,11 +63,8 @@ function renderComponent(tpl, index, data) {
   var theCard = document.querySelectorAll('.js-card')[index];
 
   var args = {
-    card: theCard,
-    modules: {
-      sport: true
-    }
-  }
+    card: theCard
+  };
   try {
     cards[index] = new Cards(args);
   } catch (e) {
