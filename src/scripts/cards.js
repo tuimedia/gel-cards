@@ -155,48 +155,50 @@ Cards.prototype.bindEvents = function() {
 };
 
 Cards.prototype.handlePanels = function(panel) {
+  var self = this;
+
   switch (panel) {
     case 'love':
 
-      this.love.states.isLoved = toggleState(this.love.states.isLoved);
+      self.love.states.isLoved = toggleState(self.love.states.isLoved);
 
-      if (this.love.states.isLoved) {
-        this.love.trigger.classList.add('is-loved');
-        this.love.triggerText.innerText = this.love.addText;
+      if (self.love.states.isLoved) {
+        self.love.trigger.classList.add('is-loved');
+        self.love.triggerText.innerText = self.love.addText;
       } else {
-        this.love.trigger.classList.remove('is-loved');
-        this.love.triggerText.innerText = this.love.removeText;
+        self.love.trigger.classList.remove('is-loved');
+        self.love.triggerText.innerText = self.love.removeText;
       }
 
-      this.love.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
+      self.love.panelOpen ? self.hidePanel(panel) : self.showPanel(panel);
 
       break;
     case 'add':
 
-      this.add.states.isAdded = toggleState(this.add.states.isAdded);
+      self.add.states.isAdded = toggleState(self.add.states.isAdded);
 
       if (this.add.states.isAdded) {
-        this.add.trigger.classList.add('is-added');
-        this.add.triggerText.innerText = this.add.addText;
+        self.add.trigger.classList.add('is-added');
+        self.add.triggerText.innerText = self.add.addText;
       } else {
-        this.add.trigger.classList.remove('is-added');
-        this.add.triggerText.innerText = this.add.removeText;
+        self.add.trigger.classList.remove('is-added');
+        self.add.triggerText.innerText = self.add.removeText;
       }
 
-      this.add.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
+      self.add.panelOpen ? self.hidePanel(panel) : self.showPanel(panel);
 
       break;
     case 'info':
 
-      this.panel.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
-      this.card.classList.toggle('is-active');
+      self.panel.panelOpen ? self.hidePanel(panel) : self.showPanel(panel);
+      self.card.classList.toggle('is-active');
 
       break;
     case 'share':
 
-      this.share.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
+      self.share.panelOpen ? self.hidePanel(panel) : self.showPanel(panel);
 
-      this.card.classList.toggle('share-panel-active');
+      self.card.classList.toggle('share-panel-active');
 
       break;
   }
@@ -213,31 +215,29 @@ Cards.prototype.showPanel = function(panel) {
 
   switch (panel) {
     case 'love':
-      console.log('this.love', this.love);
-
-      this.love.panelOpen = true;
-      this.add.panelOpen = false;
-      this.card.cardMoreCTA.classList.add('is-hidden');
-      this.card.cardLovePanel.classList.remove('is-hidden');
-      this.card.cardAddPanel.classList.add('is-hidden');
+      self.love.panelOpen = true;
+      self.add.panelOpen = false;
+      self.card.cardMoreCTA.classList.add('is-hidden');
+      self.card.cardLovePanel.classList.remove('is-hidden');
+      self.card.cardAddPanel.classList.add('is-hidden');
       closePanel(panel);
       break;
     case 'add':
-      this.add.panelOpen = true;
-      this.love.panelOpen = false;
-      this.card.cardMoreCTA.classList.add('is-hidden');
-      this.card.cardAddPanel.classList.remove('is-hidden');
-      this.card.cardLovePanel.classList.add('is-hidden');
+      self.add.panelOpen = true;
+      self.love.panelOpen = false;
+      self.card.cardMoreCTA.classList.add('is-hidden');
+      self.card.cardAddPanel.classList.remove('is-hidden');
+      self.card.cardLovePanel.classList.add('is-hidden');
       closePanel(panel);
       break;
     case 'info':
-      this.panel.panelOpen = true;
-      this.panel.triggerText.innerText = 'Close';
-      this.card.cardContent.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
-      this.panel.container.style.transform = 'translateY(-' + this.card.cardMedia.clientHeight + 'px)';
+      self.panel.panelOpen = true;
+      self.panel.triggerText.innerText = 'Close';
+      self.card.cardContent.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
+      self.panel.container.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
       break;
     case 'share':
-      this.share.panelOpen = true;
+      self.share.panelOpen = true;
       break;
   }
 
@@ -253,15 +253,10 @@ Cards.prototype.hidePanel = function(panel) {
 
   switch (panel) {
     case 'love':
-      console.log('this.love', this.love);
-      this.love.panelOpen = false;
-      this.card.cardMoreCTA.classList.remove('is-hidden');
-      this.card.cardLovePanel.classList.add('is-hidden');
+      hideLovePanel();
       break;
     case 'add':
-      this.add.panelOpen = false;
-      this.card.cardMoreCTA.classList.remove('is-hidden');
-      this.card.cardAddPanel.classList.add('is-hidden');
+      hideAddPanel();
       break;
     case 'info':
       hideInfoPanel()
@@ -278,28 +273,26 @@ Cards.prototype.hidePanel = function(panel) {
   }
 
   function hideLovePanel() {
-    console.log('hiding love panel')
+    self.love.panelOpen = false;
+    self.card.cardMoreCTA.classList.remove('is-hidden');
+    self.card.cardLovePanel.classList.add('is-hidden');
   };
 
   function hideAddPanel() {
-    console.log('hiding add panel')
+    self.add.panelOpen = false;
+    self.card.cardMoreCTA.classList.remove('is-hidden');
+    self.card.cardAddPanel.classList.add('is-hidden');
+  };
+
+  function hideInfoPanel() {
+    self.panel.panelOpen = false;
+    self.panel.triggerText.innerText = 'More info';
+
+    self.card.cardContent.style.transform = 'translateY(0px)';
+    self.panel.container.style.transform = 'translateY(0px)';
   };
 
   function hideSharePanel() {
     self.share.panelOpen = false;
-  };
-
-  function hideInfoPanel() {
-
-    // set flag
-    self.panel.panelOpen = false;
-
-    // change text
-    self.panel.triggerText.innerText = 'More info';
-
-    // transform elements
-    self.card.cardContent.style.transform = 'translateY(0px)';
-    self.panel.container.style.transform = 'translateY(0px)';
-
-  };
+  }
 };
