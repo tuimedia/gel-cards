@@ -14,7 +14,6 @@ var Cards = function Cards(args) {
 };
 
 Cards.prototype.init = function(args) {
-
   var _this = this;
 
   // store attributes

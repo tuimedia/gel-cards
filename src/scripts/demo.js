@@ -66,7 +66,16 @@ function renderComponent(tpl, index, data) {
     card: theCard
   };
   try {
-    cards[index] = new Cards(args);
+    switch (dataID) {
+      case 'sport':
+        cards[index] = new SportCards(args);
+        break;
+      case 'news':
+        cards[index] = new NewsCards(args);
+        break;
+      default:
+        cards[index] = new Cards(args);
+    }
   } catch (e) {
     if (typeof console !== 'undefined') {
       console.error(e.stack);
