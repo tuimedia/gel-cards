@@ -17,6 +17,10 @@ var dataID = getParameterByName('product') || 'core';
 var tplID = getParameterByName('tpl') || null;
 var allTemplates = [];
 
+if (dataID !== 'core') {
+  document.getElementsByTagName('body')[0].classList.add('gel-'+ dataID);
+}
+
 $.getJSON('./data/cards--' + dataID + '.json', function(result) {
   for (var i = 0; i < result.length; i++) {
     if(tplID) {
