@@ -1,31 +1,19 @@
 'use strict';
-var extend = require('extend'),
-  gallery = require('./modules/gallery'),
-  poll = require('./modules/poll'),
-  video = require('./modules/video'),
-  modules;
 
-var Cards = module.exports = function Cards(args) {
-
+var Cards = function Cards(args) {
   if (!(this instanceof Cards)) {
     return new Cards(args);
   }
 
-  modules = args.modules;
   this.events = {};
 
   this.card = args.card;
   if (this.card) {
     this.init();
   }
-
 };
 
-extend(Cards.prototype, gallery, poll, video);
-
 Cards.prototype.init = function(args) {
-
-  console.log(this)
 
   var _this = this;
 
@@ -67,7 +55,6 @@ Cards.prototype.init = function(args) {
   }
 
   if (this.card.querySelectorAll('.js-share-cta')[0]) {
-
     this.hasShareCTA = true;
 
     this.share = {
@@ -76,13 +63,10 @@ Cards.prototype.init = function(args) {
         panelOpen: false
       }
     };
-
   }
 
   if (this.card.querySelectorAll('.js-love-cta')[0]) {
-
     this.hasLoveCTA = true;
-    console.log('this.hasLoveCTA', this.hasLoveCTA);
     this.love = {
       trigger: this.card.querySelectorAll('.js-love-cta')[0],
       triggerText: this.card.querySelectorAll('.js-love-trigger-label')[0],
@@ -92,11 +76,9 @@ Cards.prototype.init = function(args) {
         isLoved: false
       }
     };
-
   }
 
   if (this.card.querySelectorAll('.js-add-cta')[0]) {
-
     this.hasAddCTA = true;
 
     this.add = {
@@ -109,7 +91,6 @@ Cards.prototype.init = function(args) {
         isAdded: false
       }
     };
-
   }
 
   // hidden panel overlay thing
@@ -146,7 +127,6 @@ Cards.prototype.init = function(args) {
 };
 
 Cards.prototype.bindEvents = function() {
-
   var _this = this;
 
   if (this.hasShareCTA) {
@@ -172,17 +152,15 @@ Cards.prototype.bindEvents = function() {
       _this.handlePanels('add');
     });
   }
-
 };
 
 Cards.prototype.handlePanels = function(panel) {
-
   switch (panel) {
     case 'love':
 
       this.love.states.isLoved = toggleState(this.love.states.isLoved);
 
-      if(this.love.states.isLoved) {
+      if (this.love.states.isLoved) {
         this.love.trigger.classList.add('is-loved');
         this.love.triggerText.innerText = this.love.addText;
       } else {
@@ -197,7 +175,7 @@ Cards.prototype.handlePanels = function(panel) {
 
       this.add.states.isAdded = toggleState(this.add.states.isAdded);
 
-      if(this.add.states.isAdded) {
+      if (this.add.states.isAdded) {
         this.add.trigger.classList.add('is-added');
         this.add.triggerText.innerText = this.add.addText;
       } else {
@@ -211,8 +189,6 @@ Cards.prototype.handlePanels = function(panel) {
     case 'info':
 
       this.panel.panelOpen ? this.hidePanel(panel) : this.showPanel(panel);
-
-      console.log('info panel')
       this.card.classList.toggle('is-active');
 
       break;
@@ -233,7 +209,6 @@ Cards.prototype.handlePanels = function(panel) {
 
 
 Cards.prototype.showPanel = function(panel) {
-
   var self = this;
 
   switch (panel) {
@@ -274,60 +249,57 @@ Cards.prototype.showPanel = function(panel) {
 };
 
 Cards.prototype.hidePanel = function(panel) {
+  var self = this;
 
-    var self = this;
-
-    switch (panel) {
-      case 'love':
+  switch (panel) {
+    case 'love':
       console.log('this.love', this.love);
-        this.love.panelOpen = false;
-        this.card.cardMoreCTA.classList.remove('is-hidden');
-        this.card.cardLovePanel.classList.add('is-hidden');
-        break;
-      case 'add':
-        this.add.panelOpen = false;
-        this.card.cardMoreCTA.classList.remove('is-hidden');
-        this.card.cardAddPanel.classList.add('is-hidden');
-        break;
-      case 'info':
-        hideInfoPanel()
-        break;
-      case 'share':
-        hideSharePanel();
-        break;
-      default:
-        hideLovePanel()
-        hideAddPanel()
-        hideInfoPanel()
-        hideSharePanel();
-        break;
-    }
+      this.love.panelOpen = false;
+      this.card.cardMoreCTA.classList.remove('is-hidden');
+      this.card.cardLovePanel.classList.add('is-hidden');
+      break;
+    case 'add':
+      this.add.panelOpen = false;
+      this.card.cardMoreCTA.classList.remove('is-hidden');
+      this.card.cardAddPanel.classList.add('is-hidden');
+      break;
+    case 'info':
+      hideInfoPanel()
+      break;
+    case 'share':
+      hideSharePanel();
+      break;
+    default:
+      hideLovePanel()
+      hideAddPanel()
+      hideInfoPanel()
+      hideSharePanel();
+      break;
+  }
 
-    function hideLovePanel() {
-      console.log('hiding love panel')
-    };
+  function hideLovePanel() {
+    console.log('hiding love panel')
+  };
 
-    function hideAddPanel() {
-      console.log('hiding add panel')
-    };
+  function hideAddPanel() {
+    console.log('hiding add panel')
+  };
 
-    function hideSharePanel() {
-      self.share.panelOpen = false;
-    };
+  function hideSharePanel() {
+    self.share.panelOpen = false;
+  };
 
-    function hideInfoPanel() {
+  function hideInfoPanel() {
 
-      // set flag
-      self.panel.panelOpen = false;
+    // set flag
+    self.panel.panelOpen = false;
 
-      // change text
-      self.panel.triggerText.innerText = 'More info';
+    // change text
+    self.panel.triggerText.innerText = 'More info';
 
-        // transform elements
-      self.card.cardContent.style.transform = 'translateY(0px)';
-      self.panel.container.style.transform = 'translateY(0px)';
+    // transform elements
+    self.card.cardContent.style.transform = 'translateY(0px)';
+    self.panel.container.style.transform = 'translateY(0px)';
 
-    };
-
-
+  };
 };

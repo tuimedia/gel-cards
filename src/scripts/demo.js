@@ -1,8 +1,5 @@
 'use strict';
 
-var extend = require('extend');
-var Cards = require('./cards');
-
 var cards = [];
 var templates = {};
 var compiledTemplates = [];
@@ -20,15 +17,6 @@ var dataID = getParameterByName('product') || 'core';
 var tplID = getParameterByName('tpl') || null;
 var allTemplates = [];
 
-// switch (dataID) {
-//   case 'sport':
-//     extend(Cards.prototype, cardsSport);
-//     break;
-//   case 'news':
-//     extend(Cards.prototype, cardsNews);
-//     break;
-// }
-
 $.getJSON('./data/cards--' + dataID + '.json', function(result) {
   for (var i = 0; i < result.length; i++) {
     if(tplID) {
@@ -44,23 +32,19 @@ $.getJSON('./data/cards--' + dataID + '.json', function(result) {
 
 
 function getTemplate(item, index) {
-
   $.get('./templates/card--' + item.template + '.html#card', function(html) {
     templates[item.template] = $(html);
     templateStuff(item, index);
   });
-
 };
 
 function templateStuff(data, index) {
-
   var source = templates[data.template].html();
   var template = Handlebars.compile(source);
   var context = data;
   var html = template(context);
 
   renderComponent(html, index, data);
-
 }
 
 function renderComponent(tpl, index, data) {
@@ -69,9 +53,7 @@ function renderComponent(tpl, index, data) {
   var $gridEl = $('<div>');
 
   $gridEl.addClass('gel-grid__item ' + data.gridClasses);
-
   $gridEl.append(tpl);
-
   $grid.append($gridEl);
 
   var theCard = document.querySelectorAll('.js-card')[index];
