@@ -17,6 +17,10 @@ $color-share: #4A9442;
     width: map-get($card-theme, icon-w);
     height: map-get($card-theme, icon-h);
   }
+  
+  .icon--playlister {
+    background: map-get($brand-colors, 'playlister');
+  }
 
   // transparent bg card
 
@@ -76,7 +80,7 @@ $color-share: #4A9442;
 }
 
 .card--h {
-  @include media-query(desk) {
+  @include media-query(map-get($break, m)) {
     .card__inner {
       flex-direction: row;
     }
