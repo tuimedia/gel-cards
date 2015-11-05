@@ -14,14 +14,9 @@ Cards.prototype.initGallery = function() {
 
   // check if all html classes are present and correct. If not, back the fuck out
   for (var i = 0; i < classes.length; i++) {
-
     if (!this.card.querySelectorAll(classes[i]).length) {
-
-      // console.warn('Required class ' + classes[i] + ' not found');
-
       return;
     }
-
   };
 
   this.gallery = {
@@ -39,45 +34,32 @@ Cards.prototype.initGallery = function() {
 
 };
 Cards.prototype.bindGalleryEvents = function() {
-
   var _this = this;
 
   if (this.gallery) {
 
     this.gallery.trigger.addEventListener('click', function(event) {
-
       _this.handleGallery('open');
-
     }, false);
 
     this.gallery.prev.addEventListener('click', function(event) {
-
       _this.handleGallery('prev');
-
     }, false);
 
     this.gallery.next.addEventListener('click', function(event) {
-
       _this.handleGallery('next');
-
     }, false);
 
     this.gallery.play.addEventListener('click', function(event) {
-
       _this.handleGallery('play');
-
     }, false);
 
     this.gallery.pause.addEventListener('click', function(event) {
-
       _this.handleGallery('pause');
-
     }, false);
 
     this.gallery.close.addEventListener('click', function(event) {
-
       _this.handleGallery('close');
-
     }, false);
 
   }

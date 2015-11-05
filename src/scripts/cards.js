@@ -107,17 +107,14 @@ Cards.prototype.init = function(args) {
         panelOpen: false
       }
     };
-
   }
 
 
   if (this.card.dataset.cardBgUrl) {
-
     this.hasBackgroundImage = true;
     this.card.classList.add('trans-bg');
     this.card.style.background = 'url(' + this.card.dataset.cardBgUrl + ')';
     this.card.style.backgroundSize = 'cover';
-
   }
 
 

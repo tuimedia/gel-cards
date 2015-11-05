@@ -30,10 +30,23 @@
         </ul>
       </div>
       <div class="card__toolbar">
-        <div class="card__more-cta js-more"><i class="icon icon--arrow-up"></i><i class="icon icon--close"></i><span class="js-panel-trigger-label">More info</span></div>
+        <div class="card__toolbar-inner">
+          <div class="card__more-cta js-more">
+            <i class="icon icon--arrow-up"></i>
+            <i class="icon icon--close"></i>
+            <span class="js-panel-trigger-label">More info</span>
+          </div>
+          <div class="card__panel card__panel--love is-hidden">
+            <span class="js-love-trigger-label">love panel</span>
+          </div>
+
+          <div class="card__panel card__panel--add is-hidden">
+            <span class="js-add-trigger-label">add</span>
+          </div>
+        </div>
         <ul class="card__social-icons">
-          <li class="card__social"><i class="icon icon--love"></i></li>
-          <li class="card__social"><i class="icon icon--add"></i></li>
+          <li class="card__social js-love-cta"><i class="icon icon--love"></i></li>
+          <li class="card__social js-add-cta"><i class="icon icon--add"></i></li>
           <li class="card__social js-share-cta"><i class="icon icon--share"></i></li>
         </ul>
       </div>
