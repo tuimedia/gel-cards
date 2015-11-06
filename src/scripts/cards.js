@@ -213,24 +213,24 @@ Cards.prototype.showPanel = function(panel) {
     case 'love':
       self.love.panelOpen = true;
       self.add.panelOpen = false;
-      self.card.cardMoreCTA.classList.add('is-hidden');
-      self.card.cardLovePanel.classList.remove('is-hidden');
-      self.card.cardAddPanel.classList.add('is-hidden');
+      if(self.card.cardMoreCTA) self.card.cardMoreCTA.classList.add('is-hidden');
+      if(self.card.cardLovePanel) self.card.cardLovePanel.classList.remove('is-hidden');
+      if(self.card.cardAddPanel) self.card.cardAddPanel.classList.add('is-hidden');
       closePanel(panel);
       break;
     case 'add':
       self.add.panelOpen = true;
       self.love.panelOpen = false;
-      self.card.cardMoreCTA.classList.add('is-hidden');
-      self.card.cardAddPanel.classList.remove('is-hidden');
-      self.card.cardLovePanel.classList.add('is-hidden');
+      if(self.card.cardMoreCTA) self.card.cardMoreCTA.classList.add('is-hidden');
+      if(self.card.cardAddPanel) self.card.cardAddPanel.classList.remove('is-hidden');
+      if(self.card.cardLovePanel) self.card.cardLovePanel.classList.add('is-hidden');
       closePanel(panel);
       break;
     case 'info':
       self.panel.panelOpen = true;
       self.panel.triggerText.innerText = 'Close';
-      self.card.cardContent.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
-      self.panel.container.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
+      if(self.card.cardContent) self.card.cardContent.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
+      if(self.panel.container) self.panel.container.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
       break;
     case 'share':
       self.share.panelOpen = true;
@@ -270,22 +270,22 @@ Cards.prototype.hidePanel = function(panel) {
 
   function hideLovePanel() {
     self.love.panelOpen = false;
-    self.card.cardMoreCTA.classList.remove('is-hidden');
-    self.card.cardLovePanel.classList.add('is-hidden');
+    if(self.card.cardMoreCTA) self.card.cardMoreCTA.classList.remove('is-hidden');
+    if(self.card.cardLovePanel) self.card.cardLovePanel.classList.add('is-hidden');
   };
 
   function hideAddPanel() {
     self.add.panelOpen = false;
-    self.card.cardMoreCTA.classList.remove('is-hidden');
-    self.card.cardAddPanel.classList.add('is-hidden');
+    if(self.card.cardMoreCTA) self.card.cardMoreCTA.classList.remove('is-hidden');
+    if(self.card.cardAddPanel) self.card.cardAddPanel.classList.add('is-hidden');
   };
 
   function hideInfoPanel() {
     self.panel.panelOpen = false;
     self.panel.triggerText.innerText = 'More info';
 
-    self.card.cardContent.style.transform = 'translateY(0px)';
-    self.panel.container.style.transform = 'translateY(0px)';
+    if(self.card.cardContent) self.card.cardContent.style.transform = 'translateY(0px)';
+    if(self.panel.container) self.panel.container.style.transform = 'translateY(0px)';
   };
 
   function hideSharePanel() {

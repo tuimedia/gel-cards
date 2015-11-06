@@ -44,4 +44,19 @@
       "label": "BBC Two"
     }
   }
+}, {
+  "product": "news",
+  "template": "poll",
+  "gridClasses": "w--xs-one-whole w--s-one-third",
+  "content": {
+    "category": "Poll",
+    "headline": "Some sort of poll",
+    "info": "A paraplegic man has been able to walk a short distance after scientists used a computer which read signals from his brain and then sent stimulus to his legs.",
+    "src": "http://clients.tuimedia.com/bbc-assets/video/chelsea.mp4",
+    "poster": "http://clients.tuimedia.com/bbc-assets/video/chelsea.jpg",
+    "attribution": {
+      "class": "bbc-two",
+      "label": "BBC Two"
+    }
+  }
 }]
