@@ -1,3 +1,8 @@
+@import "bower_components/inuit-normalize.css/_generic.normalize.scss";
+@import "bower_components/inuit-reset/_generic.reset.scss";
+@import "bower_components/inuit-box-sizing/_generic.box-sizing.scss";
+@import "bower_components/gos-core/src/styles/main.scss";
+
 body {
   background: #ddd;
 }

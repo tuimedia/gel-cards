@@ -1,9 +1,10 @@
 // bower:scss
-@import "bower_components/inuit-normalize.css/_generic.normalize.scss";
-@import "bower_components/inuit-reset/_generic.reset.scss";
-@import "bower_components/inuit-box-sizing/_generic.box-sizing.scss";
-@import "bower_components/gos-core/src/styles/main.scss";
 // endbower
+
+@import '../bower_components/gos-core/src/styles/settings.colours';
+@import '../bower_components/gos-core/src/styles/settings.units';
+@import '../bower_components/gos-core/src/styles/tools.rem';
+@import '../bower_components/gos-core/src/styles/tools.media-query';
 
 @import 'cards.vars';
 @import 'cards.core';

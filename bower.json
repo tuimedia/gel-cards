@@ -1,9 +1,8 @@
 {
   "name": "gos-cards",
-  "dependencies": {
-    "gos-core": "~0.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "gos-core": "~0.1.0",
     "jquery": "~2.1.4",
     "handlebars": "~4.0.3",
     "gel-theme-sport": "~0.0.3",
@@ -13,8 +12,8 @@
   "homepage": "https://github.com/tuimedia/gos-core",
   "description": "GOS cards module",
   "main": [
-    "src/styles/main.scss",
-    "dist/scripts/cards/js"
+    "dist/styles/main.css",
+    "dist/scripts/cards.js"
   ],
   "moduleType": [
     "amd",
