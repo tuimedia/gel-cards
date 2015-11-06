@@ -9,11 +9,11 @@
     "gel-theme-sport": "~0.0.3",
     "gel-theme-news": "~0.0.1"
   },
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/tuimedia/gos-core",
   "description": "GOS cards module",
   "main": [
-    "src/styles/_cards.scss",
+    "src/styles/main.scss",
     "dist/scripts/cards/js"
   ],
   "moduleType": [
