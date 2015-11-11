@@ -25,7 +25,7 @@ $.getJSON('./data/cards--' + dataID + '.json', function(result) {
   for (var i = 0; i < result.length; i++) {
     if(tplID) {
       if(result[i].template === tplID) {
-        getTemplate(result[i], i);
+        getTemplate(result[i], 0);
         return;
       }
     } else {
