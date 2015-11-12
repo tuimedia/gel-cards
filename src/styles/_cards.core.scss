@@ -17,7 +17,7 @@ $color-share: #4A9442;
     width: map-get($card-theme, icon-w);
     height: map-get($card-theme, icon-h);
   }
-  
+
   .icon--playlister {
     background: map-get($brand-colors, 'playlister');
   }
@@ -182,12 +182,6 @@ $color-share: #4A9442;
 .card__headline {
   margin-bottom: 8px;
   width: 100%;
-
-  h2, h3, h4, h5 {
-    margin: 0;
-    font-weight: 600;
-    @include rem(font-size, 20px);
-  }
 }
 
 // card sub-headline
