@@ -44,4 +44,35 @@
       "label": "BBC Two"
     }
   }
+}, {
+  "product": "sport",
+  "template": "gallery",
+  "gridClasses": "w--xs-one-whole w--s-one-half w--m-one-half",
+  "content": {
+    "icon": "rugby-l",
+    "headline": "Rugby World Cup Gallery",
+    "sub-headline": "",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "images": [{
+      "src": "//placehold.it/600x300",
+      "caption": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "attribution": "David Davies/PA"
+    },{
+      "src": "//placehold.it/600x300",
+      "caption": "Mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.",
+      "attribution": "David Davies/2PA"
+    },{
+      "src": "//placehold.it/600x300",
+      "caption": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "attribution": "David Davies/3PA"
+    },{
+      "src": "//placehold.it/600x300",
+      "caption": "Mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.",
+      "attribution": "David Davies/4PA"
+    }],
+    "attribution": {
+      "class": "bbc-news",
+      "label": "BBC News"
+    }
+  }
 }]

@@ -230,7 +230,7 @@ Cards.prototype.showPanel = function(panel) {
     case 'info':
       self.panel.panelOpen = true;
       self.panel.triggerText.innerText = 'Close';
-      if(self.card.cardContent) self.card.cardContent.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
+      if(self.card.cardContent && self.card.cardMedia) self.card.cardContent.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
       if(self.panel.container) self.panel.container.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
       break;
     case 'share':
@@ -322,7 +322,7 @@ $.getJSON('./data/cards--' + dataID + '.json', function(result) {
   for (var i = 0; i < result.length; i++) {
     if(tplID) {
       if(result[i].template === tplID) {
-        getTemplate(result[i], i);
+        getTemplate(result[i], 0);
         return;
       }
     } else {
@@ -365,10 +365,18 @@ function renderComponent(tpl, index, data) {
   try {
     switch (dataID) {
       case 'sport':
-        cards[index] = new SportCards(args);
+        if (typeof SportCards !== 'undefined') {
+          cards[index] = new SportCards(args);
+        } else {
+          cards[index] = new Cards(args);
+        }
         break;
       case 'news':
-        cards[index] = new NewsCards(args);
+        if (typeof NewsCards !== 'undefined') {
+          cards[index] = new NewsCards(args);
+        } else {
+          cards[index] = new Cards(args);
+        }
         break;
       default:
         cards[index] = new Cards(args);
