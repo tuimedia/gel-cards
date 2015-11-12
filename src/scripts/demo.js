@@ -68,10 +68,18 @@ function renderComponent(tpl, index, data) {
   try {
     switch (dataID) {
       case 'sport':
-        cards[index] = new SportCards(args);
+        if (typeof SportCards !== 'undefined') {
+          cards[index] = new SportCards(args);
+        } else {
+          cards[index] = new Cards(args);
+        }
         break;
       case 'news':
-        cards[index] = new NewsCards(args);
+        if (typeof NewsCards !== 'undefined') {
+          cards[index] = new NewsCards(args);
+        } else {
+          cards[index] = new Cards(args);
+        }
         break;
       default:
         cards[index] = new Cards(args);

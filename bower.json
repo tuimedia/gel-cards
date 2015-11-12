@@ -1,6 +1,7 @@
 {
   "name": "gos-cards",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "gos-core": "~0.1.0",
     "jquery": "~2.1.4",

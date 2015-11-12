@@ -3,6 +3,52 @@
 @import "bower_components/inuit-box-sizing/_generic.box-sizing.scss";
 @import "bower_components/gos-core/src/styles/main.scss";
 
+
+@font-face {
+  font-family: 'fs-elliot';
+  font-weight: 900;
+  src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Elliot-Heavy.otf');
+}
+@font-face {
+  font-family: 'fs-elliot';
+  font-weight: 900;
+  font-style: italic;
+  src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Elliot-HeavyItalic.otf');
+}
+@font-face {
+  font-family: 'fs-elliot';
+  font-weight: 700;
+  src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Elliot-Bold.otf');
+}
+@font-face {
+  font-family: 'fs-elliot';
+  font-weight: 700;
+  font-style: italic;
+  src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Elliot-BoldItalic.otf');
+}
+@font-face {
+  font-family: 'fs-elliot';
+  font-weight: 400;
+  font-style: italic;
+  src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Elliot-Italic.otf');
+}
+@font-face {
+  font-family: 'fs-elliot';
+  font-weight: 400;
+  src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Elliot-Regular.otf');
+}
+@font-face {
+  font-family: 'fs-elliot';
+  font-weight: 300;
+  src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Elliot-Light.otf');
+}
+@font-face {
+  font-family: 'fs-elliot';
+  font-weight: 300;
+  font-style: italic;
+  src: url('http://clients.tuimedia.com/bbc-assets/fonts/FS Elliot-LightItalic.otf');
+}
+
 body {
   background: #ddd;
 }

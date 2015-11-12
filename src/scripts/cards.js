@@ -229,7 +229,7 @@ Cards.prototype.showPanel = function(panel) {
     case 'info':
       self.panel.panelOpen = true;
       self.panel.triggerText.innerText = 'Close';
-      if(self.card.cardContent) self.card.cardContent.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
+      if(self.card.cardContent && self.card.cardMedia) self.card.cardContent.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
       if(self.panel.container) self.panel.container.style.transform = 'translateY(-' + self.card.cardMedia.clientHeight + 'px)';
       break;
     case 'share':
