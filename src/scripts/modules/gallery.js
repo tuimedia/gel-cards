@@ -1,14 +1,13 @@
 'use strict';
 
 Cards.prototype.initGallery = function() {
-
   var classes = [
     '.js-gallery',
     '.js-gallery-img',
     '.js-gallery-next',
     '.js-gallery-prev',
-    '.js-gallery-play',
-    '.js-gallery-pause',
+    // '.js-gallery-play',
+    // '.js-gallery-pause',
     '.js-gallery-close'
   ];
 
@@ -31,31 +30,37 @@ Cards.prototype.initGallery = function() {
   };
 
   this.bindGalleryEvents();
-
+  this.resizeContainer();
+  this.activeImageIndex = 0;
 };
+
+Cards.prototype.resizeContainer = function () {
+  var _this = this,
+      activeImage = _this.card.querySelector('.js-gallery-img.is-active'),
+      activeImageHeight = 0;
+
+  var getActiveImageHeight = window.setInterval(function () {
+    activeImageHeight = activeImage.clientHeight;
+
+    if (activeImageHeight > 0) {
+      clearInterval(getActiveImageHeight);
+
+      _this.gallery.container.style.height = activeImageHeight+'px';
+    }
+  }, 100);
+
+}
+
 Cards.prototype.bindGalleryEvents = function() {
   var _this = this;
 
   if (this.gallery) {
-
-    this.gallery.trigger.addEventListener('click', function(event) {
-      _this.handleGallery('open');
-    }, false);
-
     this.gallery.prev.addEventListener('click', function(event) {
       _this.handleGallery('prev');
     }, false);
 
     this.gallery.next.addEventListener('click', function(event) {
       _this.handleGallery('next');
-    }, false);
-
-    this.gallery.play.addEventListener('click', function(event) {
-      _this.handleGallery('play');
-    }, false);
-
-    this.gallery.pause.addEventListener('click', function(event) {
-      _this.handleGallery('pause');
     }, false);
 
     this.gallery.close.addEventListener('click', function(event) {
@@ -135,36 +140,39 @@ Cards.prototype.handleGallery = function(action) {
 
   function changeImage(direction, images) {
 
-    var activeImage;
+    switch (direction) {
 
-    for (var i = 0; i < images.length; i++) {
+      case 'next':
 
-      switch (direction) {
+        if (typeof images[_this.activeImageIndex+1] !== 'undefined' && images[_this.activeImageIndex].classList.contains('is-active')) {
+          images[_this.activeImageIndex].classList.remove('is-active');
+          _this.activeImageIndex++;
+          images[_this.activeImageIndex].classList.add('is-active');          
+          _this.gallery.container.scrollLeft -= (_this.activeImageIndex*100)+'%';
 
-        case 'next':
-          if (images[i].classList.contains('is-active') && i < images.length - 1) {
-            images[i].classList.remove('is-active');
-            images[i + 1].classList.add('is-active');
-            return;
-          } else if (images[i].classList.contains('is-active') && i === images.length - 1) {
-            images[i].classList.remove('is-active');
-            images[0].classList.add('is-active');
-            return;
-          }
-          break;
+          return;
+        } else if (images[_this.activeImageIndex].classList.contains('is-active')) {
+          images[_this.activeImageIndex].classList.remove('is-active');
+          _this.activeImageIndex = 0;
+          images[_this.activeImageIndex].classList.add('is-active');
+          _this.gallery.container.scrollLeft = 0;
+          return;
+        }
+        break;
 
-        case 'prev':
-          if (images[i].classList.contains('is-active') && i === 0) {
-            images[i].classList.remove('is-active');
-            images[images.length - 1].classList.add('is-active');
-            return;
-          } else if (images[i].classList.contains('is-active') && i > 0) {
-            images[i].classList.remove('is-active');
-            images[i - 1].classList.add('is-active');
-          }
-          break;
+      case 'prev':
+        if (images[_this.activeImageIndex].classList.contains('is-active')) {
+          images[_this.activeImageIndex].classList.remove('is-active');
+          _this.activeImageIndex--;
+          images[_this.activeImageIndex].classList.add('is-active');
+          return;
+        } else if (images[_this.activeImageIndex].classList.contains('is-active')) {
+          images[_this.activeImageIndex].classList.remove('is-active');
+          _this.activeImageIndex = images.length-1;
+          images[_this.activeImageIndex].classList.add('is-active');
+        }
+        break;
 
-      }
     }
 
   }
